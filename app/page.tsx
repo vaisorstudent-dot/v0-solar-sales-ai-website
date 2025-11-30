@@ -19,8 +19,10 @@ import {
   Scale,
   Layers,
   Target,
+  MessageSquare,
+  User,
+  ArrowRight,
   Eye,
-  Mail,
 } from "lucide-react"
 
 export default function Page() {
@@ -203,53 +205,119 @@ export default function Page() {
       </header>
 
       <main className="w-full">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-br from-blue-50 to-white py-20 sm:py-28">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                Turn More of Your Paid Leads Into Kept Appointments
-              </h1>
-              <p className="text-xl text-gray-700 mb-6 leading-relaxed">
-                SolarSales AI is a managed intake and revival service for U.S. residential solar companies. We use AI
-                voice + SMS to systematically work your new leads, missed calls, and dead CRM leads—capturing more value
-                from the lead spend you already have.
-              </p>
-              <p className="text-lg text-gray-600 mb-8">
-                Done-for-you service. We run the campaigns, optimize the flows, and are measured on appointments that
-                show.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button className="bg-blue-600 hover:bg-blue-700 hover:scale-105 text-white px-8 py-3 text-base font-medium rounded-lg transition-all duration-200">
-                  Schedule a Lead Flow Audit
-                </Button>
-                <Button
-                  variant="ghost"
-                  className="text-blue-600 hover:text-blue-700 text-base font-medium"
-                  onClick={() => {
-                    document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" })
-                  }}
-                >
-                  See how it works ↓
-                </Button>
+        {/* Hero Section with Visual Element */}
+        <section className="relative py-20 sm:py-28 bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-hidden">
+          <div className="absolute inset-0 opacity-[0.03]">
+            <div className="absolute top-10 right-10 w-96 h-96 bg-blue-600 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-10 left-10 w-96 h-96 bg-amber-500 rounded-full blur-3xl"></div>
+          </div>
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="text-left">
+                <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                  Turn More of Your Paid Leads Into Kept Appointments
+                </h1>
+                <p className="text-xl text-gray-700 mb-6 leading-relaxed">
+                  A managed intake and revival service for U.S. residential solar companies. We use AI voice + SMS to
+                  systematically work your new leads, missed calls, and dead CRM leads—so you capture more value from
+                  lead spend you already have.
+                </p>
+                <p className="text-lg text-gray-600 mb-8">
+                  Done-for-you service. We run the campaigns, optimize the flows, and are measured on appointments that
+                  show.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                  <Button className="bg-blue-600 hover:bg-blue-700 hover:scale-105 text-white px-8 py-3 text-base font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl">
+                    Schedule a Lead Flow Audit
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="border-2 border-gray-300 hover:border-blue-600 text-gray-700 hover:text-blue-600 text-base font-medium bg-transparent"
+                    onClick={() => {
+                      document.getElementById("problem")?.scrollIntoView({ behavior: "smooth" })
+                    }}
+                  >
+                    See how it works ↓
+                  </Button>
+                </div>
+
+                <div className="flex flex-wrap gap-6 pt-6 border-t border-gray-200">
+                  <div className="flex items-center gap-2">
+                    <ShieldCheck className="w-5 h-5 text-blue-600" />
+                    <span className="text-sm font-medium text-gray-700">Opt-In Leads Only</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Scale className="w-5 h-5 text-blue-600" />
+                    <span className="text-sm font-medium text-gray-700">TCPA-Safe Practices</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Layers className="w-5 h-5 text-blue-600" />
+                    <span className="text-sm font-medium text-gray-700">Works With Your Stack</span>
+                  </div>
+                </div>
               </div>
 
-              <div className="bg-gradient-to-r from-blue-50 via-white to-blue-50 border border-blue-200 rounded-xl p-6 mt-12">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="flex flex-col items-center text-center">
-                    <ShieldCheck className="w-10 h-10 text-blue-600 mb-3" />
-                    <div className="font-semibold text-gray-900">Opt-In Leads Only</div>
-                    <div className="text-sm text-gray-600 mt-1">No cold lists, no spam</div>
+              <div className="relative">
+                <div className="bg-white rounded-3xl shadow-2xl p-6 border border-gray-200 max-w-md mx-auto">
+                  <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-200">
+                    <MessageSquare className="w-6 h-6 text-blue-600" />
+                    <div>
+                      <div className="font-semibold text-gray-900">Dead Lead Revival</div>
+                      <div className="text-xs text-gray-500">3-month old lead → Booked</div>
+                    </div>
                   </div>
-                  <div className="flex flex-col items-center text-center">
-                    <Scale className="w-10 h-10 text-blue-600 mb-3" />
-                    <div className="font-semibold text-gray-900">TCPA-Safe Practices</div>
-                    <div className="text-sm text-gray-600 mt-1">Compliant by design</div>
+
+                  <div className="space-y-4">
+                    <div className="flex justify-start">
+                      <div className="bg-gray-100 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[80%]">
+                        <p className="text-sm text-gray-900">
+                          Hi Maria, this is Alex from Sunrise Solar following up on your inquiry from a few months back.
+                          Still interested in learning about solar savings?
+                        </p>
+                        <p className="text-xs text-gray-500 mt-1">2:34 PM</p>
+                      </div>
+                    </div>
+
+                    <div className="flex justify-end">
+                      <div className="bg-blue-600 rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%]">
+                        <p className="text-sm text-white">Yes actually! We got busy but still thinking about it</p>
+                        <p className="text-xs text-blue-200 mt-1">2:41 PM</p>
+                      </div>
+                    </div>
+
+                    <div className="flex justify-start">
+                      <div className="bg-gray-100 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[80%]">
+                        <p className="text-sm text-gray-900">
+                          Great! I can get you on the calendar for a quick 15-min consultation. Does tomorrow at 3pm or
+                          Thursday at 11am work better?
+                        </p>
+                        <p className="text-xs text-gray-500 mt-1">2:42 PM</p>
+                      </div>
+                    </div>
+
+                    <div className="flex justify-end">
+                      <div className="bg-blue-600 rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%]">
+                        <p className="text-sm text-white">Thursday works</p>
+                        <p className="text-xs text-blue-200 mt-1">2:44 PM</p>
+                      </div>
+                    </div>
+
+                    <div className="flex justify-start">
+                      <div className="bg-gray-100 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[80%]">
+                        <p className="text-sm text-gray-900">
+                          Perfect, you're confirmed for Thursday at 11am. You'll get a calendar invite shortly. Talk
+                          soon!
+                        </p>
+                        <p className="text-xs text-gray-500 mt-1">2:45 PM</p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex flex-col items-center text-center">
-                    <Layers className="w-10 h-10 text-blue-600 mb-3" />
-                    <div className="font-semibold text-gray-900">Works With Your Stack</div>
-                    <div className="text-sm text-gray-600 mt-1">No rip-and-replace</div>
+
+                  <div className="mt-6 pt-4 border-t border-gray-200 text-center">
+                    <p className="text-xs text-gray-600">
+                      A real dead lead revival — 3-month-old 'no response' lead booked in under 15 minutes
+                    </p>
                   </div>
                 </div>
               </div>
@@ -257,8 +325,8 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Problem Section */}
-        <section className="py-20 bg-white">
+        {/* Problem Section - Light warm gray background */}
+        <section id="problem" className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">Where Your Pipeline Is Leaking Revenue</h2>
@@ -289,8 +357,7 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Toolkit Differentiation Section */}
-        <section className="py-20 bg-gray-50">
+        <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Not Just Buy an AI Phone Tool?</h2>
@@ -304,7 +371,7 @@ export default function Page() {
                 {toolkitBurdens.map((burden, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700 line-through">{burden}</span>
+                    <span className="text-gray-700">{burden}</span>
                   </li>
                 ))}
               </ul>
@@ -326,7 +393,7 @@ export default function Page() {
                 ))}
               </ul>
             </div>
-            <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-lg max-w-3xl mx-auto mb-8">
+            <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-lg max-w-3xl mx-auto mb-8">
               <p className="text-lg text-gray-900 font-medium">
                 You don't need another tool for your team to figure out. You need someone to actually run your intake
                 and dead leads the right way, every day.
@@ -335,287 +402,189 @@ export default function Page() {
             <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-8"></div>
             <div className="text-center max-w-3xl mx-auto">
               <p className="text-gray-700">
-                We've worked with teams who tried the DIY toolkit approach. On average, they spent 40+ hours configuring
-                flows, testing scripts, and troubleshooting—before seeing a single qualified lead. With us, you're
-                operational in Week 1.
+                The DIY toolkit approach means weeks of configuration, script testing, and troubleshooting before you
+                see results. With us, you're operational in days — not months.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Solution Section */}
-        <section id="about" className="py-20 bg-white">
+        <section id="pricing" className="py-20 bg-gradient-to-br from-blue-50 via-white to-slate-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                We Run Your Solar Intake and Dead Lead Revival. You Focus on Closing.
-              </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                SolarSales AI is not a tool you have to figure out. We're the solar-specialized team + AI engine that:
-              </p>
+            <div className="text-center mb-16">
+              <h2 className="text-5xl font-bold text-gray-900 mb-4">Solar Revenue Capture Program</h2>
+              <p className="text-xl text-gray-600">Two Ways to Start</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-              {solutionFeatures.map((feature, index) => (
-                <div
-                  key={index}
-                  className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-200 hover:-translate-y-1"
-                >
-                  <div className="mb-4">{feature.icon}</div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{feature.title}</h3>
-                  <p className="text-gray-600">{feature.description}</p>
+
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-6xl mx-auto mb-16">
+              {/* DLS - 3 columns, larger */}
+              <div className="lg:col-span-3 relative">
+                <div className="absolute -top-4 left-8 bg-gradient-to-r from-amber-500 to-amber-600 text-white px-5 py-2 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg z-10">
+                  <Target className="w-4 h-4" />
+                  Recommended Starting Point
                 </div>
-              ))}
-            </div>
-            <div className="text-center">
-              <p className="text-xl text-gray-900 font-medium max-w-3xl mx-auto">
-                You get more kept appointments from leads you already paid for. Your setters work warmer prospects. Your
-                CAC improves.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Offer Section */}
-        <section id="pricing" className="py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-2">Solar Revenue Capture Program</h2>
-              <p className="text-lg text-gray-600">Two Ways to Start</p>
-            </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-              <div className="bg-white border-2 border-transparent bg-gradient-to-br from-blue-600 to-blue-500 p-[2px] rounded-xl relative hover:shadow-xl hover:-translate-y-1 transition-all duration-200">
-                <div className="bg-white rounded-xl p-8 h-full">
-                  <div className="absolute -top-4 left-8 bg-green-600 text-white px-4 py-1 rounded-full text-sm font-semibold flex items-center gap-2">
-                    <Target className="w-4 h-4" />
-                    Recommended Starting Point
+                <div className="bg-white border-4 border-amber-500 rounded-2xl p-10 h-full shadow-2xl hover:shadow-3xl hover:-translate-y-1 transition-all duration-200">
+                  <div className="flex items-center gap-3 mb-4 mt-2">
+                    <Zap className="w-10 h-10 text-amber-500" />
+                    <h3 className="text-3xl font-bold text-gray-900">Dead Leads Sprint (DLS)</h3>
                   </div>
-                  <div className="flex items-center gap-3 mb-2 mt-2">
-                    <Zap className="w-8 h-8 text-blue-600" />
-                    <h3 className="text-2xl font-bold text-gray-900">Dead Leads Sprint (DLS)</h3>
-                  </div>
-                  <p className="text-gray-600 mb-6">
-                    One-time, time-boxed revival campaign on the stale or 'dead' opt-in leads already sitting in your
-                    CRM.
+                  <p className="text-sm font-semibold text-amber-600 uppercase tracking-wide mb-4">
+                    Low-risk entry point
                   </p>
-                  <ul className="space-y-3 mb-6">
-                    <li className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">Typical duration: 2-4 weeks</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">We use AI voice + SMS to re-engage and qualify</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">Book appointments from leads you'd written off</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">Zero disruption to your current workflow</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">Clear proof of value before any ongoing commitment</span>
-                    </li>
-                  </ul>
-                  <div className="bg-gray-50 p-4 rounded-lg mb-6">
-                    <p className="text-sm text-gray-600">
-                      <strong>Pricing:</strong> Sprint fee + performance component based on appointments booked
-                    </p>
+                  <p className="text-gray-700 mb-6 leading-relaxed text-lg">
+                    We run a 2–4 week sprint on your aged/dead leads (3+ months old, marked "no response", or stale).
+                    You see real appointments booked from leads you'd already written off. No disruption to current
+                    operations. No long-term commitment.
+                  </p>
+                  <div className="space-y-3 mb-8">
+                    <div className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <span className="text-gray-700">2–4 week time-boxed sprint</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <span className="text-gray-700">We handle list pull, flow design, and campaign execution</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <span className="text-gray-700">
+                        Weekly reporting (calls made, conversations, appointments booked)
+                      </span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <span className="text-gray-700">Zero obligation to continue after sprint ends</span>
+                    </div>
                   </div>
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 hover:scale-105 text-white py-3 rounded-lg font-medium transition-all duration-200">
-                    Start with Dead Leads Sprint
+                  <Button className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white py-4 text-lg font-bold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200">
+                    Start a Dead Leads Sprint
                   </Button>
                 </div>
               </div>
 
-              <div className="bg-white border-2 border-gray-200 rounded-xl p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
-                <div className="flex items-center gap-3 mb-2">
-                  <Shield className="w-8 h-8 text-blue-600" />
-                  <h3 className="text-2xl font-bold text-gray-900">Revenue Protection System (RPS)</h3>
+              {/* RPS - 2 columns, secondary treatment */}
+              <div className="lg:col-span-2">
+                <div className="bg-white border-2 border-blue-300 rounded-2xl p-8 h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-200">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Shield className="w-8 h-8 text-blue-600" />
+                    <h3 className="text-2xl font-bold text-gray-900">Revenue Protection System (RPS)</h3>
+                  </div>
+                  <p className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-4">
+                    Ongoing pipeline protection
+                  </p>
+                  <p className="text-gray-700 mb-6 leading-relaxed">
+                    Full-service intake for new leads, missed calls, and dead lead revival — running continuously. We
+                    become an extension of your sales team, handling all first-touch and follow-up systematically.
+                  </p>
+                  <div className="space-y-3 mb-8">
+                    <div className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <span className="text-gray-700 text-sm">Ongoing campaigns</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <span className="text-gray-700 text-sm">Full integration with your CRM and calendar</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <span className="text-gray-700 text-sm">Monthly reporting and optimization reviews</span>
+                    </div>
+                  </div>
+                  <Button
+                    variant="outline"
+                    className="w-full border-2 border-blue-600 text-blue-600 hover:bg-blue-50 py-3 text-base font-semibold rounded-xl transition-all duration-200 bg-transparent"
+                  >
+                    Learn About RPS
+                  </Button>
+                  <p className="text-sm text-gray-500 mt-4 text-center">When you're ready to scale</p>
                 </div>
-                <div className="text-sm text-blue-600 font-semibold mb-4 flex items-center gap-2">
-                  <RefreshCw className="w-4 h-4" />
-                  Ongoing Pipeline Protection
+              </div>
+            </div>
+
+            <div className="max-w-4xl mx-auto bg-white border border-gray-200 rounded-xl p-8 shadow-lg">
+              <h4 className="text-xl font-bold text-gray-900 mb-6 text-center">The Typical Journey</h4>
+              <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div className="flex-1 text-center">
+                  <div className="w-16 h-16 bg-amber-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <span className="text-2xl font-bold text-white">1</span>
+                  </div>
+                  <h5 className="font-bold text-gray-900 mb-1">Dead Leads Sprint</h5>
+                  <p className="text-sm text-gray-600">Prove value with low risk</p>
                 </div>
-                <p className="text-gray-600 mb-6">
-                  Daily management of new leads, missed calls, and continuous dead lead revival.
-                </p>
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-gray-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Rapid outbound callbacks when leads come in</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-gray-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Systematic missed-call follow-up</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-gray-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Continuous qualification and appointment booking</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-gray-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Monthly retainer after initial setup</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-gray-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">Scales with your lead volume</span>
-                  </li>
-                </ul>
-                <div className="bg-gray-50 p-4 rounded-lg mb-6">
-                  <p className="text-sm text-gray-600">
-                    <strong>Pricing:</strong> Setup fee + monthly retainer aligned with your lead volume
+                <ArrowRight className="w-8 h-8 text-gray-400 hidden md:block" />
+                <div className="flex-1 text-center">
+                  <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <span className="text-2xl font-bold text-white">2</span>
+                  </div>
+                  <h5 className="font-bold text-gray-900 mb-1">Proof of Value</h5>
+                  <p className="text-sm text-gray-600">See appointments & ROI data</p>
+                </div>
+                <ArrowRight className="w-8 h-8 text-gray-400 hidden md:block" />
+                <div className="flex-1 text-center">
+                  <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <span className="text-2xl font-bold text-white">3</span>
+                  </div>
+                  <h5 className="font-bold text-gray-900 mb-1">Ongoing Protection</h5>
+                  <p className="text-sm text-gray-600">Scale to full Revenue Protection</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-16 max-w-4xl mx-auto">
+              <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">How We Work With Your Team</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                    <span className="text-2xl font-bold text-blue-600">1</span>
+                  </div>
+                  <h4 className="font-bold text-gray-900 mb-2">Audit & Setup</h4>
+                  <p className="text-gray-600 text-sm">
+                    We audit your current lead flow, connect to your CRM/calendar, and configure campaigns tailored to
+                    your ICP and qualification criteria
                   </p>
                 </div>
-                <Button
-                  variant="outline"
-                  className="w-full border-2 border-blue-600 hover:bg-blue-50 hover:scale-105 text-blue-600 py-3 rounded-lg font-medium bg-transparent transition-all duration-200"
-                >
-                  Discuss RPS Pilot
-                </Button>
-              </div>
-            </div>
-            <div className="text-center mt-8">
-              <p className="text-gray-600 mb-4">
-                Most teams start with a Dead Leads Sprint to see proof, then expand to full Revenue Protection.
-              </p>
-              <div className="flex items-center justify-center gap-4 text-sm text-gray-600 flex-wrap">
-                <span className="font-semibold text-blue-600">DLS</span>
-                <span>→</span>
-                <span>Proof of Value</span>
-                <span>→</span>
-                <span className="font-semibold text-blue-600">RPS</span>
-                <span>→</span>
-                <span>Full Pipeline Protection</span>
+                <div className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow">
+                  <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
+                    <span className="text-2xl font-bold text-amber-600">2</span>
+                  </div>
+                  <h4 className="font-bold text-gray-900 mb-2">Proof Campaign</h4>
+                  <p className="text-gray-600 text-sm">
+                    We run a time-boxed sprint or pilot to prove ROI with real data—appointments booked, conversion
+                    rates, and revenue influence
+                  </p>
+                </div>
+                <div className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow">
+                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                    <span className="text-2xl font-bold text-green-600">3</span>
+                  </div>
+                  <h4 className="font-bold text-gray-900 mb-2">Ongoing Optimization</h4>
+                  <p className="text-gray-600 text-sm">
+                    We monitor daily, optimize weekly, and report monthly. You get better results over time as we learn
+                    what converts in your market
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* How It Works Section */}
-        <section id="how-it-works" className="py-20 bg-white">
+        <section className="py-20 bg-slate-800 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">How We Work With Your Team</h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-gradient-to-br from-blue-50 to-white border border-blue-200 rounded-xl p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
-                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4">
-                  1
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Lead Flow Audit</h3>
-                <div className="text-sm text-blue-600 font-semibold mb-4">Week 1</div>
-                <ul className="space-y-2 mb-4">
-                  <li className="text-gray-700">We analyze your current lead sources and CRM</li>
-                  <li className="text-gray-700">Identify leakage points (speed-to-lead, missed calls, dead leads)</li>
-                  <li className="text-gray-700">Design intake flows and qualification logic specific to your offer</li>
-                  <li className="text-gray-700">You approve scripts, calling hours, and qualification criteria</li>
-                </ul>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-green-600" />
-                    <span className="text-sm text-gray-600">Zero disruption</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-green-600" />
-                    <span className="text-sm text-gray-600">Your data secure</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-purple-50 to-white border border-purple-200 rounded-xl p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
-                <div className="w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4">
-                  2
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Proof Campaign</h3>
-                <div className="text-sm text-purple-600 font-semibold mb-4">2-4 Weeks</div>
-
-                <div className="bg-purple-50 p-4 rounded-lg mb-4">
-                  <p className="font-bold text-gray-900 mb-3">Choose Your Proof Campaign:</p>
-                  <ul className="space-y-2">
-                    <li className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-gray-700">
-                        <strong>Dead Leads Sprint:</strong> We revive your aged leads
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-gray-700">
-                        <strong>RPS Pilot:</strong> We handle a segment of new + missed leads
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-
-                <p className="text-gray-700 mb-4 text-sm">
-                  Both campaigns deliver real appointments, call recordings, and conversion data. You choose the
-                  approach that proves value for your specific situation.
-                </p>
-
-                <ul className="space-y-2 mb-4">
-                  <li className="text-gray-700">Weekly reporting and optimization</li>
-                  <li className="text-gray-700">Zero disruption to your existing sales process</li>
-                </ul>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-green-600" />
-                    <span className="text-sm text-gray-600">Transparent metrics</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-green-600" />
-                    <span className="text-sm text-gray-600">Easy to pause/stop</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-green-50 to-white border border-green-200 rounded-xl p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
-                <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4">
-                  3
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Ongoing Partnership</h3>
-                <div className="text-sm text-green-600 font-semibold mb-4">If ROI Is Clear</div>
-                <ul className="space-y-2 mb-4">
-                  <li className="text-gray-700">If results justify it, we expand to full Revenue Protection System</li>
-                  <li className="text-gray-700">Continuous optimization based on your close data</li>
-                  <li className="text-gray-700">Monthly reporting and strategy sessions</li>
-                  <li className="text-gray-700">You can pause or adjust scope at any time</li>
-                </ul>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-green-600" />
-                    <span className="text-sm text-gray-600">Scalable ROI</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-green-600" />
-                    <span className="text-sm text-gray-600">Dedicated support</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="text-center mt-12">
-              <p className="text-lg text-gray-700 font-medium">
-                We focus on proving ROI before asking for long-term commitment.
+              <h2 className="text-4xl font-bold mb-4">What SolarSales AI Is Not</h2>
+              <p className="text-lg text-slate-300 max-w-3xl mx-auto">
+                To be clear about what you're getting (and what you're not):
               </p>
             </div>
-          </div>
-        </section>
-
-        {/* What We're Not Section */}
-        <section className="py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">What SolarSales AI Is Not</h2>
-            </div>
-            <div className="max-w-3xl mx-auto space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
               {whatWeAreNot.map((item, index) => (
-                <div key={index} className="bg-white border border-gray-200 rounded-lg p-6 flex items-start gap-4">
-                  <X className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-1">{item.title}</h3>
-                    <p className="text-gray-600">{item.description}</p>
+                <div key={index} className="bg-slate-700/50 backdrop-blur rounded-xl p-6 border border-slate-600">
+                  <div className="flex items-start gap-3">
+                    <X className="w-6 h-6 text-red-400 flex-shrink-0 mt-1" />
+                    <div>
+                      <h3 className="text-lg font-bold mb-2">{item.title}</h3>
+                      <p className="text-slate-300">{item.description}</p>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -623,37 +592,46 @@ export default function Page() {
           </div>
         </section>
 
-        <section className="py-20 bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="mb-6">
-              <div className="inline-block p-3 bg-blue-50 rounded-full mb-4">
-                <Shield className="w-8 h-8 text-blue-600" />
-              </div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Built By People Who Understand Your World</h2>
+        <section className="py-20 bg-gray-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">Built By Solar Operators</h2>
             </div>
-            <div className="text-lg text-gray-700 space-y-4 leading-relaxed">
-              <p>
-                This isn't a generic AI tool adapted for solar. We built SolarSales AI because we've lived your exact
-                problem.
-              </p>
-              <p>
-                Our team has run solar sales operations—managing setter teams, watching ad spend leak through missed
-                calls, and seeing thousands in pipeline sit dead in CRMs.
-              </p>
-              <p>
-                We know the difference between a qualified solar lead and a tire-kicker. We understand permitting
-                timelines, financing objections, and HOA concerns. We've dealt with LSA campaigns, lead vendor quality
-                issues, and the chaos of after-hours form submissions.
-              </p>
-              <p className="font-semibold text-gray-900">
-                That solar-specific knowledge is baked into every qualification flow, every script, and every campaign
-                we run for you.
-              </p>
+
+            <div className="bg-white rounded-2xl p-10 shadow-xl border border-gray-200">
+              <div className="flex flex-col md:flex-row gap-8 items-start">
+                <div className="flex-shrink-0">
+                  <div className="w-32 h-32 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center shadow-lg">
+                    <User className="w-16 h-16 text-white" />
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-1">Joseph [Last Name]</h3>
+                  <p className="text-lg text-blue-600 font-semibold mb-6">Founder</p>
+                  <p className="text-gray-700 mb-4 leading-relaxed">
+                    Joseph spent [X] years in solar sales operations before building SolarSales AI. He's managed setter
+                    teams, optimized lead funnels, and watched firsthand as ad spend leaked through missed calls and
+                    dead CRM leads.
+                  </p>
+                  <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-lg mb-4">
+                    <p className="text-gray-900 italic">
+                      "I built this because I lived the problem. I know what it's like to pay $50 for a lead and watch
+                      it die because nobody called back fast enough. Solar companies don't need another tool to figure
+                      out — they need someone who actually knows how to run intake the right way."
+                    </p>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed">
+                    That solar-specific knowledge — permitting timelines, financing objections, HOA concerns, LSA
+                    campaign quirks, lead vendor quality issues — is baked into every qualification flow, every script,
+                    and every campaign we run.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Who This Is For Section */}
+        {/* Who It's For Section */}
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
@@ -692,8 +670,8 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Compliance Section */}
-        <section className="py-20 bg-white">
+        {/* Compliance Section - light blue-gray background */}
+        <section className="py-20 bg-blue-50/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">Opt-In Leads Only. TCPA-Safe Practices.</h2>
@@ -741,7 +719,7 @@ export default function Page() {
           </div>
         </section>
 
-        {/* FAQ Section */}
+        {/* FAQ Section - white background */}
         <section id="faq" className="py-20 bg-gray-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
@@ -775,113 +753,87 @@ export default function Page() {
           </div>
         </section>
 
-        <section id="contact" className="py-20 bg-gradient-to-br from-white via-blue-50 to-blue-100">
+        <section className="py-20 bg-gradient-to-br from-slate-800 to-slate-900 text-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-5xl font-bold text-gray-900 mb-6">Schedule a Lead Flow Audit</h2>
-            <p className="text-xl text-gray-700 mb-6 leading-relaxed">
-              Let's have a diagnostic conversation about where your pipeline is leaking and whether a Dead Leads Sprint
-              or Revenue Protection pilot makes sense for your team.
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6">Ready to Capture More Revenue From Your Leads?</h2>
+            <p className="text-xl text-slate-300 mb-4">
+              Schedule a Lead Flow Audit. We'll look at your current setup, identify leaks, and show you exactly how
+              we'd capture more appointments.
             </p>
-            <p className="text-lg text-gray-600 mb-8">
-              No pressure. No 'limited slots' scarcity tactics. Just an honest assessment of whether we can help you
-              capture more value from the leads you already pay for.
+            <p className="text-lg text-slate-400 mb-8">
+              No pressure. No "limited slots" scarcity tactics. Just an honest conversation about whether this makes
+              sense for your business.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-              <Button className="bg-blue-600 hover:bg-blue-700 hover:scale-105 text-white px-10 py-4 text-lg font-medium rounded-lg shadow-lg transition-all duration-200">
-                Schedule 20-Minute Audit Call
-              </Button>
-            </div>
-            <div className="flex items-center justify-center gap-2 text-gray-600 mb-6">
-              <Mail className="w-5 h-5" />
-              <span>
-                Or email us at{" "}
-                <a href="mailto:contact@solarsalesai.com" className="text-blue-600 hover:underline">
-                  contact@solarsalesai.com
-                </a>
-              </span>
-            </div>
-            <div className="bg-white/80 border border-gray-200 rounded-lg p-4 inline-block">
-              <p className="text-sm text-gray-700 font-medium">
-                No commitment required. No sales pitch. Just an honest diagnostic conversation.
-              </p>
-            </div>
+            <Button className="bg-amber-500 hover:bg-amber-600 text-white px-10 py-4 text-lg font-bold rounded-xl shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-200">
+              Schedule a Lead Flow Audit
+            </Button>
+            <p className="text-sm text-slate-400 mt-6">
+              Most audits take 30-45 minutes. We'll send you a summary afterward whether you move forward or not.
+            </p>
           </div>
         </section>
+      </main>
 
-        <footer className="bg-gray-900 text-white py-12">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-8">
-              <p className="text-gray-400 italic">Turning solar leads into kept appointments since 2024</p>
+      {/* Footer */}
+      <footer className="bg-gray-900 text-gray-400 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <h3 className="text-white font-bold mb-4">SolarSales AI</h3>
+              <p className="text-sm">Managed intake and revival service for solar companies</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-              <div>
-                <h3 className="font-bold text-lg mb-4">Product</h3>
-                <ul className="space-y-2">
-                  <li>
-                    <a href="#pricing" className="text-gray-400 hover:text-white transition-colors">
-                      Dead Leads Sprint
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#pricing" className="text-gray-400 hover:text-white transition-colors">
-                      Revenue Protection System
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#how-it-works" className="text-gray-400 hover:text-white transition-colors">
-                      How It Works
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#pricing" className="text-gray-400 hover:text-white transition-colors">
-                      Pricing
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-bold text-lg mb-4">Company</h3>
-                <ul className="space-y-2">
-                  <li>
-                    <a href="#about" className="text-gray-400 hover:text-white transition-colors">
-                      About
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#contact" className="text-gray-400 hover:text-white transition-colors">
-                      Contact
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                      Privacy Policy
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                      Terms of Service
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-bold text-lg mb-4">Contact</h3>
-                <ul className="space-y-2">
-                  <li className="text-gray-400">Email: contact@solarsalesai.com</li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                      LinkedIn
-                    </a>
-                  </li>
-                </ul>
-              </div>
+            <div>
+              <h4 className="text-white font-semibold mb-4">Services</h4>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Dead Leads Sprint
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Revenue Protection System
+                  </a>
+                </li>
+              </ul>
             </div>
-            <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-              <p>© {new Date().getFullYear()} SolarSales AI. All rights reserved.</p>
+            <div>
+              <h4 className="text-white font-semibold mb-4">Company</h4>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-4">Legal</h4>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Terms of Service
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
-        </footer>
-      </main>
+          <div className="border-t border-gray-800 pt-8 text-center text-sm">
+            <p>© {new Date().getFullYear()} SolarSales AI. All rights reserved.</p>
+            <p className="text-gray-500 mt-2">Turning solar leads into kept appointments since 2024.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
