@@ -24,7 +24,7 @@ import {
   Eye,
 } from "lucide-react"
 
-export default function Page() {
+export default function LandingPage() {
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null)
 
   const problemCards = [
@@ -203,7 +203,7 @@ export default function Page() {
         </div>
       </header>
 
-      <main className="w-full">
+      <main>
         {/* Hero Section with Visual Element */}
         <section className="relative py-20 sm:py-28 bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-hidden">
           <div className="absolute inset-0 opacity-[0.03]">
@@ -211,120 +211,117 @@ export default function Page() {
             <div className="absolute bottom-10 left-10 w-96 h-96 bg-amber-500 rounded-full blur-3xl"></div>
           </div>
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="text-left">
-                <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                  Turn More of Your Paid Leads Into Kept Appointments
-                </h1>
-                <p className="text-xl text-gray-700 mb-6 leading-relaxed">
-                  A managed intake and revival service for U.S. residential solar companies. We use AI voice + SMS to
-                  systematically work your new leads, missed calls, and dead CRM leads—so you capture more value from
-                  lead spend you already have.
-                </p>
-                <p className="text-lg text-gray-600 mb-8">
-                  Done-for-you service. We run the campaigns, optimize the flows, and are measured on appointments that
-                  show.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                  <Button className="bg-blue-600 hover:bg-blue-700 hover:scale-105 text-white px-8 py-3 text-base font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl">
-                    Schedule a Lead Flow Audit
-                  </Button>
-                  <Button
-                    variant="outline"
-                    className="border-2 border-gray-300 hover:border-blue-600 text-gray-700 hover:text-blue-600 text-base font-medium bg-transparent"
-                    onClick={() => {
-                      document.getElementById("problem")?.scrollIntoView({ behavior: "smooth" })
-                    }}
-                  >
-                    See how it works ↓
-                  </Button>
-                </div>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
+            <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              Turn More of Your Paid Leads Into Kept Appointments
+            </h1>
+            <p className="text-xl text-gray-700 mb-6 leading-relaxed max-w-3xl mx-auto">
+              A managed intake and revival service for U.S. residential solar companies. We use AI voice + SMS to
+              systematically work your new leads, missed calls, and dead CRM leads—so you capture more value from lead
+              spend you already have.
+            </p>
+            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+              Done-for-you service. We run the campaigns, optimize the flows, and are measured on appointments that
+              show.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <Button className="bg-blue-600 hover:bg-blue-700 hover:scale-105 text-white px-8 py-3 text-base font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl">
+                Schedule a Lead Flow Audit
+              </Button>
+              <Button
+                variant="outline"
+                className="border-2 border-gray-300 hover:border-blue-600 text-gray-700 hover:text-blue-600 text-base font-medium bg-transparent"
+                onClick={() => {
+                  document.getElementById("problem")?.scrollIntoView({ behavior: "smooth" })
+                }}
+              >
+                See how it works ↓
+              </Button>
+            </div>
 
-                <div className="flex flex-wrap gap-6 pt-6 border-t border-gray-200">
-                  <div className="flex items-center gap-2">
-                    <ShieldCheck className="w-5 h-5 text-blue-600" />
-                    <span className="text-sm font-medium text-gray-700">Opt-In Leads Only</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Scale className="w-5 h-5 text-blue-600" />
-                    <span className="text-sm font-medium text-gray-700">TCPA-Safe Practices</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Layers className="w-5 h-5 text-blue-600" />
-                    <span className="text-sm font-medium text-gray-700">Works With Your Stack</span>
-                  </div>
-                </div>
+            <div className="flex flex-wrap gap-6 justify-center pt-6 border-t border-gray-200 max-w-2xl mx-auto">
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="w-5 h-5 text-blue-600" />
+                <span className="text-sm font-medium text-gray-700">Opt-In Leads Only</span>
               </div>
-
-              <div className="relative">
-                <div className="bg-white rounded-3xl shadow-2xl p-6 border border-gray-200 max-w-md mx-auto">
-                  <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-200">
-                    <MessageSquare className="w-6 h-6 text-blue-600" />
-                    <div>
-                      <div className="font-semibold text-gray-900">Dead Lead Revival</div>
-                      <div className="text-xs text-gray-500">3-month old lead → Booked</div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-4">
-                    <div className="flex justify-start">
-                      <div className="bg-gray-100 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[80%]">
-                        <p className="text-sm text-gray-900">
-                          Hi Maria, this is Alex from Sunrise Solar following up on your inquiry from a few months back.
-                          Still interested in learning about solar savings?
-                        </p>
-                        <p className="text-xs text-gray-500 mt-1">2:34 PM</p>
-                      </div>
-                    </div>
-
-                    <div className="flex justify-end">
-                      <div className="bg-blue-600 rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%]">
-                        <p className="text-sm text-white">Yes actually! We got busy but still thinking about it</p>
-                        <p className="text-xs text-blue-200 mt-1">2:41 PM</p>
-                      </div>
-                    </div>
-
-                    <div className="flex justify-start">
-                      <div className="bg-gray-100 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[80%]">
-                        <p className="text-sm text-gray-900">
-                          Great! I can get you on the calendar for a quick 15-min consultation. Does tomorrow at 3pm or
-                          Thursday at 11am work better?
-                        </p>
-                        <p className="text-xs text-gray-500 mt-1">2:42 PM</p>
-                      </div>
-                    </div>
-
-                    <div className="flex justify-end">
-                      <div className="bg-blue-600 rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%]">
-                        <p className="text-sm text-white">Thursday works</p>
-                        <p className="text-xs text-blue-200 mt-1">2:44 PM</p>
-                      </div>
-                    </div>
-
-                    <div className="flex justify-start">
-                      <div className="bg-gray-100 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[80%]">
-                        <p className="text-sm text-gray-900">
-                          Perfect, you're confirmed for Thursday at 11am. You'll get a calendar invite shortly. Talk
-                          soon!
-                        </p>
-                        <p className="text-xs text-gray-500 mt-1">2:45 PM</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-gray-200 text-center">
-                    <p className="text-xs text-gray-600">
-                      A real dead lead revival — 3-month-old 'no response' lead booked in under 15 minutes
-                    </p>
-                  </div>
-                </div>
+              <div className="flex items-center gap-2">
+                <Scale className="w-5 h-5 text-blue-600" />
+                <span className="text-sm font-medium text-gray-700">TCPA-Safe Practices</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Layers className="w-5 h-5 text-blue-600" />
+                <span className="text-sm font-medium text-gray-700">Works With Your Stack</span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Problem Section - Light warm gray background */}
+        <section className="py-16 bg-white">
+          <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-200">
+              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-200">
+                <MessageSquare className="w-8 h-8 text-blue-600" />
+                <div>
+                  <div className="text-xl font-bold text-gray-900">Dead Lead Revival</div>
+                  <div className="text-sm text-gray-500">3-month old lead → Booked</div>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <div className="flex justify-start">
+                  <div className="bg-gray-100 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[85%]">
+                    <p className="text-sm text-gray-900">
+                      Hi Maria, this is Alex from Sunrise Solar following up on your inquiry from a few months back.
+                      Still interested in learning about solar savings?
+                    </p>
+                    <p className="text-xs text-gray-500 mt-1">2:34 PM</p>
+                  </div>
+                </div>
+
+                <div className="flex justify-end">
+                  <div className="bg-blue-600 rounded-2xl rounded-tr-sm px-4 py-3 max-w-[85%]">
+                    <p className="text-sm text-white">Yes actually! We got busy but still thinking about it</p>
+                    <p className="text-xs text-blue-200 mt-1">2:41 PM</p>
+                  </div>
+                </div>
+
+                <div className="flex justify-start">
+                  <div className="bg-gray-100 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[85%]">
+                    <p className="text-sm text-gray-900">
+                      Great! I can get you on the calendar for a quick 15-min consultation. Does tomorrow at 3pm or
+                      Thursday at 11am work better?
+                    </p>
+                    <p className="text-xs text-gray-500 mt-1">2:42 PM</p>
+                  </div>
+                </div>
+
+                <div className="flex justify-end">
+                  <div className="bg-blue-600 rounded-2xl rounded-tr-sm px-4 py-3 max-w-[85%]">
+                    <p className="text-sm text-white">Thursday works</p>
+                    <p className="text-xs text-blue-200 mt-1">2:44 PM</p>
+                  </div>
+                </div>
+
+                <div className="flex justify-start">
+                  <div className="bg-gray-100 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[85%]">
+                    <p className="text-sm text-gray-900">
+                      Perfect, you're confirmed for Thursday at 11am. You'll get a calendar invite shortly. Talk soon!
+                    </p>
+                    <p className="text-xs text-gray-500 mt-1">2:45 PM</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-gray-200 text-center">
+                <p className="text-sm text-gray-600 italic">
+                  A real dead lead revival — 3-month-old 'no response' lead booked in under 15 minutes
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Problem Section - now correctly after SMS section */}
         <section id="problem" className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
