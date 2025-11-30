@@ -22,6 +22,10 @@ import {
   MessageSquare,
   ArrowRight,
   Eye,
+  AlertTriangle,
+  Search,
+  Rocket,
+  TrendingUp,
 } from "lucide-react"
 
 export default function LandingPage() {
@@ -362,40 +366,89 @@ export default function LandingPage() {
                 toolkits. Someone on your team still has to:
               </p>
             </div>
-            <div className="max-w-2xl mx-auto mb-12">
-              <ul className="space-y-3">
-                {toolkitBurdens.map((burden, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{burden}</span>
-                  </li>
-                ))}
-              </ul>
+
+            {/* Visual Comparison Table */}
+            <div className="max-w-5xl mx-auto mb-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-1 bg-gray-200 rounded-lg overflow-hidden">
+                {/* Left Column - DIY Toolkit */}
+                <div className="bg-red-50">
+                  <div className="bg-red-100 px-6 py-4 border-b-2 border-red-200">
+                    <h3 className="text-xl font-bold text-gray-900 text-center">DIY Toolkit Approach</h3>
+                  </div>
+                  <div className="p-6 space-y-4">
+                    <div className="flex items-start gap-3">
+                      <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-1" />
+                      <span className="text-gray-700">Design the qualification flows</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-1" />
+                      <span className="text-gray-700">Write and test the scripts</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-1" />
+                      <span className="text-gray-700">Run the campaigns daily</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-1" />
+                      <span className="text-gray-700">Analyze what's working</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-1" />
+                      <span className="text-gray-700">Tune and optimize constantly</span>
+                    </div>
+                    <div className="flex items-center gap-2 pt-4 border-t border-red-200">
+                      <Clock className="w-5 h-5 text-red-600" />
+                      <span className="font-bold text-gray-900">Weeks to launch</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Column - SolarSales AI */}
+                <div className="bg-green-50">
+                  <div className="bg-green-100 px-6 py-4 border-b-2 border-green-200">
+                    <h3 className="text-xl font-bold text-gray-900 text-center">SolarSales AI</h3>
+                  </div>
+                  <div className="p-6 space-y-4">
+                    <div className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <span className="text-gray-700 font-medium">We design flows based on solar buyer psychology</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <span className="text-gray-700 font-medium">We write solar-specific scripts</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <span className="text-gray-700 font-medium">We run campaigns on your behalf</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <span className="text-gray-700 font-medium">We tune based on your data</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <span className="text-gray-700 font-medium">
+                        We're measured on kept appointments and recovered revenue
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2 pt-4 border-t border-green-200">
+                      <Zap className="w-5 h-5 text-green-600" />
+                      <span className="font-bold text-gray-900">Week 1 operational</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-12"></div>
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">SolarSales AI is different</h3>
-              <p className="text-lg text-gray-600 mb-8">
-                We're the solar-specialized team + playbook that does all of that for you:
-              </p>
-            </div>
-            <div className="max-w-2xl mx-auto mb-12">
-              <ul className="space-y-3">
-                {ourApproach.map((approach, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700 font-medium">{approach}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-lg max-w-3xl mx-auto mb-8">
+
+            {/* Yellow Highlight Box */}
+            <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-lg max-w-3xl mx-auto mb-8 flex items-start gap-4">
+              <AlertTriangle className="w-6 h-6 text-amber-600 flex-shrink-0 mt-1" />
               <p className="text-lg text-gray-900 font-medium">
                 You don't need another tool for your team to figure out. You need someone to actually run your intake
                 and dead leads the right way, every day.
               </p>
             </div>
-            <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-8"></div>
+
             <div className="text-center max-w-3xl mx-auto">
               <p className="text-gray-700">
                 The DIY toolkit approach means weeks of configuration, script testing, and troubleshooting before you
@@ -437,6 +490,7 @@ export default function LandingPage() {
           </div>
         </section>
 
+        {/* Two-Path Offer Section with Visual Journey */}
         <section id="pricing" className="py-20 bg-gradient-to-br from-blue-50 via-white to-slate-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -529,69 +583,120 @@ export default function LandingPage() {
               </div>
             </div>
 
-            <div className="max-w-4xl mx-auto bg-white border border-gray-200 rounded-xl p-8 shadow-lg">
-              <h4 className="text-xl font-bold text-gray-900 mb-6 text-center">The Typical Journey</h4>
-              <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="max-w-4xl mx-auto bg-white border border-gray-200 rounded-xl p-8 shadow-lg mt-16">
+              <h4 className="text-2xl font-bold text-gray-900 mb-8 text-center">The Typical Journey</h4>
+              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="flex-1 text-center">
-                  <div className="w-16 h-16 bg-amber-500 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-2xl font-bold text-white">1</span>
+                  <div className="w-20 h-20 bg-gradient-to-br from-amber-400 to-amber-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <span className="text-4xl font-bold text-white">1</span>
                   </div>
-                  <h5 className="font-bold text-gray-900 mb-1">Dead Leads Sprint</h5>
+                  <h5 className="text-lg font-bold text-gray-900 mb-2">Dead Leads Sprint</h5>
                   <p className="text-sm text-gray-600">Prove value with low risk</p>
                 </div>
                 <ArrowRight className="w-8 h-8 text-gray-400 hidden md:block" />
                 <div className="flex-1 text-center">
-                  <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-2xl font-bold text-white">2</span>
+                  <div className="w-20 h-20 bg-gradient-to-br from-gray-400 to-gray-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <span className="text-4xl font-bold text-white">2</span>
                   </div>
-                  <h5 className="font-bold text-gray-900 mb-1">Proof of Value</h5>
+                  <h5 className="text-lg font-bold text-gray-900 mb-2">Proof of Value</h5>
                   <p className="text-sm text-gray-600">See appointments & ROI data</p>
                 </div>
                 <ArrowRight className="w-8 h-8 text-gray-400 hidden md:block" />
                 <div className="flex-1 text-center">
-                  <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-2xl font-bold text-white">3</span>
+                  <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-700 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <span className="text-4xl font-bold text-white">3</span>
                   </div>
-                  <h5 className="font-bold text-gray-900 mb-1">Ongoing Protection</h5>
+                  <h5 className="text-lg font-bold text-gray-900 mb-2">Ongoing Protection</h5>
                   <p className="text-sm text-gray-600">Scale to full Revenue Protection</p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-16 max-w-4xl mx-auto">
-              <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">How We Work With Your Team</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                    <span className="text-2xl font-bold text-blue-600">1</span>
+            <div className="mt-20">
+              <h3 className="text-3xl font-bold text-gray-900 mb-12 text-center">How We Work With Your Team</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                {/* Step 1 */}
+                <div className="bg-white rounded-2xl p-8 border-2 border-blue-200 hover:shadow-xl transition-shadow">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
+                      <span className="text-3xl font-bold text-white">1</span>
+                    </div>
+                    <Search className="w-8 h-8 text-blue-600" />
                   </div>
-                  <h4 className="font-bold text-gray-900 mb-2">Audit & Setup</h4>
-                  <p className="text-gray-600 text-sm">
+                  <h4 className="text-xl font-bold text-gray-900 mb-3">Audit & Setup</h4>
+                  <p className="text-gray-600 leading-relaxed">
                     We audit your current lead flow, connect to your CRM/calendar, and configure campaigns tailored to
                     your ICP and qualification criteria
                   </p>
                 </div>
-                <div className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow">
-                  <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
-                    <span className="text-2xl font-bold text-amber-600">2</span>
+
+                {/* Step 2 - with visual choice structure */}
+                <div className="bg-white rounded-2xl p-8 border-2 border-amber-200 hover:shadow-xl transition-shadow">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-700 rounded-xl flex items-center justify-center shadow-lg">
+                      <span className="text-3xl font-bold text-white">2</span>
+                    </div>
+                    <Rocket className="w-8 h-8 text-amber-600" />
                   </div>
-                  <h4 className="font-bold text-gray-900 mb-2">Proof Campaign</h4>
-                  <p className="text-gray-600 text-sm">
-                    We run a time-boxed sprint or pilot to prove ROI with real data—appointments booked, conversion
-                    rates, and revenue influence
+                  <h4 className="text-xl font-bold text-gray-900 mb-3">Proof Campaign</h4>
+                  <p className="text-gray-600 mb-4 leading-relaxed">Choose Your Proof Campaign:</p>
+
+                  {/* Visual radio-style options */}
+                  <div className="space-y-3 mb-4">
+                    <div className="flex items-start gap-3 p-3 bg-amber-50 border border-amber-200 rounded-lg">
+                      <div className="w-5 h-5 rounded-full border-2 border-amber-500 flex items-center justify-center mt-0.5">
+                        <div className="w-2.5 h-2.5 rounded-full bg-amber-500"></div>
+                      </div>
+                      <div>
+                        <div className="font-semibold text-gray-900 text-sm">Dead Leads Sprint</div>
+                        <div className="text-xs text-gray-600">We revive your aged leads</div>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3 p-3 bg-gray-50 border border-gray-200 rounded-lg">
+                      <div className="w-5 h-5 rounded-full border-2 border-gray-300 mt-0.5"></div>
+                      <div>
+                        <div className="font-semibold text-gray-900 text-sm">RPS Pilot</div>
+                        <div className="text-xs text-gray-600">We handle new + missed leads</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="text-sm text-gray-600">
+                    Both deliver appointments, recordings, and data. Zero disruption to your sales process.
                   </p>
                 </div>
-                <div className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow">
-                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                    <span className="text-2xl font-bold text-green-600">3</span>
+
+                {/* Step 3 */}
+                <div className="bg-white rounded-2xl p-8 border-2 border-green-200 hover:shadow-xl transition-shadow">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-xl flex items-center justify-center shadow-lg">
+                      <span className="text-3xl font-bold text-white">3</span>
+                    </div>
+                    <TrendingUp className="w-8 h-8 text-green-600" />
                   </div>
-                  <h4 className="font-bold text-gray-900 mb-2">Ongoing Optimization</h4>
-                  <p className="text-gray-600 text-sm">
-                    We monitor daily, optimize weekly, and report monthly. You get better results over time as we learn
-                    what converts in your market
+                  <h4 className="text-xl font-bold text-gray-900 mb-3">Ongoing Partnership</h4>
+                  <p className="text-gray-600 leading-relaxed mb-4">
+                    If results justify it, we expand to full Revenue Protection System
                   </p>
+                  <ul className="space-y-2 text-sm text-gray-600">
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                      <span>Continuous optimization based on your close data</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                      <span>Monthly reporting and strategy sessions</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                      <span>You can pause or adjust scope at any time</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
+              <p className="text-center mt-8 text-lg font-semibold text-gray-900">
+                We focus on proving ROI before asking for long-term commitment.
+              </p>
             </div>
           </div>
         </section>
