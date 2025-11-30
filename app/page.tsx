@@ -20,7 +20,6 @@ import {
   Layers,
   Target,
   MessageSquare,
-  User,
   ArrowRight,
   Eye,
 } from "lucide-react"
@@ -409,6 +408,38 @@ export default function Page() {
           </div>
         </section>
 
+        {/* Solution Features Section */}
+        <section className="py-20 bg-blue-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                We Run Your Solar Intake and Dead Lead Revival. You Focus on Closing.
+              </h2>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                SolarSales AI is not a tool you have to figure out. We're the solar-specialized team + AI engine that:
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+              {solutionFeatures.map((feature, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-xl p-8 border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-200"
+                >
+                  <div className="mb-4">{feature.icon}</div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                </div>
+              ))}
+            </div>
+            <div className="text-center">
+              <p className="text-lg text-gray-900 max-w-3xl mx-auto font-medium">
+                You get more kept appointments from leads you already paid for. Your setters work warmer prospects. Your
+                CAC improves.
+              </p>
+            </div>
+          </div>
+        </section>
+
         <section id="pricing" className="py-20 bg-gradient-to-br from-blue-50 via-white to-slate-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -592,40 +623,34 @@ export default function Page() {
           </div>
         </section>
 
-        <section className="py-20 bg-gray-50">
+        <section className="py-20 bg-blue-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">Built By Solar Operators</h2>
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">Built By People Who Understand Your World</h2>
             </div>
 
             <div className="bg-white rounded-2xl p-10 shadow-xl border border-gray-200">
-              <div className="flex flex-col md:flex-row gap-8 items-start">
-                <div className="flex-shrink-0">
-                  <div className="w-32 h-32 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center shadow-lg">
-                    <User className="w-16 h-16 text-white" />
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-1">Joseph [Last Name]</h3>
-                  <p className="text-lg text-blue-600 font-semibold mb-6">Founder</p>
-                  <p className="text-gray-700 mb-4 leading-relaxed">
-                    Joseph spent [X] years in solar sales operations before building SolarSales AI. He's managed setter
-                    teams, optimized lead funnels, and watched firsthand as ad spend leaked through missed calls and
-                    dead CRM leads.
-                  </p>
-                  <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-lg mb-4">
-                    <p className="text-gray-900 italic">
-                      "I built this because I lived the problem. I know what it's like to pay $50 for a lead and watch
-                      it die because nobody called back fast enough. Solar companies don't need another tool to figure
-                      out — they need someone who actually knows how to run intake the right way."
-                    </p>
-                  </div>
-                  <p className="text-gray-700 leading-relaxed">
-                    That solar-specific knowledge — permitting timelines, financing objections, HOA concerns, LSA
-                    campaign quirks, lead vendor quality issues — is baked into every qualification flow, every script,
-                    and every campaign we run.
-                  </p>
-                </div>
+              <div className="flex justify-center mb-6">
+                <Shield className="w-12 h-12 text-blue-600" />
+              </div>
+              <div className="prose prose-lg mx-auto">
+                <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                  This isn't a generic AI tool adapted for solar. We built SolarSales AI because we've lived your exact
+                  problem.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                  Our team has run solar sales operations—managing setter teams, watching ad spend leak through missed
+                  calls, and seeing thousands in pipeline sit dead in CRMs.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                  We know the difference between a qualified solar lead and a tire-kicker. We understand permitting
+                  timelines, financing objections, and HOA concerns. We've dealt with LSA campaigns, lead vendor quality
+                  issues, and the chaos of after-hours form submissions.
+                </p>
+                <p className="text-lg text-gray-900 leading-relaxed font-semibold">
+                  That solar-specific knowledge is baked into every qualification flow, every script, and every campaign
+                  we run for you.
+                </p>
               </div>
             </div>
           </div>
