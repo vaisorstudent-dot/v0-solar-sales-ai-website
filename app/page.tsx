@@ -329,8 +329,31 @@ export default function LandingPage() {
     },
     {
       question: "How does the handoff to your closers work? What do they see?",
-      answer:
-        'We book appointments directly into your existing calendar system (Google Calendar, Outlook, Calendly, Salesforce, HubSpot, or any calendar with API access). Integration happens during Week 1 setup.\n\nWhat your closer sees when an appointment is booked:\n\nCalendar Event with Full Context:\n• Lead name, phone, email\n• Appointment time (in your closer\'s local time zone)\n• Source tag: "New Lead – AI Qualified" / "Missed Call Follow-Up" / "Dead Lead Revival"\n• Best time to call if they need to reschedule\n• Key qualification notes: homeowner status, electric bill range, timeline, HOA status, financing interest\n\nConversation Transcript (attached or linked):\n• Complete record of AI conversation (voice + SMS)\n• Objections addressed during qualification\n• Questions the lead asked\n• Any scheduling constraints or preferences\n\nConfirmation to Lead:\n• Lead receives calendar invite via email\n• Confirmation SMS: "You\'re confirmed for [day/time] with [Closer Name] from [Your Company]. You\'ll get a reminder 24 hours before. Looking forward to showing you your solar savings!"\n• 24-hour reminder SMS sent automatically\n\nYour closer treats it like any other booked appointment — they call at the scheduled time with full context on what the lead cares about. We don\'t replace your closers; we make sure they\'re spending time on qualified, expecting-the-call leads instead of chasing cold prospects.\n\nIf the lead no-shows, we can handle re-engagement via AI (part of RPS) or your team can follow up manually — your choice.\n',
+      answer: `We book appointments directly into your existing calendar system (Google Calendar, Outlook, Calendly, Salesforce, HubSpot, or any calendar with API access). Integration happens during Week 1 setup.
+
+What your closer sees when an appointment is booked:
+
+Calendar Event with Full Context:
+• Lead name, phone, email
+• Appointment time (in your closer's local time zone)
+• Source tag: "New Lead – AI Qualified" / "Missed Call Follow-Up" / "Dead Lead Revival"
+• Best time to call if they need to reschedule
+• Key qualification notes: homeowner status, electric bill range, timeline, HOA status, financing interest
+
+Conversation Transcript (attached or linked):
+• Complete record of AI conversation (voice + SMS)
+• Objections addressed during qualification
+• Questions the lead asked
+• Any scheduling constraints or preferences
+
+Confirmation to Lead:
+• Lead receives calendar invite via email
+• Confirmation SMS: "You're confirmed for [day/time] with [Closer Name] from [Your Company]. You'll get a reminder 24 hours before. Looking forward to showing you your solar savings!"
+• 24-hour reminder SMS sent automatically
+
+Your closer treats it like any other booked appointment — they call at the scheduled time with full context on what the lead cares about. We don't replace your closers; we make sure they're spending time on qualified, expecting-the-call leads instead of chasing cold prospects.
+
+If the lead no-shows, we can handle re-engagement via AI (part of RPS) or your team can follow up manually — your choice.`,
     },
   ]
 
