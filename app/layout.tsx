@@ -1,18 +1,19 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter, IBM_Plex_Mono } from "next/font/google"
+import { Cormorant_Garamond, Manrope } from "next/font/google"
 import "./globals.css"
 
-const inter = Inter({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-body",
+  weight: ["500", "600", "700"],
+  variable: "--font-display",
   display: "swap",
 })
 
-const ibmPlexMono = IBM_Plex_Mono({
+const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-accent",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-body",
   display: "swap",
 })
 
@@ -46,8 +47,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${ibmPlexMono.variable} font-body antialiased`}>{children}</body>
+    <html lang="en" className={`scroll-smooth ${cormorant.variable} ${manrope.variable}`}>
+      <body className="font-body antialiased">{children}</body>
     </html>
   )
 }
