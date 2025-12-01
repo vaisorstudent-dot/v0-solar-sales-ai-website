@@ -8,10 +8,8 @@ import {
   Target,
   MessageSquare,
   PhoneCall,
-  AlertTriangle,
   Database,
   Clock,
-  X,
   Check,
   TrendingUp,
   Zap,
@@ -179,22 +177,22 @@ export default function LandingPage() {
 
   const problemCards = [
     {
-      icon: <Clock className="w-8 h-8 text-blue-600" />,
+      icon: <Clock className="w-12 h-12 text-[#d4a574]" />,
       title: "Speed-to-Lead Gaps",
       description: "Leads go cold in the first 5 minutes while your setter is on another call",
     },
     {
-      icon: <Phone className="w-8 h-8 text-blue-600" />,
+      icon: <Phone className="w-12 h-12 text-[#d4a574]" />,
       title: "Missed Call Black Holes",
       description: "Missed calls that never get called back systematically or sit for hours",
     },
     {
-      icon: <Database className="w-8 h-8 text-blue-600" />,
+      icon: <Database className="w-12 h-12 text-[#d4a574]" />,
       title: "Dead Lead Graveyards",
       description: "Thousands of 'dead' leads sitting in your CRM that you already paid for",
     },
     {
-      icon: <Users className="w-8 h-8 text-blue-600" />,
+      icon: <Users className="w-12 h-12 text-[#d4a574]" />,
       title: "After-Hours Leakage",
       description: "After-hours inquiries that wait until tomorrow (when they've talked to three competitors)",
     },
@@ -333,7 +331,7 @@ export default function LandingPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-[#faf8f5]">
+    <div className="min-h-screen bg-[#faf8f5] font-body">
       {/* Header */}
       <header
         className={`sticky top-0 z-50 bg-[#faf8f5]/95 backdrop-blur-md transition-all duration-300 ${
@@ -384,63 +382,61 @@ export default function LandingPage() {
       </header>
 
       <main>
-        {/* Hero Section */}
         <section className="relative py-32 bg-[#faf8f5] overflow-hidden">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
-            <p className="uppercase tracking-wider text-sm font-semibold text-[#d4a574] mb-4">
-              Managed Solar Lead Intake
-            </p>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-center">
+              {/* Left Column - 60% - 3 columns */}
+              <div className="lg:col-span-3 text-left">
+                <p className="uppercase tracking-wider text-sm font-semibold text-[#d4a574] mb-4">
+                  Managed Solar Lead Intake
+                </p>
 
-            <div className="inline-flex items-center gap-2 bg-[#d4a574]/10 border border-[#d4a574]/30 px-4 py-2 rounded-full mb-8">
-              <div className="w-2 h-2 bg-[#d4a574] rounded-full animate-pulse"></div>
-              <span className="text-sm font-semibold text-[#d4a574]">Trusted by U.S. Solar Sales Teams</span>
-            </div>
+                <h1 className="font-display text-[60px] leading-[1.1] font-semibold text-[#1a2332] mb-8 tracking-tight">
+                  Turn More of Your Paid Leads Into Kept Appointments
+                </h1>
 
-            <h1 className="font-display text-[60px] leading-[1.1] font-semibold text-[#1a2332] mb-8 tracking-tight">
-              Turn More of Your Paid Leads Into <span className="text-[#d4a574]">Kept Appointments</span>
-            </h1>
+                <p className="font-body text-[20px] leading-[1.7] text-[#4a5568] mb-8">
+                  A managed intake and revival service for U.S. residential solar companies. We use AI voice + SMS to
+                  systematically work your new leads, missed calls, and dead CRM leads.
+                </p>
 
-            <p className="font-body text-[18px] leading-[1.7] text-[#4a5568] mb-12 max-w-3xl mx-auto">
-              We run a managed AI voice + SMS service that handles rapid callbacks, systematic follow-up, and dead lead
-              revival—so your team can focus on closing instead of chasing.
-            </p>
+                <p className="font-body text-[18px] leading-[1.6] text-[#1a2332] font-semibold mb-12">
+                  Done-for-you service. We run the campaigns, optimize the flows, and are measured on appointments that
+                  show.
+                </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-              <Button className="bg-[#1a2332] hover:bg-[#2d3748] hover:shadow-md text-[#faf8f5] px-8 py-4 text-base font-semibold rounded-lg transition-all duration-200">
-                Schedule a Lead Audit
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-              <Button className="bg-transparent hover:bg-[#1a2332]/5 text-[#1a2332] border-2 border-[#1a2332] px-8 py-4 text-base font-semibold rounded-lg transition-all duration-200">
-                See How It Works
-              </Button>
-            </div>
-
-            <div className="flex flex-wrap items-center justify-center gap-8 text-[#4a5568]">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-[#d4a574]/10 rounded-full flex items-center justify-center">
-                  <ShieldCheck className="w-6 h-6 text-[#d4a574]" />
-                </div>
-                <div className="text-left">
-                  <div className="font-body text-sm font-semibold text-[#1a2332]">TCPA-Safe</div>
-                  <div className="font-body text-sm text-[#6b7280]">Opt-In Leads Only</div>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button className="bg-[#1a2332] hover:bg-[#2d3748] text-[#faf8f5] border-2 border-[#1a2332] px-8 py-4 text-lg font-semibold rounded-lg">
+                    Schedule Lead Flow Audit
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                  <Button className="bg-white hover:bg-[#f5f2ed] text-[#1a2332] border-2 border-[#1a2332] px-8 py-4 text-lg font-semibold rounded-lg">
+                    See How It Works
+                  </Button>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-[#d4a574]/10 rounded-full flex items-center justify-center">
-                  <Calendar className="w-6 h-6 text-[#d4a574]" />
-                </div>
-                <div className="text-left">
-                  <div className="font-body text-sm font-semibold text-[#1a2332]">CRM Integration</div>
-                  <div className="font-body text-sm text-[#6b7280]">Salesforce, HubSpot, More</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-[#d4a574]/10 rounded-full flex items-center justify-center">
-                  <Target className="w-6 h-6 text-[#d4a574]" />
-                </div>
-                <div className="text-left">
-                  <div className="font-body text-sm font-semibold text-[#1a2332]">Solar-Specific</div>
-                  <div className="font-body text-sm text-[#6b7280]">Built for Solar Sales</div>
+
+              {/* Right Column - 40% - 2 columns */}
+              <div className="lg:col-span-2">
+                <div className="space-y-6">
+                  <div className="bg-[#f5f2ed] border border-[#d4a574]/20 p-6 rounded-lg shadow-sm">
+                    <div className="flex items-center gap-4">
+                      <Shield className="w-8 h-8 text-[#d4a574]" />
+                      <p className="font-body text-[16px] text-[#1a2332] font-medium">TCPA-Safe Practices</p>
+                    </div>
+                  </div>
+                  <div className="bg-[#f5f2ed] border border-[#d4a574]/20 p-6 rounded-lg shadow-sm">
+                    <div className="flex items-center gap-4">
+                      <Calendar className="w-8 h-8 text-[#d4a574]" />
+                      <p className="font-body text-[16px] text-[#1a2332] font-medium">CRM Integration</p>
+                    </div>
+                  </div>
+                  <div className="bg-[#f5f2ed] border border-[#d4a574]/20 p-6 rounded-lg shadow-sm">
+                    <div className="flex items-center gap-4">
+                      <Target className="w-8 h-8 text-[#d4a574]" />
+                      <p className="font-body text-[16px] text-[#1a2332] font-medium">Solar-Specific</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -580,30 +576,51 @@ export default function LandingPage() {
             </h2>
 
             <p className="font-body text-[18px] leading-[1.7] text-[#4a5568] text-center mb-16 max-w-3xl mx-auto">
-              You're spending serious money on leads. But systematic leakage is costing you 30–50% of your potential
-              appointments before your setters even get a chance to qualify.
+              Solar teams spend $10K–$50K/month on paid leads, then lose 30–50% of potential appointments to preventable
+              gaps
             </p>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {problemCards.map((card, idx) => (
-                <div
-                  key={idx}
-                  className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded hover:shadow-md transition-all duration-300 hover:-translate-y-1"
-                >
-                  <div className="w-16 h-16 bg-[#d4a574]/10 rounded-full flex items-center justify-center mb-6">
-                    <div className="text-[#1a2332]">{card.icon}</div>
-                  </div>
-                  <h3 className="font-display text-[28px] leading-[1.3] font-medium text-[#1a2332] mb-3">
-                    {card.title}
-                  </h3>
-                  <p className="font-body text-[16px] leading-[1.6] text-[#4a5568]">{card.description}</p>
-                </div>
-              ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+              {/* Card 1 - standard position */}
+              <div className="bg-[#faf8f5] border-t-4 border-[#d4a574] p-10 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                {problemCards[0].icon}
+                <h3 className="font-display text-[28px] font-medium text-[#1a2332] mb-4 mt-6">
+                  {problemCards[0].title}
+                </h3>
+                <p className="font-body text-[16px] leading-[1.6] text-[#4a5568]">{problemCards[0].description}</p>
+              </div>
+
+              {/* Card 2 - offset down 20px */}
+              <div className="bg-[#faf8f5] border-t-4 border-[#d4a574] p-10 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 md:mt-20">
+                {problemCards[1].icon}
+                <h3 className="font-display text-[28px] font-medium text-[#1a2332] mb-4 mt-6">
+                  {problemCards[1].title}
+                </h3>
+                <p className="font-body text-[16px] leading-[1.6] text-[#4a5568]">{problemCards[1].description}</p>
+              </div>
+
+              {/* Card 3 - offset down 20px */}
+              <div className="bg-[#faf8f5] border-t-4 border-[#d4a574] p-10 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 md:mt-20">
+                {problemCards[2].icon}
+                <h3 className="font-display text-[28px] font-medium text-[#1a2332] mb-4 mt-6">
+                  {problemCards[2].title}
+                </h3>
+                <p className="font-body text-[16px] leading-[1.6] text-[#4a5568]">{problemCards[2].description}</p>
+              </div>
+
+              {/* Card 4 - standard position */}
+              <div className="bg-[#faf8f5] border-t-4 border-[#d4a574] p-10 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                {problemCards[3].icon}
+                <h3 className="font-display text-[28px] font-medium text-[#1a2332] mb-4 mt-6">
+                  {problemCards[3].title}
+                </h3>
+                <p className="font-body text-[16px] leading-[1.6] text-[#4a5568]">{problemCards[3].description}</p>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* DIY vs SolarSales AI Toolkit Comparison */}
+        {/* DIY AI Toolkits vs. SolarSales AI Toolkit Comparison - Refined with border-left accent */}
         <section className="py-32 bg-[#f5f2ed]">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="font-display text-[48px] leading-[1.2] font-semibold text-[#1a2332] text-center mb-4">
@@ -614,55 +631,51 @@ export default function LandingPage() {
               you get results without the operational burden.
             </p>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* DIY Burden Column */}
-              <div className="bg-[#faf8f5] border-2 border-red-200 rounded-lg overflow-hidden">
-                <div className="bg-red-50 border-b-2 border-red-200 px-8 py-6">
-                  <div className="flex items-center gap-3">
-                    <AlertTriangle className="w-8 h-8 text-red-600" />
-                    <h3 className="font-display text-[28px] leading-[1.3] font-medium text-[#1a2332]">
-                      DIY AI Toolkits
-                    </h3>
-                  </div>
-                  <p className="font-body text-[16px] leading-[1.6] text-[#4a5568] mt-2">
-                    You get access to software, but...
-                  </p>
-                </div>
-                <div className="px-8 py-8 space-y-5">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+              {/* DIY Toolkit Card */}
+              <div className="bg-[#faf8f5] border-l-4 border-[#ef4444] p-12 rounded-lg shadow-sm">
+                <h3 className="font-display text-[32px] font-semibold text-[#1a2332] mb-8 text-center">
+                  With AI Phone Tools
+                </h3>
+
+                <div className="space-y-4 mb-8">
                   {toolkitBurdens.map((burden, idx) => (
                     <div key={idx} className="flex items-start gap-4">
-                      <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
-                        <X className="w-5 h-5 text-red-600" />
-                      </div>
-                      <p className="font-body text-[16px] leading-[1.6] text-[#4a5568] pt-1">{burden}</p>
+                      <span className="text-[#ef4444] text-xl font-bold">—</span>
+                      <span className="font-body text-[16px] text-[#4a5568]">{burden}</span>
                     </div>
                   ))}
+                </div>
+
+                <div className="flex items-center gap-3 pt-8 border-t border-[#ef4444]/20">
+                  <Clock className="w-6 h-6 text-[#ef4444]" />
+                  <span className="font-body text-[18px] font-semibold text-[#1a2332]">Weeks to launch</span>
                 </div>
               </div>
 
-              {/* SolarSales AI Column */}
-              <div className="bg-[#faf8f5] border-2 border-[#2d5f4f]/30 rounded-lg overflow-hidden">
-                <div className="bg-[#2d5f4f]/10 border-b-2 border-[#2d5f4f]/30 px-8 py-6">
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="w-8 h-8 text-[#2d5f4f]" />
-                    <h3 className="font-display text-[28px] leading-[1.3] font-medium text-[#1a2332]">SolarSales AI</h3>
-                  </div>
-                  <p className="font-body text-[16px] leading-[1.6] text-[#4a5568] mt-2">We run it for you</p>
-                </div>
-                <div className="px-8 py-8 space-y-5">
+              {/* SolarSales AI Card */}
+              <div className="bg-[#faf8f5] border-l-4 border-[#d4a574] p-12 rounded-lg shadow-sm">
+                <h3 className="font-display text-[32px] font-semibold text-[#1a2332] mb-8 text-center">
+                  With SolarSales AI
+                </h3>
+
+                <div className="space-y-4 mb-8">
                   {ourApproach.map((approach, idx) => (
                     <div key={idx} className="flex items-start gap-4">
-                      <div className="w-8 h-8 bg-[#2d5f4f]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                        <Check className="w-5 h-5 text-[#2d5f4f]" />
-                      </div>
-                      <p className="font-body text-[16px] leading-[1.6] text-[#4a5568] pt-1">{approach}</p>
+                      <Check className="w-6 h-6 text-[#2d5f4f] flex-shrink-0 mt-1" />
+                      <span className="font-body text-[16px] text-[#1a2332] font-medium">{approach}</span>
                     </div>
                   ))}
+                </div>
+
+                <div className="flex items-center gap-3 pt-8 border-t border-[#d4a574]/20">
+                  <Zap className="w-6 h-6 text-[#d4a574]" />
+                  <span className="font-body text-[18px] font-semibold text-[#1a2332]">Week 1 operational</span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-12 bg-[#2d5f4f]/10 border-2 border-[#2d5f4f]/20 rounded-lg px-8 py-6">
+            <div className="mt-12 bg-[#2d5f4f]/10 border-2 border-[#2d5f4f]/20 rounded-lg px-8 py-6 max-w-4xl mx-auto">
               <div className="flex items-start gap-4">
                 <TrendingUp className="w-8 h-8 text-[#2d5f4f] flex-shrink-0" />
                 <p className="font-body text-[18px] leading-[1.7] text-[#1a2332] font-medium">
@@ -786,7 +799,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Solar Revenue Capture Program - Two-Path Offer */}
+        {/* Solar Revenue Capture Program - Changed to STACKED full-width cards */}
         <section id="pricing" className="py-32 bg-[#faf8f5]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <p className="uppercase tracking-wider text-sm font-semibold text-[#d4a574] mb-4 text-center">
@@ -800,36 +813,33 @@ export default function LandingPage() {
               Two starting points, both designed to prove ROI before asking for long-term commitment
             </p>
 
-            <div className="grid lg:grid-cols-5 gap-8 items-start">
-              {/* Dead Leads Sprint - More Prominent (3 columns) */}
-              <div className="lg:col-span-3 bg-[#faf8f5] border-4 border-[#d4a574] rounded-lg shadow-md relative overflow-hidden">
-                {/* Badge */}
-                <div className="absolute top-6 right-6">
-                  <div className="bg-[#d4a574] text-[#faf8f5] px-4 py-2 rounded-full font-body text-sm font-semibold animate-pulse">
-                    Recommended Starting Point
-                  </div>
+            <div className="max-w-4xl mx-auto space-y-8">
+              {/* DLS Card - Full Width, Dominant */}
+              <div className="relative">
+                {/* Badge positioned absolute */}
+                <div className="absolute -top-4 left-8 bg-[#d4a574] text-[#1a2332] px-6 py-2 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg z-10">
+                  <Target className="w-4 h-4" />
+                  Recommended Starting Point
                 </div>
 
-                <div className="p-10">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-[#d4a574]/20 to-[#d4a574]/10 rounded-full flex items-center justify-center">
-                      <Zap className="w-8 h-8 text-[#d4a574]" />
-                    </div>
-                    <div>
-                      <h3 className="font-display text-[36px] leading-[1.2] font-medium text-[#1a2332]">
-                        Dead Leads Sprint
-                      </h3>
-                      <p className="font-body text-[16px] leading-[1.6] text-[#4a5568]">Time-boxed revival campaign</p>
-                    </div>
+                <div className="bg-[#faf8f5] border-2 border-[#d4a574] rounded-lg p-12 shadow-md">
+                  <div className="flex items-center gap-4 mb-6 mt-2">
+                    <Zap className="w-12 h-12 text-[#d4a574]" />
+                    <h3 className="font-display text-[36px] font-semibold text-[#1a2332]">Dead Leads Sprint (DLS)</h3>
                   </div>
 
-                  <p className="font-body text-[18px] leading-[1.7] text-[#4a5568] mb-6">
+                  <p className="uppercase tracking-wider text-sm font-semibold text-[#d4a574] mb-4">
+                    Low-risk entry point
+                  </p>
+
+                  <p className="font-body text-[18px] leading-[1.7] text-[#4a5568] mb-8">
                     <strong className="text-[#1a2332]">What we do:</strong> We run a 2–4 week AI voice + SMS campaign on
                     your aged/dead leads. We call, qualify, and book appointments with prospects you've already paid for
                     but written off.
                   </p>
 
-                  <div className="space-y-4 mb-8">
+                  {/* Feature list */}
+                  <div className="space-y-4 mb-12">
                     <div className="flex items-start gap-3">
                       <CheckCircle className="w-6 h-6 text-[#2d5f4f] flex-shrink-0 mt-1" />
                       <p className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
@@ -861,8 +871,9 @@ export default function LandingPage() {
                     </p>
                   </div>
 
-                  <Button className="w-full bg-[#d4a574] hover:bg-[#c49564] text-[#faf8f5] px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-200 hover:shadow-md">
-                    Start Dead Leads Sprint
+                  {/* CTA - full width */}
+                  <Button className="w-full bg-[#1a2332] hover:bg-[#2d3748] text-[#faf8f5] py-6 text-lg font-semibold rounded-lg">
+                    Start a Dead Leads Sprint
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
 
@@ -872,64 +883,61 @@ export default function LandingPage() {
                 </div>
               </div>
 
-              {/* Revenue Protection System - Smaller (2 columns) */}
-              <div className="lg:col-span-2 bg-[#faf8f5] border-2 border-[#1a2332]/20 rounded-lg shadow-sm">
-                <div className="p-10">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-14 h-14 bg-[#1a2332]/10 rounded-full flex items-center justify-center">
-                      <Shield className="w-7 h-7 text-[#1a2332]" />
-                    </div>
-                    <div>
-                      <h3 className="font-display text-[28px] leading-[1.3] font-medium text-[#1a2332]">
-                        Revenue Protection System
-                      </h3>
-                      <p className="font-body text-sm text-[#4a5568]">Ongoing intake & follow-up</p>
-                    </div>
-                  </div>
+              {/* RPS Card - Full Width, Secondary */}
+              <div className="bg-[#faf8f5] border border-[#1a2332]/30 rounded-lg p-10 shadow-sm">
+                <div className="flex items-center gap-4 mb-4">
+                  <Shield className="w-10 h-10 text-[#1a2332]" />
+                  <h3 className="font-display text-[32px] font-semibold text-[#1a2332]">
+                    Revenue Protection System (RPS)
+                  </h3>
+                </div>
 
-                  <p className="font-body text-[16px] leading-[1.6] text-[#4a5568] mb-6">
-                    <strong className="text-[#1a2332]">What we do:</strong> We plug systematic AI follow-up into your
-                    ongoing lead flow—new leads, missed calls, and after-hours inquiries.
-                  </p>
+                <p className="uppercase tracking-wider text-sm font-semibold text-[#1a2332]/70 mb-4">
+                  Ongoing pipeline protection
+                </p>
 
-                  <div className="space-y-4 mb-8">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-[#2d5f4f] flex-shrink-0 mt-1" />
-                      <p className="font-body text-sm text-[#4a5568]">
-                        <strong className="text-[#1a2332]">Rapid callbacks:</strong> New leads contacted within minutes
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-[#2d5f4f] flex-shrink-0 mt-1" />
-                      <p className="font-body text-sm text-[#4a5568]">
-                        <strong className="text-[#1a2332]">Missed call recovery:</strong> Systematic follow-up, not
-                        random
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-[#2d5f4f] flex-shrink-0 mt-1" />
-                      <p className="font-body text-sm text-[#4a5568]">
-                        <strong className="text-[#1a2332]">After-hours coverage:</strong> No more leads going cold
-                        overnight
-                      </p>
-                    </div>
-                  </div>
+                <p className="font-body text-[16px] leading-[1.7] text-[#4a5568] mb-8">
+                  <strong className="text-[#1a2332]">What we do:</strong> We plug systematic AI follow-up into your
+                  ongoing lead flow—new leads, missed calls, and after-hours inquiries.
+                </p>
 
-                  <div className="bg-[#f5f2ed] rounded-lg p-5 mb-8">
-                    <p className="font-body text-sm text-[#1a2332]">
-                      <strong>Typical outcome:</strong> 20–35% more qualified appointments from the same ad spend
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-[#2d5f4f] flex-shrink-0 mt-1" />
+                    <p className="font-body text-sm text-[#4a5568]">
+                      <strong className="text-[#1a2332]">Rapid callbacks:</strong> New leads contacted within minutes
                     </p>
                   </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-[#2d5f4f] flex-shrink-0 mt-1" />
+                    <p className="font-body text-sm text-[#4a5568]">
+                      <strong className="text-[#1a2332]">Missed call recovery:</strong> Systematic follow-up, not random
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-[#2d5f4f] flex-shrink-0 mt-1" />
+                    <p className="font-body text-sm text-[#4a5568]">
+                      <strong className="text-[#1a2332]">After-hours coverage:</strong> No more leads going cold
+                      overnight
+                    </p>
+                  </div>
+                </div>
 
-                  <Button className="w-full bg-[#1a2332] hover:bg-[#2d3748] text-[#faf8f5] px-6 py-3 text-base font-semibold rounded-lg transition-all duration-200 hover:shadow-md">
-                    Start RPS Pilot
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </Button>
-
-                  <p className="font-body text-xs text-[#6b7280] text-center mt-4">
-                    Recommended after DLS validates the approach
+                <div className="bg-[#f5f2ed] rounded-lg p-5 mb-8">
+                  <p className="font-body text-sm text-[#1a2332]">
+                    <strong>Typical outcome:</strong> 20–35% more qualified appointments from the same ad spend
                   </p>
                 </div>
+
+                {/* CTA - outlined */}
+                <Button className="w-full bg-transparent border-2 border-[#1a2332] text-[#1a2332] hover:bg-[#1a2332]/5 py-6 text-lg font-semibold rounded-lg">
+                  Learn About RPS
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+
+                <p className="font-body text-xs text-[#6b7280] text-center mt-4">
+                  Recommended after DLS validates the approach
+                </p>
               </div>
             </div>
 
@@ -1054,9 +1062,9 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Your First 30 Days Timeline Section */}
+        {/* Your First 30 Days Timeline Section - Converted to HORIZONTAL with connecting lines */}
         <section className="py-32 bg-[#faf8f5]">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="font-display text-[48px] leading-[1.2] font-semibold text-[#1a2332] text-center mb-4">
               Your First 30 Days with SolarSales AI
             </h2>
@@ -1064,462 +1072,215 @@ export default function LandingPage() {
               Here's exactly what happens from Lead Flow Audit to seeing appointments on your calendar:
             </p>
 
-            <div className="relative space-y-12">
-              {/* Vertical timeline line */}
-              <div className="absolute left-8 top-8 bottom-8 w-0.5 bg-[#1a2332]/20"></div>
+            <div className="relative">
+              {/* Connecting line (desktop only) */}
+              <div className="hidden lg:block absolute top-8 left-0 right-0 h-1 bg-[#d4a574]/20" />
 
-              {/* Stage 1 */}
-              <div className="relative pl-24">
-                <div className="absolute left-0 top-0 w-16 h-16 bg-[#1a2332] text-[#faf8f5] rounded-full flex items-center justify-center font-display text-2xl font-semibold shadow-md">
-                  1
-                </div>
-                <div className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded shadow-sm">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-[#1a2332]/10 rounded-full flex items-center justify-center">
-                      <Search className="w-5 h-5 text-[#1a2332]" />
-                    </div>
-                    <h3 className="font-display text-[28px] leading-[1.3] font-medium text-[#1a2332]">
-                      Week 1: Audit & Alignment
-                    </h3>
+              <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+                {/* Week 1 */}
+                <div className="relative">
+                  <div className="relative z-10 w-16 h-16 bg-[#d4a574] rounded-full flex items-center justify-center mb-6 shadow-lg mx-auto lg:mx-0">
+                    <span className="font-display text-[24px] font-bold text-[#1a2332]">1</span>
                   </div>
-                  <div className="space-y-4">
-                    <div>
-                      <p className="font-body text-[16px] leading-[1.6] text-[#1a2332] font-semibold mb-2">
-                        Lead Flow Audit Call (45 minutes)
-                      </p>
-                      <ul className="space-y-2 ml-4">
-                        <li className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                          • We analyze your current lead sources, CRM, and appointment flow
-                        </li>
-                        <li className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                          • Identify specific leakage points (speed-to-lead, missed calls, dead leads)
-                        </li>
-                        <li className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                          • Scope integration requirements (CRM, calendar, lead routing)
-                        </li>
-                      </ul>
-                    </div>
-                    <div>
-                      <p className="font-body text-[16px] leading-[1.6] text-[#1a2332] font-semibold mb-2">
-                        Script & Criteria Approval
-                      </p>
-                      <ul className="space-y-2 ml-4">
-                        <li className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                          • We draft qualification scripts based on your ICP and offer
-                        </li>
-                        <li className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                          • You review and approve: calling hours, qualification questions, booking logic
-                        </li>
-                        <li className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                          • We configure your branding and caller ID
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
-              {/* Stage 2 */}
-              <div className="relative pl-24">
-                <div className="absolute left-0 top-0 w-16 h-16 bg-[#1a2332] text-[#faf8f5] rounded-full flex items-center justify-center font-display text-2xl font-semibold shadow-md">
-                  2
-                </div>
-                <div className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded shadow-sm">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-[#1a2332]/10 rounded-full flex items-center justify-center">
-                      <Settings className="w-5 h-5 text-[#1a2332]" />
-                    </div>
-                    <h3 className="font-display text-[28px] leading-[1.3] font-medium text-[#1a2332]">
-                      Week 2: Setup & Testing
+                  <div className="bg-[#faf8f5] border border-[#d4a574]/20 p-8 rounded-lg shadow-sm">
+                    <h3 className="font-display text-[24px] font-semibold text-[#1a2332] mb-4 text-center lg:text-left">
+                      Week 1: Audit & Setup
                     </h3>
-                  </div>
-                  <div className="space-y-4">
-                    <div>
-                      <p className="font-body text-[16px] leading-[1.6] text-[#1a2332] font-semibold mb-2">
-                        Technical Integration
-                      </p>
-                      <ul className="space-y-2 ml-4">
-                        <li className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                          • CRM connection established (Salesforce, HubSpot, Pipedrive, or custom API)
-                        </li>
-                        <li className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                          • Calendar integration completed (Google, Outlook, Calendly, etc.)
-                        </li>
-                        <li className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                          • Lead routing configured (new leads, missed calls, or dead lead lists)
-                        </li>
-                      </ul>
-                    </div>
-                    <div>
-                      <p className="font-body text-[16px] leading-[1.6] text-[#1a2332] font-semibold mb-2">
-                        Test Campaign
-                      </p>
-                      <ul className="space-y-2 ml-4">
-                        <li className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                          • We conduct 10–20 test calls with your guidance
-                        </li>
-                        <li className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                          • You review call recordings and provide feedback
-                        </li>
-                        <li className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                          • Scripts refined based on your input
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="bg-[#f5f2ed] rounded-lg p-4 mt-4">
-                      <p className="font-body text-[16px] leading-[1.6] text-[#1a2332]">
-                        You approve everything before we go live.
-                      </p>
-                    </div>
+                    <p className="font-body text-[16px] leading-[1.6] text-[#4a5568] mb-6">
+                      Lead Flow Audit Call to identify leakage points. Script & criteria approval. Integration scoping.
+                    </p>
+                    <ul className="space-y-2">
+                      <li className="font-body text-sm text-[#4a5568]">• CRM & calendar analysis</li>
+                      <li className="font-body text-sm text-[#4a5568]">• Script approval</li>
+                      <li className="font-body text-sm text-[#4a5568]">• Branding configuration</li>
+                    </ul>
                   </div>
                 </div>
-              </div>
 
-              {/* Stage 3 */}
-              <div className="relative pl-24">
-                <div className="absolute left-0 top-0 w-16 h-16 bg-[#d4a574] text-[#faf8f5] rounded-full flex items-center justify-center font-display text-xl font-semibold shadow-md">
-                  3–4
-                </div>
-                <div className="bg-[#faf8f5] border-2 border-[#d4a574]/30 p-10 rounded shadow-sm">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-[#d4a574]/10 rounded-full flex items-center justify-center">
-                      <Rocket className="w-5 h-5 text-[#d4a574]" />
-                    </div>
-                    <h3 className="font-display text-[28px] leading-[1.3] font-medium text-[#1a2332]">
-                      Week 3–4: Campaign Launch & Optimization
-                    </h3>
+                {/* Week 2 */}
+                <div className="relative">
+                  <div className="relative z-10 w-16 h-16 bg-[#d4a574] rounded-full flex items-center justify-center mb-6 shadow-lg mx-auto lg:mx-0">
+                    <span className="font-display text-[24px] font-bold text-[#1a2332]">2</span>
                   </div>
-                  <ul className="space-y-3">
-                    <li className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                      <strong className="text-[#1a2332]">Dead Leads Sprint:</strong> Revival campaign begins on
-                      aged/dead leads
-                    </li>
-                    <li className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                      <strong className="text-[#1a2332]">RPS Pilot:</strong> New lead intake and missed call follow-up
-                      starts
-                    </li>
-                    <li className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                      <strong className="text-[#1a2332]">What you get:</strong>
-                      <ul className="ml-6 mt-2 space-y-1">
-                        <li>• Daily campaign monitoring and optimization</li>
-                        <li>• Weekly reporting: calls made, conversations held, appointments booked</li>
-                        <li>• Call recordings and transcripts for quality review</li>
-                        <li>• Adjustments based on your feedback and conversion data</li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </div>
 
-              {/* Stage 4 */}
-              <div className="relative pl-24">
-                <div className="absolute left-0 top-0 w-16 h-16 bg-[#2d5f4f] text-[#faf8f5] rounded-full flex items-center justify-center font-display text-xl font-semibold shadow-md">
-                  5+
-                </div>
-                <div className="bg-[#faf8f5] border-2 border-[#2d5f4f]/30 p-10 rounded shadow-sm">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-[#2d5f4f]/10 rounded-full flex items-center justify-center">
-                      <TrendingUp className="w-5 h-5 text-[#2d5f4f]" />
-                    </div>
-                    <h3 className="font-display text-[28px] leading-[1.3] font-medium text-[#1a2332]">
-                      Week 5+: Results & Decision Point
+                  <div className="bg-[#faf8f5] border border-[#d4a574]/20 p-8 rounded-lg shadow-sm">
+                    <h3 className="font-display text-[24px] font-semibold text-[#1a2332] mb-4 text-center lg:text-left">
+                      Week 2: Integration
                     </h3>
+                    <p className="font-body text-[16px] leading-[1.6] text-[#4a5568] mb-6">
+                      Technical integration completed. Test campaign conducted with your feedback.
+                    </p>
+                    <ul className="space-y-2">
+                      <li className="font-body text-sm text-[#4a5568]">• CRM connection live</li>
+                      <li className="font-body text-sm text-[#4a5568]">• 10–20 test calls</li>
+                      <li className="font-body text-sm text-[#4a5568]">• Script refinement</li>
+                    </ul>
                   </div>
-                  <div className="space-y-4">
-                    <div>
-                      <p className="font-body text-[16px] leading-[1.6] text-[#1a2332] font-semibold mb-2">
-                        You review the data:
-                      </p>
-                      <ul className="space-y-2 ml-4">
-                        <li className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                          • Total appointments booked
-                        </li>
-                        <li className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                          • Show rates and qualification accuracy
-                        </li>
-                        <li className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                          • Revenue impact (if deals have closed)
-                        </li>
-                      </ul>
-                    </div>
-                    <div>
-                      <p className="font-body text-[16px] leading-[1.6] text-[#1a2332] font-semibold mb-2">
-                        Then decide:
-                      </p>
-                      <ul className="space-y-2 ml-4">
-                        <li className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                          • Dead Leads Sprint: Expand to full Revenue Protection System?
-                        </li>
-                        <li className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                          • RPS Pilot: Scale to full lead volume?
-                        </li>
-                        <li className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                          Zero obligation to continue if results don't justify expansion.
-                        </li>
-                      </ul>
-                    </div>
+                </div>
+
+                {/* Week 3-4 */}
+                <div className="relative">
+                  <div className="relative z-10 w-16 h-16 bg-[#d4a574] rounded-full flex items-center justify-center mb-6 shadow-lg mx-auto lg:mx-0">
+                    <span className="font-display text-[20px] font-bold text-[#1a2332]">3–4</span>
+                  </div>
+
+                  <div className="bg-[#faf8f5] border border-[#d4a574]/20 p-8 rounded-lg shadow-sm">
+                    <h3 className="font-display text-[24px] font-semibold text-[#1a2332] mb-4 text-center lg:text-left">
+                      Weeks 3–4: Launch
+                    </h3>
+                    <p className="font-body text-[16px] leading-[1.6] text-[#4a5568] mb-6">
+                      Campaign goes live. Daily monitoring and weekly reporting begins.
+                    </p>
+                    <ul className="space-y-2">
+                      <li className="font-body text-sm text-[#4a5568]">• DLS or RPS pilot starts</li>
+                      <li className="font-body text-sm text-[#4a5568]">• Daily optimization</li>
+                      <li className="font-body text-sm text-[#4a5568]">• Weekly reports</li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Week 5+ */}
+                <div className="relative">
+                  <div className="relative z-10 w-16 h-16 bg-[#2d5f4f] rounded-full flex items-center justify-center mb-6 shadow-lg mx-auto lg:mx-0">
+                    <span className="font-display text-[20px] font-bold text-[#faf8f5]">5+</span>
+                  </div>
+
+                  <div className="bg-[#faf8f5] border border-[#2d5f4f]/20 p-8 rounded-lg shadow-sm">
+                    <h3 className="font-display text-[24px] font-semibold text-[#1a2332] mb-4 text-center lg:text-left">
+                      Week 5+: Results
+                    </h3>
+                    <p className="font-body text-[16px] leading-[1.6] text-[#4a5568] mb-6">
+                      Review data and decide: expand, continue, or pause. Zero obligation.
+                    </p>
+                    <ul className="space-y-2">
+                      <li className="font-body text-sm text-[#4a5568]">• Appointments booked</li>
+                      <li className="font-body text-sm text-[#4a5568]">• Show rate analysis</li>
+                      <li className="font-body text-sm text-[#4a5568]">• Expansion decision</li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="mt-16 text-center">
-              <p className="font-display text-[28px] leading-[1.3] font-medium text-[#1a2332]">
+              <p className="font-body text-[20px] leading-[1.7] text-[#1a2332] font-semibold max-w-3xl mx-auto">
                 We focus on proving ROI in the first 30 days before asking for long-term commitment.
               </p>
             </div>
           </div>
         </section>
 
-        {/* What SolarSales AI Is Not */}
-        <section className="py-32 bg-[#f5f2ed]">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="font-display text-[48px] leading-[1.2] font-semibold text-[#1a2332] text-center mb-4">
-              What SolarSales AI Is Not
-            </h2>
-            <p className="font-body text-[18px] leading-[1.7] text-[#4a5568] text-center mb-16 max-w-3xl mx-auto">
-              Let's be clear about what we're not offering
-            </p>
-
-            <div className="space-y-6">
-              {whatWeAreNot.map((item, idx) => (
-                <div
-                  key={idx}
-                  className="bg-[#faf8f5] border-l-4 border-[#1a2332] p-10 rounded shadow-sm hover:shadow-md transition-all duration-200"
-                >
-                  <div className="flex items-start gap-6">
-                    <div className="w-12 h-12 bg-[#1a2332]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <X className="w-6 h-6 text-[#1a2332]" />
-                    </div>
-                    <div>
-                      <h3 className="font-display text-[28px] leading-[1.3] font-medium text-[#1a2332] mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="font-body text-[16px] leading-[1.6] text-[#4a5568]">{item.description}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Who This Is For */}
-        <section className="py-32 bg-[#faf8f5]">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="font-display text-[48px] leading-[1.2] font-semibold text-[#1a2332] text-center mb-16">
-              Who This Is For (And Who It's Not)
-            </h2>
-
-            <div className="grid md:grid-cols-2 gap-12">
-              {/* Great For */}
-              <div className="bg-[#2d5f4f]/5 border-2 border-[#2d5f4f]/20 rounded-lg p-10">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 bg-[#2d5f4f]/10 rounded-full flex items-center justify-center">
-                    <CheckCircle className="w-6 h-6 text-[#2d5f4f]" />
-                  </div>
-                  <h3 className="font-display text-[36px] leading-[1.2] font-medium text-[#1a2332]">Great For</h3>
-                </div>
-                <ul className="space-y-4">
-                  {greatFor.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-[#2d5f4f] flex-shrink-0 mt-1" />
-                      <p className="font-body text-[16px] leading-[1.6] text-[#4a5568]">{item}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Not Right Fit */}
-              <div className="bg-red-50/50 border-2 border-red-200 rounded-lg p-10">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
-                    <XCircle className="w-6 h-6 text-red-600" />
-                  </div>
-                  <h3 className="font-display text-[36px] leading-[1.2] font-medium text-[#1a2332]">Not Right Fit</h3>
-                </div>
-                <ul className="space-y-4">
-                  {notRightFit.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <X className="w-5 h-5 text-red-600 flex-shrink-0 mt-1" />
-                      <p className="font-body text-[16px] leading-[1.6] text-[#4a5568]">{item}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Expanded Compliance Section */}
-        <section className="py-32 bg-[#f5f2ed]">
+        <section className="py-32 bg-[#1a2332]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="uppercase tracking-wider text-sm font-semibold text-[#d4a574] mb-4 text-center">
-              How We Protect Your Business
-            </p>
-
-            <h2 className="font-display text-[48px] leading-[1.2] font-semibold text-[#1a2332] text-center mb-4">
-              Opt-In Leads Only. TCPA-Safe Practices.
-            </h2>
-            <p className="font-body text-[18px] leading-[1.7] text-[#4a5568] text-center mb-16 max-w-3xl mx-auto">
-              We work exclusively with leads who have opted in through your forms, LSA campaigns, and paid lead sources.
-              Here's exactly how we protect your business:
-            </p>
-
-            <h3 className="font-display text-[36px] leading-[1.2] font-medium text-[#1a2332] text-center mb-12">
-              How We Ensure TCPA Compliance
-            </h3>
-
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
-              {/* Compliance Subsections */}
-              <div className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded shadow-sm">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-10 h-10 bg-[#1a2332]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <CheckCircle className="w-5 h-5 text-[#1a2332]" />
-                  </div>
-                  <div>
-                    <h4 className="font-display text-[28px] leading-[1.3] font-medium text-[#1a2332] mb-2">
-                      Opt-In Verification
-                    </h4>
-                    <p className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                      We only contact leads who submitted your forms, called your LSA numbers, or came through verified
-                      lead vendors with explicit consent documented. No cold lists, no scraped data.
-                    </p>
-                  </div>
-                </div>
+            {/* Header */}
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-[#d4a574] rounded-full mb-6">
+                <Shield className="w-10 h-10 text-[#1a2332]" />
               </div>
 
-              <div className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded shadow-sm">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-10 h-10 bg-[#1a2332]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-5 h-5 text-[#1a2332]" />
-                  </div>
-                  <div>
-                    <h4 className="font-display text-[28px] leading-[1.3] font-medium text-[#1a2332] mb-2">
-                      Call Window Controls
-                    </h4>
-                    <p className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                      You set the calling hours (typically 9am–7pm in the lead's local time zone). We never call outside
-                      your approved windows. After-hours leads get queued for next-day contact.
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <h2 className="font-display text-[48px] font-semibold text-[#faf8f5] mb-4">
+                Compliance-First Contact Strategy
+              </h2>
 
-              <div className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded shadow-sm">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-10 h-10 bg-[#1a2332]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <XCircle className="w-5 h-5 text-[#1a2332]" />
-                  </div>
-                  <div>
-                    <h4 className="font-display text-[28px] leading-[1.3] font-medium text-[#1a2332] mb-2">
-                      Instant Opt-Out
-                    </h4>
-                    <p className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                      Every call includes clear opt-out language. SMS replies with "STOP" are honored immediately and
-                      permanently. DNC requests are synced to your CRM within minutes.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded shadow-sm">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-10 h-10 bg-[#1a2332]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-5 h-5 text-[#1a2332]" />
-                  </div>
-                  <div>
-                    <h4 className="font-display text-[28px] leading-[1.3] font-medium text-[#1a2332] mb-2">
-                      Clear Caller Identification
-                    </h4>
-                    <p className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                      All calls identify your company name, purpose of contact, and callback number. No spoofed numbers,
-                      no misleading caller IDs.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded shadow-sm">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-10 h-10 bg-[#1a2332]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <FileCheck className="w-5 h-5 text-[#1a2332]" />
-                  </div>
-                  <div>
-                    <h4 className="font-display text-[28px] leading-[1.3] font-medium text-[#1a2332] mb-2">
-                      Regular Compliance Audits
-                    </h4>
-                    <p className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                      Monthly compliance reviews are included in setup. We monitor call recordings, check opt-out
-                      handling, and verify consent documentation.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded shadow-sm">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-10 h-10 bg-[#1a2332]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Eye className="w-5 h-5 text-[#1a2332]" />
-                  </div>
-                  <div>
-                    <h4 className="font-display text-[28px] leading-[1.3] font-medium text-[#1a2332] mb-2">
-                      Transparent Operations
-                    </h4>
-                    <p className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                      You have full access to call recordings, transcripts, and campaign logs. Nothing happens behind
-                      the scenes.
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <p className="font-body text-[20px] leading-[1.7] text-[#faf8f5]/80 max-w-3xl mx-auto">
+                We work exclusively with leads who have opted in through your forms, LSA campaigns, and paid lead
+                sources.
+              </p>
             </div>
 
-            {/* Trust Badges */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-              <div className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-8 rounded shadow-sm text-center">
-                <div className="w-14 h-14 bg-[#1a2332]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <ShieldCheck className="w-7 h-7 text-[#1a2332]" />
+            {/* 6 compliance points - 2x3 grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+              {/* Opt-In Verification */}
+              <div className="bg-[#2d3748] p-8 rounded-lg">
+                <div className="flex items-center gap-4 mb-4">
+                  <CheckCircle className="w-8 h-8 text-[#d4a574]" />
+                  <h4 className="font-display text-[20px] font-medium text-[#faf8f5]">Opt-In Verification</h4>
                 </div>
-                <p className="font-body text-sm font-semibold text-[#1a2332] mb-2">TCPA-Safe Practices</p>
-                <p className="font-body text-xs text-[#4a5568]">Strict adherence to TCPA requirements</p>
-              </div>
-
-              <div className="bg-[#faf8f5] border-2 border-[#2d5f4f]/30 p-8 rounded shadow-sm text-center">
-                <div className="w-14 h-14 bg-[#2d5f4f]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle className="w-7 h-7 text-[#2d5f4f]" />
-                </div>
-                <p className="font-body text-sm font-semibold text-[#1a2332] mb-2">Opt-In Leads Only</p>
-                <p className="font-body text-xs text-[#4a5568]">Zero cold calling. Documented consent.</p>
-              </div>
-
-              <div className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-8 rounded shadow-sm text-center">
-                <div className="w-14 h-14 bg-[#1a2332]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Clock className="w-7 h-7 text-[#1a2332]" />
-                </div>
-                <p className="font-body text-sm font-semibold text-[#1a2332] mb-2">Client-Controlled Hours</p>
-                <p className="font-body text-xs text-[#4a5568]">You set the windows. We respect them.</p>
-              </div>
-
-              <div className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-8 rounded shadow-sm text-center">
-                <div className="w-14 h-14 bg-[#1a2332]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Eye className="w-7 h-7 text-[#1a2332]" />
-                </div>
-                <p className="font-body text-sm font-semibold text-[#1a2332] mb-2">Full Transparency</p>
-                <p className="font-body text-xs text-[#4a5568]">Complete access to all recordings and logs.</p>
-              </div>
-            </div>
-
-            {/* Highlight Box */}
-            <div className="bg-[#2d5f4f]/10 border-2 border-[#2d5f4f]/20 rounded-lg px-10 py-8 max-w-4xl mx-auto">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[#2d5f4f]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Shield className="w-6 h-6 text-[#2d5f4f]" />
-                </div>
-                <p className="font-body text-[18px] leading-[1.7] text-[#1a2332]">
-                  We're the safe way to capture more appointments from leads you already paid for, without compliance
-                  risk. Your business, your rules, our execution.
+                <p className="font-body text-[16px] leading-[1.6] text-[#faf8f5]/70">
+                  We only contact leads who submitted your forms, called your LSA numbers, or came through verified lead
+                  vendors with explicit consent documented. No cold lists, no scraped data.
                 </p>
+              </div>
+
+              {/* Call Window Controls */}
+              <div className="bg-[#2d3748] p-8 rounded-lg">
+                <div className="flex items-center gap-4 mb-4">
+                  <Clock className="w-8 h-8 text-[#d4a574]" />
+                  <h4 className="font-display text-[20px] font-medium text-[#faf8f5]">Call Window Controls</h4>
+                </div>
+                <p className="font-body text-[16px] leading-[1.6] text-[#faf8f5]/70">
+                  You set the calling hours (typically 9am–7pm in the lead's local time zone). We never call outside
+                  your approved windows. After-hours leads get queued for next-day contact.
+                </p>
+              </div>
+
+              {/* Instant Opt-Out */}
+              <div className="bg-[#2d3748] p-8 rounded-lg">
+                <div className="flex items-center gap-4 mb-4">
+                  <XCircle className="w-8 h-8 text-[#d4a574]" />
+                  <h4 className="font-display text-[20px] font-medium text-[#faf8f5]">Instant Opt-Out</h4>
+                </div>
+                <p className="font-body text-[16px] leading-[1.6] text-[#faf8f5]/70">
+                  Every call includes clear opt-out language. SMS replies with "STOP" are honored immediately and
+                  permanently. DNC requests are synced to your CRM within minutes.
+                </p>
+              </div>
+
+              {/* Clear Caller Identification */}
+              <div className="bg-[#2d3748] p-8 rounded-lg">
+                <div className="flex items-center gap-4 mb-4">
+                  <Phone className="w-8 h-8 text-[#d4a574]" />
+                  <h4 className="font-display text-[20px] font-medium text-[#faf8f5]">Clear Caller Identification</h4>
+                </div>
+                <p className="font-body text-[16px] leading-[1.6] text-[#faf8f5]/70">
+                  All calls identify your company name, purpose of contact, and callback number. No spoofed numbers, no
+                  misleading caller IDs.
+                </p>
+              </div>
+
+              {/* Regular Compliance Audits */}
+              <div className="bg-[#2d3748] p-8 rounded-lg">
+                <div className="flex items-center gap-4 mb-4">
+                  <FileCheck className="w-8 h-8 text-[#d4a574]" />
+                  <h4 className="font-display text-[20px] font-medium text-[#faf8f5]">Regular Compliance Audits</h4>
+                </div>
+                <p className="font-body text-[16px] leading-[1.6] text-[#faf8f5]/70">
+                  Monthly compliance reviews are included in setup. We monitor call recordings, check opt-out handling,
+                  and verify consent documentation.
+                </p>
+              </div>
+
+              {/* Transparent Operations */}
+              <div className="bg-[#2d3748] p-8 rounded-lg">
+                <div className="flex items-center gap-4 mb-4">
+                  <Eye className="w-8 h-8 text-[#d4a574]" />
+                  <h4 className="font-display text-[20px] font-medium text-[#faf8f5]">Transparent Operations</h4>
+                </div>
+                <p className="font-body text-[16px] leading-[1.6] text-[#faf8f5]/70">
+                  You have full access to call recordings, transcripts, and campaign logs. Nothing happens behind the
+                  scenes.
+                </p>
+              </div>
+            </div>
+
+            {/* Trust badges - horizontal row */}
+            <div className="flex flex-wrap justify-center items-center gap-8">
+              <div className="bg-[#2d3748] px-6 py-4 rounded-lg flex items-center gap-3">
+                <ShieldCheck className="w-6 h-6 text-[#d4a574]" />
+                <span className="font-body text-sm font-semibold text-[#faf8f5]">TCPA-Safe</span>
+              </div>
+              <div className="bg-[#2d3748] px-6 py-4 rounded-lg flex items-center gap-3">
+                <CheckCircle className="w-6 h-6 text-[#d4a574]" />
+                <span className="font-body text-sm font-semibold text-[#faf8f5]">Opt-In Only</span>
+              </div>
+              <div className="bg-[#2d3748] px-6 py-4 rounded-lg flex items-center gap-3">
+                <Clock className="w-6 h-6 text-[#d4a574]" />
+                <span className="font-body text-sm font-semibold text-[#faf8f5]">Client-Controlled</span>
+              </div>
+              <div className="bg-[#2d3748] px-6 py-4 rounded-lg flex items-center gap-3">
+                <Eye className="w-6 h-6 text-[#d4a574]" />
+                <span className="font-body text-sm font-semibold text-[#faf8f5]">Full Transparency</span>
               </div>
             </div>
           </div>
