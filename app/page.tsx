@@ -410,7 +410,8 @@ export default function LandingPage() {
                 Schedule a Lead Audit
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-              <Button className="bg-white hover:bg-[#f5f2ed] text-[#1a2332] border-2 border-[#1a2332] px-8 py-4 text-base font-semibold rounded-lg transition-all duration-200">
+              {/* CHANGE> Updated secondary button to have better contrast with dark border and hover state */}
+              <Button className="bg-transparent hover:bg-[#1a2332] text-[#1a2332] hover:text-[#faf8f5] border-2 border-[#1a2332] px-8 py-4 text-base font-semibold rounded-lg transition-all duration-200">
                 See How It Works
               </Button>
             </div>
