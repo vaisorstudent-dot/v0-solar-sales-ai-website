@@ -2,33 +2,33 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import {
-  Clock,
-  Phone,
+  ArrowRight,
+  ShieldCheck,
+  Calendar,
+  Target,
+  MessageSquare,
+  PhoneCall,
+  AlertTriangle,
   Database,
-  Moon,
+  Clock,
+  X,
+  Check,
+  TrendingUp,
   Zap,
   RefreshCw,
   CheckCircle,
-  Calendar,
   BarChart3,
   Shield,
-  X,
-  Check,
-  ChevronDown,
-  ShieldCheck,
-  Target,
-  MessageSquare,
-  ArrowRight,
+  Phone,
+  FileCheck,
   Eye,
-  AlertTriangle,
   Search,
-  Rocket,
-  TrendingUp,
-  PhoneCall,
-  XCircle,
   Settings,
-  FileText,
-} from "lucide-react"
+  Rocket,
+  Users,
+  ChevronDown,
+  XCircle,
+} from "@/components/icons"
 
 export default function LandingPage() {
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null)
@@ -194,7 +194,7 @@ export default function LandingPage() {
       description: "Thousands of 'dead' leads sitting in your CRM that you already paid for",
     },
     {
-      icon: <Moon className="w-8 h-8 text-blue-600" />,
+      icon: <Users className="w-8 h-8 text-blue-600" />,
       title: "After-Hours Leakage",
       description: "After-hours inquiries that wait until tomorrow (when they've talked to three competitors)",
     },
@@ -326,9 +326,9 @@ export default function LandingPage() {
         "We integrate with most major solar CRMs including HubSpot, Salesforce, ServiceTitan, JobNimbus, Podium, and custom or proprietary systems (if you have an API or export capability). During the Lead Flow Audit, we'll assess your current setup and confirm the best integration approach. In most cases, we can be operational within a week regardless of your CRM.",
     },
     {
-      question: "How does the handoff to our closers work? What do they see?",
+      question: "How does the handoff to your closers work? What do they see?",
       answer:
-        'We book appointments directly into your existing calendar system (Google Calendar, Outlook, Calendly, Salesforce, HubSpot, or any calendar with API access). Integration happens during Week 1 setup.\n\nWhat your closer sees when an appointment is booked:\n\nCalendar Event with Full Context:\n• Lead name, phone, email\n• Appointment time (in your closer\'s local time zone)\n• Source tag: "New Lead – AI Qualified" / "Missed Call Follow-Up" / "Dead Lead Revival"\n• Best time to call if they need to reschedule\n• Key qualification notes: homeowner status, electric bill range, timeline, HOA status, financing interest\n\nConversation Transcript (attached or linked):\n• Complete record of AI conversation (voice + SMS)\n• Objections addressed during qualification\n• Questions the lead asked\n• Any scheduling constraints or preferences\n\nConfirmation to Lead:\n• Lead receives calendar invite via email\n• Confirmation SMS: "You\'re confirmed for [day/time] with [Closer Name] from [Your Company]. You\'ll get a reminder 24 hours before. Looking forward to showing you your solar savings!"\n• 24-hour reminder SMS sent automatically\n\nYour closer treats it like any other booked appointment — they call at the scheduled time with full context on what the lead cares about. We don\'t replace your closers; we make sure they\'re spending time on qualified, expecting-the-call leads instead of chasing cold prospects.\n\nIf the lead no-shows, we can handle re-engagement via AI (part of RPS) or your team can follow up manually — your choice.',
+        'We book appointments directly into your existing calendar system (Google Calendar, Outlook, Calendly, Salesforce, HubSpot, or any calendar with API access). Integration happens during Week 1 setup.\n\nWhat your closer sees when an appointment is booked:\n\nCalendar Event with Full Context:\n• Lead name, phone, email\n• Appointment time (in your closer\'s local time zone)\n• Source tag: "New Lead – AI Qualified" / "Missed Call Follow-Up" / "Dead Lead Revival"\n• Best time to call if they need to reschedule\n• Key qualification notes: homeowner status, electric bill range, timeline, HOA status, financing interest\n\nConversation Transcript (attached or linked):\n• Complete record of AI conversation (voice + SMS)\n• Objections addressed during qualification\n• Questions the lead asked\n• Any scheduling constraints or preferences\n\nConfirmation to Lead:\n• Lead receives calendar invite via email\n• Confirmation SMS: "You\'re confirmed for [day/time] with [Closer Name] from [Your Company]. You\'ll get a reminder 24 hours before. Looking forward to showing you your solar savings!"\n• 24-hour reminder SMS sent automatically\n\nYour closer treats it like any other booked appointment — they call at the scheduled time with full context on what the lead cares about. We don\'t replace your closers; we make sure they\'re spending time on qualified, expecting-the-call leads instead of chasing cold prospects.\n\nIf the lead no-shows, we can handle re-engagement via AI (part of RPS) or your team can follow up manually — your choice.\n',
     },
   ]
 
@@ -1218,7 +1218,7 @@ export default function LandingPage() {
                 </div>
                 <div className="bg-[#faf8f5] border-2 border-[#2d5f4f]/30 p-10 rounded shadow-sm">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-[#2d5f4f]/10 rounded-full flex items-center justify-center">
+                    <div className="w-12 h-12 bg-[#2d5f4f]/10 rounded-full flex items-center justify-center">
                       <TrendingUp className="w-5 h-5 text-[#2d5f4f]" />
                     </div>
                     <h3 className="font-display text-[28px] leading-[1.3] font-medium text-[#1a2332]">
@@ -1443,7 +1443,7 @@ export default function LandingPage() {
               <div className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded shadow-sm">
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-10 h-10 bg-[#1a2332]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <FileText className="w-5 h-5 text-[#1a2332]" />
+                    <FileCheck className="w-5 h-5 text-[#1a2332]" />
                   </div>
                   <div>
                     <h4 className="font-display text-[28px] leading-[1.3] font-medium text-[#1a2332] mb-2">
