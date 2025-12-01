@@ -1,11 +1,20 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
+import { Inter, IBM_Plex_Mono } from "next/font/google"
 import "./globals.css"
 
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+})
+
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-accent",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
   title: "SolarSales AI - Managed Intake & Revival Service for Solar Companies",
@@ -38,10 +47,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`font-sans antialiased`}>
-        {children}
-        <Analytics />
-      </body>
+      <body className={`${inter.variable} ${ibmPlexMono.variable} font-body antialiased`}>{children}</body>
     </html>
   )
 }
