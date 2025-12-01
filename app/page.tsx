@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import {
   Clock,
@@ -30,6 +30,16 @@ import {
 
 export default function LandingPage() {
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  // Handle scroll for header effects
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   const problemCards = [
     {
@@ -184,24 +194,49 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+      <header
+        className={`sticky top-0 z-50 bg-white/95 backdrop-blur-md transition-all duration-300 ${
+          isScrolled ? "shadow-lg border-b border-gray-200/80" : "border-b border-gray-200"
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-          <div className="text-xl font-bold text-gray-900">SolarSales AI</div>
+          <div className="flex items-center gap-2">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center shadow-md">
+              <Zap className="w-6 h-6 text-white" />
+            </div>
+            <div className="text-xl font-bold text-gray-900 tracking-tight">SolarSales AI</div>
+          </div>
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#about" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
+            <a
+              href="#about"
+              className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors relative group"
+            >
               About
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="#how-it-works" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
+            <a
+              href="#how-it-works"
+              className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors relative group"
+            >
               How It Works
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="#pricing" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
+            <a
+              href="#pricing"
+              className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors relative group"
+            >
               Pricing
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="#contact" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
-              Contact
+            <a
+              href="#faq"
+              className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors relative group"
+            >
+              FAQ
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
             </a>
           </nav>
-          <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 text-sm font-medium rounded-lg transition-all duration-200">
+          <Button className="bg-blue-600 hover:bg-blue-700 hover:shadow-xl text-white px-6 py-2.5 text-sm font-semibold rounded-lg transition-all duration-200 transform hover:scale-105">
             Schedule Audit
           </Button>
         </div>
@@ -209,65 +244,119 @@ export default function LandingPage() {
 
       <main>
         {/* Hero Section with Visual Element */}
-        <section className="relative py-20 sm:py-28 bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.03]">
-            <div className="absolute top-10 right-10 w-96 h-96 bg-blue-600 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-10 left-10 w-96 h-96 bg-amber-500 rounded-full blur-3xl"></div>
+        <section className="relative py-24 sm:py-32 bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-hidden">
+          {/* Animated background elements */}
+          <div className="absolute inset-0 opacity-[0.04]">
+            <div className="absolute top-10 right-10 w-96 h-96 bg-blue-600 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-10 left-10 w-96 h-96 bg-amber-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }}></div>
           </div>
 
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
-            <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Turn More of Your Paid Leads Into Kept Appointments
+          {/* Decorative grid pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)] opacity-20"></div>
+
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
+            {/* Credibility badge */}
+            <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 px-4 py-2 rounded-full mb-8 animate-fade-in-up">
+              <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
+              <span className="text-sm font-semibold text-blue-700">Trusted by U.S. Solar Sales Teams</span>
+            </div>
+
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-[1.1] tracking-tight animate-fade-in-up animate-delay-100">
+              Turn More of Your Paid Leads Into{" "}
+              <span className="bg-gradient-to-r from-blue-600 via-blue-600 to-amber-500 bg-clip-text text-transparent">
+                Kept Appointments
+              </span>
             </h1>
-            <p className="text-xl text-gray-700 mb-6 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl sm:text-2xl text-gray-700 mb-6 leading-relaxed max-w-3xl mx-auto font-medium animate-fade-in-up animate-delay-200">
               A managed intake and revival service for U.S. residential solar companies. We use AI voice + SMS to
-              systematically work your new leads, missed calls, and dead CRM leads—so you capture more value from lead
-              spend you already have.
+              systematically work your new leads, missed calls, and dead CRM leads.
             </p>
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              Done-for-you service. We run the campaigns, optimize the flows, and are measured on appointments that
-              show.
+            <p className="text-lg sm:text-xl text-gray-600 mb-10 max-w-2xl mx-auto animate-fade-in-up animate-delay-300">
+              <span className="font-semibold text-gray-900">Done-for-you service.</span> We run the campaigns, optimize
+              the flows, and are measured on appointments that show.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button className="bg-blue-600 hover:bg-blue-700 hover:scale-105 text-white px-8 py-3 text-base font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl">
-                Schedule a Lead Flow Audit
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in-up animate-delay-400">
+              <Button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 hover:scale-105 text-white px-10 py-4 text-lg font-bold rounded-xl transition-all duration-200 shadow-2xl hover:shadow-blue-500/50 relative group overflow-hidden">
+                <span className="relative z-10 flex items-center gap-2">
+                  Schedule a Lead Flow Audit
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
               </Button>
               <Button
                 variant="outline"
-                className="border-2 border-gray-300 hover:border-blue-600 text-gray-700 hover:text-blue-600 text-base font-medium bg-transparent"
+                className="border-2 border-gray-300 hover:border-blue-600 hover:bg-blue-50 text-gray-700 hover:text-blue-600 px-8 py-4 text-lg font-semibold bg-white/80 backdrop-blur-sm rounded-xl transition-all duration-200 hover:shadow-lg"
                 onClick={() => {
                   document.getElementById("problem")?.scrollIntoView({ behavior: "smooth" })
                 }}
               >
-                See how it works ↓
+                See how it works
               </Button>
             </div>
 
-            <div className="flex flex-wrap gap-6 justify-center pt-6 border-t border-gray-200 max-w-2xl mx-auto">
+            {/* Trust Indicators */}
+            <div className="flex flex-wrap gap-6 justify-center pt-8 border-t border-gray-200 max-w-3xl mx-auto animate-fade-in-up animate-delay-400">
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-5 h-5 text-blue-600" />
-                <span className="text-sm font-medium text-gray-700">Opt-In Leads Only</span>
+                <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <ShieldCheck className="w-5 h-5 text-blue-600" />
+                </div>
+                <span className="text-sm font-semibold text-gray-700">Opt-In Leads Only</span>
               </div>
               <div className="flex items-center gap-2">
-                <Scale className="w-5 h-5 text-blue-600" />
-                <span className="text-sm font-medium text-gray-700">TCPA-Safe Practices</span>
+                <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <Scale className="w-5 h-5 text-blue-600" />
+                </div>
+                <span className="text-sm font-semibold text-gray-700">TCPA-Safe Practices</span>
               </div>
               <div className="flex items-center gap-2">
-                <Layers className="w-5 h-5 text-blue-600" />
-                <span className="text-sm font-medium text-gray-700">Works With Your Stack</span>
+                <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <Layers className="w-5 h-5 text-blue-600" />
+                </div>
+                <span className="text-sm font-semibold text-gray-700">Works With Your Stack</span>
+              </div>
+            </div>
+
+            {/* Social Proof Stats */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-16 pt-12 border-t border-gray-200 max-w-3xl mx-auto">
+              <div className="text-center animate-fade-in-up animate-delay-400">
+                <div className="text-4xl font-bold text-blue-600 mb-2">2-5x</div>
+                <div className="text-sm font-medium text-gray-600">More Appointments Booked</div>
+              </div>
+              <div className="text-center animate-fade-in-up animate-delay-400">
+                <div className="text-4xl font-bold text-blue-600 mb-2">&lt;5 min</div>
+                <div className="text-sm font-medium text-gray-600">Average Response Time</div>
+              </div>
+              <div className="text-center animate-fade-in-up animate-delay-400">
+                <div className="text-4xl font-bold text-blue-600 mb-2">24/7</div>
+                <div className="text-sm font-medium text-gray-600">Lead Coverage</div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="py-16 bg-white">
-          <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-200">
+        <section className="py-20 bg-white">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-green-50 border border-green-200 px-4 py-2 rounded-full mb-4">
+                <CheckCircle className="w-4 h-4 text-green-600" />
+                <span className="text-sm font-semibold text-green-700">Real Conversation Example</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                See How We Revive Dead Leads
+              </h2>
+              <p className="text-lg text-gray-600">
+                Watch a 3-month old "dead" lead turn into a confirmed appointment in under 15 minutes
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-white to-blue-50/30 rounded-3xl shadow-2xl p-8 border-2 border-blue-200/50 hover:shadow-3xl transition-shadow duration-300">
               <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-200">
-                <MessageSquare className="w-8 h-8 text-blue-600" />
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
+                  <MessageSquare className="w-6 h-6 text-white" />
+                </div>
                 <div>
                   <div className="text-xl font-bold text-gray-900">Dead Lead Revival</div>
-                  <div className="text-sm text-gray-500">3-month old lead → Booked</div>
+                  <div className="text-sm text-gray-500 font-medium">3-month old lead → Booked in 11 minutes</div>
                 </div>
               </div>
 
@@ -326,24 +415,37 @@ export default function LandingPage() {
         </section>
 
         {/* Problem Section - now correctly after SMS section */}
-        <section id="problem" className="py-20 bg-gray-50">
+        <section id="problem" className="py-24 bg-gradient-to-br from-gray-50 to-slate-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">Where Your Pipeline Is Leaking Revenue</h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 bg-red-50 border border-red-200 px-4 py-2 rounded-full mb-4">
+                <AlertTriangle className="w-4 h-4 text-red-600" />
+                <span className="text-sm font-semibold text-red-700">Revenue Leaks</span>
+              </div>
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+                Where Your Pipeline Is Leaking Revenue
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 You're spending thousands on Meta, Google LSA, lead vendors, and canvassing. The leads are coming in.
                 But between the form submission and the sales calendar, you're losing:
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
               {problemCards.map((card, index) => (
                 <div
                   key={index}
-                  className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-200"
+                  className="group bg-white border-2 border-gray-200 rounded-2xl p-8 hover:shadow-2xl hover:border-blue-300 hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
                 >
-                  <div className="mb-4">{card.icon}</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{card.title}</h3>
-                  <p className="text-gray-600">{card.description}</p>
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-50 to-transparent rounded-full -mr-16 -mt-16 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative z-10">
+                    <div className="mb-5 w-16 h-16 bg-blue-50 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:bg-blue-100 transition-all duration-300">
+                      {card.icon}
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                      {card.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">{card.description}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -459,25 +561,38 @@ export default function LandingPage() {
         </section>
 
         {/* Solution Features Section */}
-        <section className="py-20 bg-blue-50">
+        <section id="how-it-works" className="py-24 bg-gradient-to-br from-blue-50 via-white to-blue-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                We Run Your Solar Intake and Dead Lead Revival. You Focus on Closing.
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 bg-green-50 border border-green-200 px-4 py-2 rounded-full mb-4">
+                <CheckCircle className="w-4 h-4 text-green-600" />
+                <span className="text-sm font-semibold text-green-700">Our Solution</span>
+              </div>
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+                We Run Your Solar Intake and Dead Lead Revival.
+                <br />
+                <span className="text-blue-600">You Focus on Closing.</span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                SolarSales AI is not a tool you have to figure out. We're the solar-specialized team + AI engine that:
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                SolarSales AI is not a tool you have to figure out. We're the solar-specialized team + AI engine that handles everything:
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
               {solutionFeatures.map((feature, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-xl p-8 border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-200"
+                  className="group bg-white rounded-2xl p-8 border-2 border-gray-200 hover:shadow-2xl hover:border-blue-400 hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
                 >
-                  <div className="mb-4">{feature.icon}</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative z-10">
+                    <div className="mb-5 w-16 h-16 bg-blue-50 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:bg-blue-100 transition-all duration-300 shadow-md">
+                      {feature.icon}
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                      {feature.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -491,11 +606,21 @@ export default function LandingPage() {
         </section>
 
         {/* Two-Path Offer Section with Visual Journey */}
-        <section id="pricing" className="py-20 bg-gradient-to-br from-blue-50 via-white to-slate-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="pricing" className="py-24 bg-gradient-to-br from-blue-50 via-white to-slate-50 relative overflow-hidden">
+          {/* Decorative elements */}
+          <div className="absolute inset-0 opacity-[0.03]">
+            <div className="absolute top-20 left-20 w-72 h-72 bg-blue-600 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-20 right-20 w-72 h-72 bg-amber-500 rounded-full blur-3xl"></div>
+          </div>
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div className="text-center mb-16">
-              <h2 className="text-5xl font-bold text-gray-900 mb-4">Solar Revenue Capture Program</h2>
-              <p className="text-xl text-gray-600">Two Ways to Start</p>
+              <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 px-4 py-2 rounded-full mb-4">
+                <Rocket className="w-4 h-4 text-amber-600" />
+                <span className="text-sm font-semibold text-amber-700">Get Started</span>
+              </div>
+              <h2 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6">Solar Revenue Capture Program</h2>
+              <p className="text-2xl font-medium text-gray-600">Two Ways to Start</p>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-6xl mx-auto mb-16">
@@ -538,8 +663,12 @@ export default function LandingPage() {
                       <span className="text-gray-700">Zero obligation to continue after sprint ends</span>
                     </div>
                   </div>
-                  <Button className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white py-4 text-lg font-bold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200">
-                    Start a Dead Leads Sprint
+                  <Button className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white py-5 text-lg font-bold rounded-xl shadow-2xl hover:shadow-amber-500/50 hover:scale-105 transition-all duration-200 relative group overflow-hidden">
+                    <span className="relative z-10 flex items-center justify-center gap-2">
+                      Start a Dead Leads Sprint
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
                   </Button>
                 </div>
               </div>
@@ -880,84 +1009,133 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section className="py-20 bg-gradient-to-br from-slate-800 to-slate-900 text-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-4xl sm:text-5xl font-bold mb-6">Ready to Capture More Revenue From Your Leads?</h2>
-            <p className="text-xl text-slate-300 mb-4">
+        <section className="py-24 bg-gradient-to-br from-slate-800 via-slate-900 to-blue-900 text-white relative overflow-hidden">
+          {/* Decorative elements */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-amber-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }}></div>
+          </div>
+
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div className="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-400/30 px-4 py-2 rounded-full mb-6">
+              <Zap className="w-4 h-4 text-blue-300" />
+              <span className="text-sm font-semibold text-blue-300">Free Consultation</span>
+            </div>
+
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              Ready to Capture More Revenue
+              <br />
+              <span className="bg-gradient-to-r from-blue-400 to-amber-400 bg-clip-text text-transparent">
+                From Your Leads?
+              </span>
+            </h2>
+            <p className="text-xl sm:text-2xl text-slate-300 mb-6 max-w-3xl mx-auto leading-relaxed">
               Schedule a Lead Flow Audit. We'll look at your current setup, identify leaks, and show you exactly how
               we'd capture more appointments.
             </p>
-            <p className="text-lg text-slate-400 mb-8">
+            <p className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto">
               No pressure. No "limited slots" scarcity tactics. Just an honest conversation about whether this makes
               sense for your business.
             </p>
-            <Button className="bg-amber-500 hover:bg-amber-600 text-white px-10 py-4 text-lg font-bold rounded-xl shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-200">
-              Schedule a Lead Flow Audit
-            </Button>
-            <p className="text-sm text-slate-400 mt-6">
-              Most audits take 30-45 minutes. We'll send you a summary afterward whether you move forward or not.
-            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <Button className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-12 py-5 text-xl font-bold rounded-xl shadow-2xl hover:shadow-amber-500/50 hover:scale-105 transition-all duration-200 relative group overflow-hidden">
+                <span className="relative z-10 flex items-center gap-2">
+                  Schedule a Lead Flow Audit
+                  <Calendar className="w-6 h-6 group-hover:scale-110 transition-transform" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+              </Button>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-slate-400">
+              <div className="flex items-center gap-2">
+                <Clock className="w-4 h-4 text-blue-400" />
+                <span>30-45 minute audit</span>
+              </div>
+              <div className="hidden sm:block w-1 h-1 bg-slate-600 rounded-full"></div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-green-400" />
+                <span>Free summary report</span>
+              </div>
+              <div className="hidden sm:block w-1 h-1 bg-slate-600 rounded-full"></div>
+              <div className="flex items-center gap-2">
+                <Shield className="w-4 h-4 text-amber-400" />
+                <span>Zero obligation</span>
+              </div>
+            </div>
           </div>
         </section>
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-12">
+      <footer className="bg-gradient-to-br from-gray-900 to-slate-950 text-gray-400 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
             <div>
-              <h3 className="text-white font-bold mb-4">SolarSales AI</h3>
-              <p className="text-sm">Managed intake and revival service for solar companies</p>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center shadow-lg">
+                  <Zap className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-white font-bold text-lg">SolarSales AI</h3>
+              </div>
+              <p className="text-sm leading-relaxed">Managed intake and revival service for solar companies. Turn more leads into kept appointments.</p>
             </div>
             <div>
-              <h4 className="text-white font-semibold mb-4">Services</h4>
-              <ul className="space-y-2 text-sm">
+              <h4 className="text-white font-semibold mb-4 text-base">Services</h4>
+              <ul className="space-y-3 text-sm">
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Dead Leads Sprint
+                  <a href="#pricing" className="hover:text-blue-400 transition-colors inline-flex items-center gap-1 group">
+                    <span>Dead Leads Sprint</span>
+                    <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Revenue Protection System
+                  <a href="#pricing" className="hover:text-blue-400 transition-colors inline-flex items-center gap-1 group">
+                    <span>Revenue Protection System</span>
+                    <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                   </a>
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="text-white font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-sm">
+              <h4 className="text-white font-semibold mb-4 text-base">Company</h4>
+              <ul className="space-y-3 text-sm">
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    About
+                  <a href="#about" className="hover:text-blue-400 transition-colors inline-flex items-center gap-1 group">
+                    <span>About</span>
+                    <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Contact
+                  <a href="#faq" className="hover:text-blue-400 transition-colors inline-flex items-center gap-1 group">
+                    <span>FAQ</span>
+                    <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                   </a>
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="text-white font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2 text-sm">
+              <h4 className="text-white font-semibold mb-4 text-base">Legal</h4>
+              <ul className="space-y-3 text-sm">
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Privacy Policy
+                  <a href="#" className="hover:text-blue-400 transition-colors inline-flex items-center gap-1 group">
+                    <span>Privacy Policy</span>
+                    <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Terms of Service
+                  <a href="#" className="hover:text-blue-400 transition-colors inline-flex items-center gap-1 group">
+                    <span>Terms of Service</span>
+                    <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                   </a>
                 </li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 pt-8 text-center text-sm">
-            <p>© {new Date().getFullYear()} SolarSales AI. All rights reserved.</p>
-            <p className="text-gray-500 mt-2">Turning solar leads into kept appointments since 2024.</p>
+          <div className="border-t border-gray-800 pt-10 text-center">
+            <p className="text-sm text-gray-500">© {new Date().getFullYear()} SolarSales AI. All rights reserved.</p>
+            <p className="text-sm text-gray-600 mt-2 font-medium">Turning solar leads into kept appointments since 2024.</p>
           </div>
         </div>
       </footer>
