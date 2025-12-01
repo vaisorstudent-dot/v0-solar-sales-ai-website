@@ -31,6 +31,9 @@ import {
   Volume2,
   PhoneCall,
   Mic,
+  XCircle,
+  Settings,
+  FileText,
 } from "lucide-react"
 
 export default function LandingPage() {
@@ -56,15 +59,35 @@ export default function LandingPage() {
       subtitle: "3-month old lead → Booked appointment",
       duration: 127, // seconds
       transcript: [
-        { time: 0, speaker: "AI", text: "Hi Maria, this is Alex from Sunrise Solar. I'm following up on your inquiry from a few months back about solar savings. Do you have a quick minute?" },
+        {
+          time: 0,
+          speaker: "AI",
+          text: "Hi Maria, this is Alex from Sunrise Solar. I'm following up on your inquiry from a few months back about solar savings. Do you have a quick minute?",
+        },
         { time: 8, speaker: "Lead", text: "Oh yeah, we got busy but we're still thinking about it actually." },
-        { time: 12, speaker: "AI", text: "That's great to hear! Just to make sure we focus on what matters most to you - are you mainly interested in lowering your electric bill, or is the environmental impact more important?" },
+        {
+          time: 12,
+          speaker: "AI",
+          text: "That's great to hear! Just to make sure we focus on what matters most to you - are you mainly interested in lowering your electric bill, or is the environmental impact more important?",
+        },
         { time: 21, speaker: "Lead", text: "Honestly, the bill. It's getting crazy expensive." },
-        { time: 24, speaker: "AI", text: "I totally understand. A lot of folks in your area are seeing 20-30% increases. Our specialist can show you exactly what you'd save based on your actual usage. Would tomorrow at 3pm or Thursday at 11am work better for a quick 15-minute call?" },
+        {
+          time: 24,
+          speaker: "AI",
+          text: "I totally understand. A lot of folks in your area are seeing 20-30% increases. Our specialist can show you exactly what you'd save based on your actual usage. Would tomorrow at 3pm or Thursday at 11am work better for a quick 15-minute call?",
+        },
         { time: 36, speaker: "Lead", text: "Thursday works." },
-        { time: 38, speaker: "AI", text: "Perfect! I'm booking you for Thursday at 11am. You'll get a calendar invite and a text reminder. Sound good?" },
+        {
+          time: 38,
+          speaker: "AI",
+          text: "Perfect! I'm booking you for Thursday at 11am. You'll get a calendar invite and a text reminder. Sound good?",
+        },
         { time: 44, speaker: "Lead", text: "Yeah, that works." },
-        { time: 46, speaker: "AI", text: "Excellent! Our specialist Sarah will call you Thursday at 11. Talk to you then, Maria!" },
+        {
+          time: 46,
+          speaker: "AI",
+          text: "Excellent! Our specialist Sarah will call you Thursday at 11. Talk to you then, Maria!",
+        },
       ],
     },
     "new-lead": {
@@ -72,29 +95,61 @@ export default function LandingPage() {
       subtitle: "Form submission → Qualified in 2 minutes",
       duration: 98,
       transcript: [
-        { time: 0, speaker: "AI", text: "Hi David, this is Jordan from SunPower Solutions. You just submitted a request about solar on our website. Did I catch you at a good time?" },
+        {
+          time: 0,
+          speaker: "AI",
+          text: "Hi David, this is Jordan from SunPower Solutions. You just submitted a request about solar on our website. Did I catch you at a good time?",
+        },
         { time: 7, speaker: "Lead", text: "Yeah, sure. That was fast!" },
         { time: 9, speaker: "AI", text: "We move quick! I see you're in San Diego. Do you own your home?" },
         { time: 13, speaker: "Lead", text: "Yes, we do." },
-        { time: 15, speaker: "AI", text: "Great. And just to confirm - is your roof getting good sun exposure, or is it mostly shaded?" },
+        {
+          time: 15,
+          speaker: "AI",
+          text: "Great. And just to confirm - is your roof getting good sun exposure, or is it mostly shaded?",
+        },
         { time: 20, speaker: "Lead", text: "It's pretty sunny, we have very little shade." },
-        { time: 23, speaker: "AI", text: "Perfect. One last quick question - are you looking to move forward in the next few months, or just exploring?" },
+        {
+          time: 23,
+          speaker: "AI",
+          text: "Perfect. One last quick question - are you looking to move forward in the next few months, or just exploring?",
+        },
         { time: 29, speaker: "Lead", text: "We want to do it soon, the electricity bills are killing us." },
-        { time: 33, speaker: "AI", text: "I completely understand. Let me get you on the calendar with our solar consultant who can give you exact savings numbers. Does tomorrow at 2pm work, or would Thursday morning be better?" },
+        {
+          time: 33,
+          speaker: "AI",
+          text: "I completely understand. Let me get you on the calendar with our solar consultant who can give you exact savings numbers. Does tomorrow at 2pm work, or would Thursday morning be better?",
+        },
       ],
     },
-    "qualification": {
+    qualification: {
       title: "Smart Qualification",
       subtitle: "Filters out tire-kickers in under 60 seconds",
       duration: 52,
       transcript: [
-        { time: 0, speaker: "AI", text: "Hi Robert, this is Chris from Solar Solutions following up on your inquiry. Quick question - do you own your home or are you renting?" },
+        {
+          time: 0,
+          speaker: "AI",
+          text: "Hi Robert, this is Chris from Solar Solutions following up on your inquiry. Quick question - do you own your home or are you renting?",
+        },
         { time: 7, speaker: "Lead", text: "I'm renting right now." },
-        { time: 9, speaker: "AI", text: "Got it. Solar installations typically require homeownership since they're permanent modifications. Are you planning to buy a home in the near future?" },
+        {
+          time: 9,
+          speaker: "AI",
+          text: "Got it. Solar installations typically require homeownership since they're permanent modifications. Are you planning to buy a home in the near future?",
+        },
         { time: 16, speaker: "Lead", text: "Not really, maybe in a few years." },
-        { time: 19, speaker: "AI", text: "Makes sense. What I can do is keep your information on file, and when you're ready to purchase a home, we can definitely help you explore solar options at that time. Would that work for you?" },
+        {
+          time: 19,
+          speaker: "AI",
+          text: "Makes sense. What I can do is keep your information on file, and when you're ready to purchase a home, we can definitely help you explore solar options at that time. Would that work for you?",
+        },
         { time: 28, speaker: "Lead", text: "Yeah, that sounds good." },
-        { time: 30, speaker: "AI", text: "Perfect. I'll make a note and we'll circle back when the timing is right. Thanks for your interest, Robert!" },
+        {
+          time: 30,
+          speaker: "AI",
+          text: "Perfect. I'll make a note and we'll circle back when the timing is right. Thanks for your interest, Robert!",
+        },
       ],
     },
   }
@@ -276,6 +331,11 @@ export default function LandingPage() {
       answer:
         "We integrate with most major solar CRMs including HubSpot, Salesforce, ServiceTitan, JobNimbus, Podium, and custom or proprietary systems (if you have an API or export capability). During the Lead Flow Audit, we'll assess your current setup and confirm the best integration approach. In most cases, we can be operational within a week regardless of your CRM.",
     },
+    {
+      question: "How does the handoff to our closers work? What do they see?",
+      answer:
+        'We book appointments directly into your existing calendar system (Google Calendar, Outlook, Calendly, Salesforce, HubSpot, or any calendar with API access). Integration happens during Week 1 setup.\n\nWhat your closer sees when an appointment is booked:\n\nCalendar Event with Full Context:\n• Lead name, phone, email\n• Appointment time (in your closer\'s local time zone)\n• Source tag: "New Lead – AI Qualified" / "Missed Call Follow-Up" / "Dead Lead Revival"\n• Best time to call if they need to reschedule\n• Key qualification notes: homeowner status, electric bill range, timeline, HOA status, financing interest\n\nConversation Transcript (attached or linked):\n• Complete record of AI conversation (voice + SMS)\n• Objections addressed during qualification\n• Questions the lead asked\n• Any scheduling constraints or preferences\n\nConfirmation to Lead:\n• Lead receives calendar invite via email\n• Confirmation SMS: "You\'re confirmed for [day/time] with [Closer Name] from [Your Company]. You\'ll get a reminder 24 hours before. Looking forward to showing you your solar savings!"\n• 24-hour reminder SMS sent automatically\n\nYour closer treats it like any other booked appointment — they call at the scheduled time with full context on what the lead cares about. We don\'t replace your closers; we make sure they\'re spending time on qualified, expecting-the-call leads instead of chasing cold prospects.\n\nIf the lead no-shows, we can handle re-engagement via AI (part of RPS) or your team can follow up manually — your choice.',
+    },
   ]
 
   return (
@@ -335,7 +395,10 @@ export default function LandingPage() {
           {/* Animated background elements */}
           <div className="absolute inset-0 opacity-[0.04]">
             <div className="absolute top-10 right-10 w-96 h-96 bg-blue-600 rounded-full blur-3xl animate-pulse"></div>
-            <div className="absolute bottom-10 left-10 w-96 h-96 bg-amber-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }}></div>
+            <div
+              className="absolute bottom-10 left-10 w-96 h-96 bg-amber-500 rounded-full blur-3xl animate-pulse"
+              style={{ animationDelay: "1s" }}
+            ></div>
           </div>
 
           {/* Decorative grid pattern */}
@@ -435,7 +498,8 @@ export default function LandingPage() {
                 <span className="text-blue-600">It's a Real Conversation.</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Listen to actual AI voice calls that book appointments, qualify leads, and recover dead pipeline - all sounding natural and human.
+                Listen to actual AI voice calls that book appointments, qualify leads, and recover dead pipeline - all
+                sounding natural and human.
               </p>
             </div>
 
@@ -496,7 +560,9 @@ export default function LandingPage() {
                   <div className="relative z-10 mb-8">
                     <div className="flex items-center justify-between mb-6">
                       <div className="flex items-center gap-3">
-                        <div className={`w-12 h-12 rounded-full flex items-center justify-center ${isPlaying ? "bg-green-500 animate-pulse" : "bg-blue-500"}`}>
+                        <div
+                          className={`w-12 h-12 rounded-full flex items-center justify-center ${isPlaying ? "bg-green-500 animate-pulse" : "bg-blue-500"}`}
+                        >
                           <PhoneCall className="w-6 h-6 text-white" />
                         </div>
                         <div>
@@ -597,16 +663,10 @@ export default function LandingPage() {
                             isActive ? "opacity-100" : "opacity-30"
                           } ${isCurrent ? "scale-105" : "scale-100"}`}
                         >
-                          <div
-                            className={`flex items-start gap-3 ${
-                              line.speaker === "AI" ? "" : "flex-row-reverse"
-                            }`}
-                          >
+                          <div className={`flex items-start gap-3 ${line.speaker === "AI" ? "" : "flex-row-reverse"}`}>
                             <div
                               className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold ${
-                                line.speaker === "AI"
-                                  ? "bg-blue-100 text-blue-700"
-                                  : "bg-gray-100 text-gray-700"
+                                line.speaker === "AI" ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-gray-700"
                               } ${isCurrent ? "ring-2 ring-blue-400 ring-offset-2" : ""}`}
                             >
                               {line.speaker === "AI" ? "AI" : "L"}
@@ -709,9 +769,7 @@ export default function LandingPage() {
                 <CheckCircle className="w-4 h-4 text-green-600" />
                 <span className="text-sm font-semibold text-green-700">Real Conversation Example</span>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                See How We Revive Dead Leads
-              </h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">See How We Revive Dead Leads</h2>
               <p className="text-lg text-gray-600">
                 Watch a 3-month old "dead" lead turn into a confirmed appointment in under 15 minutes
               </p>
@@ -942,7 +1000,8 @@ export default function LandingPage() {
                 <span className="text-blue-600">You Focus on Closing.</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                SolarSales AI is not a tool you have to figure out. We're the solar-specialized team + AI engine that handles everything:
+                SolarSales AI is not a tool you have to figure out. We're the solar-specialized team + AI engine that
+                handles everything:
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
@@ -973,8 +1032,106 @@ export default function LandingPage() {
           </div>
         </section>
 
+        {/* What Teams Typically See */}
+        <section className="py-20 bg-blue-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">What Teams Typically See</h2>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                Based on results across 10–50 person residential solar teams using SolarSales AI:
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+              {/* DLS Results */}
+              <div className="bg-white rounded-2xl p-8 border-2 border-gray-200 shadow-lg">
+                <div className="mb-6 w-16 h-16 bg-gradient-to-br from-amber-400 to-amber-600 rounded-xl flex items-center justify-center shadow-md">
+                  <Zap className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Dead Leads Sprint (2–4 weeks)</h3>
+                <ul className="space-y-4 text-gray-700">
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <span>
+                      <strong className="font-semibold">30–50%</strong> of "dead" leads re-engage when contacted
+                      systematically with AI voice + SMS
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <span>
+                      <strong className="font-semibold">15–25%</strong> of re-engaged leads book appointments after
+                      qualification
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <span>
+                      <strong className="font-semibold">Example:</strong> Team with 1,000 dead leads typically books{" "}
+                      <strong className="font-semibold">150–250</strong> new appointments from previously written-off
+                      pipeline
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* RPS Results */}
+              <div className="bg-white rounded-2xl p-8 border-2 border-gray-200 shadow-lg">
+                <div className="mb-6 w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center shadow-md">
+                  <Shield className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Revenue Protection System (ongoing)</h3>
+                <ul className="space-y-4 text-gray-700">
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <span>
+                      <strong className="font-semibold">40–60%</strong> reduction in speed-to-lead gaps (from hours to
+                      minutes)
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <span>
+                      <strong className="font-semibold">3–5x</strong> improvement in missed call follow-up rates vs.
+                      manual processes
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <span>
+                      <strong className="font-semibold">20–35%</strong> increase in total qualified appointments
+                      compared to pre-RPS baseline
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="max-w-4xl mx-auto">
+              <p className="text-center text-sm text-gray-500 italic mb-8">
+                *Results vary based on lead quality, market conditions, and offer specifics. Ranges shown reflect actual
+                outcomes from solar teams spending $10K–$50K/month on paid leads.
+              </p>
+
+              <div className="bg-green-50 border-2 border-green-200 rounded-xl p-6">
+                <div className="flex items-start gap-4">
+                  <TrendingUp className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+                  <p className="text-gray-800 leading-relaxed">
+                    <strong className="font-semibold text-gray-900">The common pattern:</strong> Teams see immediate
+                    value from DLS (proof that systematic AI follow-up works), then expand to RPS when they realize the
+                    same logic applies to new leads and missed calls.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Two-Path Offer Section with Visual Journey */}
-        <section id="pricing" className="py-24 bg-gradient-to-br from-blue-50 via-white to-slate-50 relative overflow-hidden">
+        <section
+          id="pricing"
+          className="py-24 bg-gradient-to-br from-blue-50 via-white to-slate-50 relative overflow-hidden"
+        >
           {/* Decorative elements */}
           <div className="absolute inset-0 opacity-[0.03]">
             <div className="absolute top-20 left-20 w-72 h-72 bg-blue-600 rounded-full blur-3xl"></div>
@@ -1198,6 +1355,235 @@ export default function LandingPage() {
           </div>
         </section>
 
+        {/* Your First 30 Days with SolarSales AI */}
+        <section className="py-20 bg-white">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">Your First 30 Days with SolarSales AI</h2>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                Here's exactly what happens from Lead Flow Audit to seeing appointments on your calendar:
+              </p>
+            </div>
+
+            <div className="relative">
+              {/* Vertical timeline line */}
+              <div className="absolute left-8 top-16 bottom-16 w-0.5 bg-gray-200 hidden md:block"></div>
+
+              <div className="space-y-12">
+                {/* Stage 1 */}
+                <div className="relative">
+                  <div className="flex items-start gap-6">
+                    <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center shadow-lg z-10">
+                      <span className="text-3xl font-bold text-white">1</span>
+                    </div>
+                    <div className="flex-1 bg-white border-2 border-gray-200 rounded-xl p-8 shadow-md">
+                      <div className="flex items-center gap-3 mb-4">
+                        <Search className="w-8 h-8 text-blue-600" />
+                        <h3 className="text-2xl font-bold text-gray-900">Week 1: Audit & Alignment</h3>
+                      </div>
+                      <div className="space-y-4">
+                        <div>
+                          <h4 className="font-bold text-gray-900 mb-2">Lead Flow Audit Call (45 minutes)</h4>
+                          <ul className="space-y-2 text-gray-700 ml-4">
+                            <li className="flex items-start gap-2">
+                              <span className="text-blue-600">•</span>
+                              <span>We analyze your current lead sources, CRM, and appointment flow</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="text-blue-600">•</span>
+                              <span>Identify specific leakage points (speed-to-lead, missed calls, dead leads)</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="text-blue-600">•</span>
+                              <span>Scope integration requirements (CRM, calendar, lead routing)</span>
+                            </li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-gray-900 mb-2">Script & Criteria Approval</h4>
+                          <ul className="space-y-2 text-gray-700 ml-4">
+                            <li className="flex items-start gap-2">
+                              <span className="text-blue-600">•</span>
+                              <span>We draft qualification scripts based on your ICP and offer</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="text-blue-600">•</span>
+                              <span>You review and approve: calling hours, qualification questions, booking logic</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="text-blue-600">•</span>
+                              <span>We configure your branding and caller ID</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Stage 2 */}
+                <div className="relative">
+                  <div className="flex items-start gap-6">
+                    <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center shadow-lg z-10">
+                      <span className="text-3xl font-bold text-white">2</span>
+                    </div>
+                    <div className="flex-1 bg-white border-2 border-gray-200 rounded-xl p-8 shadow-md">
+                      <div className="flex items-center gap-3 mb-4">
+                        <Settings className="w-8 h-8 text-blue-600" />
+                        <h3 className="text-2xl font-bold text-gray-900">Week 2: Setup & Testing</h3>
+                      </div>
+                      <div className="space-y-4">
+                        <div>
+                          <h4 className="font-bold text-gray-900 mb-2">Technical Integration</h4>
+                          <ul className="space-y-2 text-gray-700 ml-4">
+                            <li className="flex items-start gap-2">
+                              <span className="text-blue-600">•</span>
+                              <span>CRM connection established (Salesforce, HubSpot, Pipedrive, or custom API)</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="text-blue-600">•</span>
+                              <span>Calendar integration completed (Google, Outlook, Calendly, etc.)</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="text-blue-600">•</span>
+                              <span>Lead routing configured (new leads, missed calls, or dead lead lists)</span>
+                            </li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-gray-900 mb-2">Test Campaign</h4>
+                          <ul className="space-y-2 text-gray-700 ml-4">
+                            <li className="flex items-start gap-2">
+                              <span className="text-blue-600">•</span>
+                              <span>We conduct 10–20 test calls with your guidance</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="text-blue-600">•</span>
+                              <span>You review call recordings and provide feedback</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="text-blue-600">•</span>
+                              <span>Scripts refined based on your input</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <p className="text-sm font-semibold text-blue-900 text-center">
+                          You approve everything before we go live.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Stage 3 */}
+                <div className="relative">
+                  <div className="flex items-start gap-6">
+                    <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-700 rounded-xl flex items-center justify-center shadow-lg z-10">
+                      <span className="text-2xl font-bold text-white">3–4</span>
+                    </div>
+                    <div className="flex-1 bg-white border-2 border-gray-200 rounded-xl p-8 shadow-md">
+                      <div className="flex items-center gap-3 mb-4">
+                        <Rocket className="w-8 h-8 text-amber-600" />
+                        <h3 className="text-2xl font-bold text-gray-900">Week 3–4: Campaign Launch & Optimization</h3>
+                      </div>
+                      <div className="space-y-3 mb-4">
+                        <p className="text-gray-700">
+                          <strong className="font-bold text-gray-900">Dead Leads Sprint:</strong> Revival campaign
+                          begins on aged/dead leads
+                        </p>
+                        <p className="text-gray-700">
+                          <strong className="font-bold text-gray-900">RPS Pilot:</strong> New lead intake and missed
+                          call follow-up starts
+                        </p>
+                        <p className="text-gray-700">
+                          <strong className="font-bold text-gray-900">What you get:</strong>
+                        </p>
+                        <ul className="space-y-2 text-gray-700 ml-4">
+                          <li className="flex items-start gap-2">
+                            <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                            <span>Daily campaign monitoring and optimization</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                            <span>Weekly reporting: calls made, conversations held, appointments booked</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                            <span>Call recordings and transcripts for quality review</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                            <span>Adjustments based on your feedback and conversion data</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Stage 4 */}
+                <div className="relative">
+                  <div className="flex items-start gap-6">
+                    <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-xl flex items-center justify-center shadow-lg z-10">
+                      <span className="text-2xl font-bold text-white">5+</span>
+                    </div>
+                    <div className="flex-1 bg-white border-2 border-gray-200 rounded-xl p-8 shadow-md">
+                      <div className="flex items-center gap-3 mb-4">
+                        <TrendingUp className="w-8 h-8 text-green-600" />
+                        <h3 className="text-2xl font-bold text-gray-900">Week 5+: Results & Decision Point</h3>
+                      </div>
+                      <div className="space-y-4">
+                        <div>
+                          <h4 className="font-bold text-gray-900 mb-2">You review the data:</h4>
+                          <ul className="space-y-2 text-gray-700 ml-4">
+                            <li className="flex items-start gap-2">
+                              <span className="text-green-600">•</span>
+                              <span>Total appointments booked</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="text-green-600">•</span>
+                              <span>Show rates and qualification accuracy</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="text-green-600">•</span>
+                              <span>Revenue impact (if deals have closed)</span>
+                            </li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-gray-900 mb-2">Then decide:</h4>
+                          <ul className="space-y-2 text-gray-700 ml-4">
+                            <li className="flex items-start gap-2">
+                              <span className="text-green-600">•</span>
+                              <span>Dead Leads Sprint: Expand to full Revenue Protection System?</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="text-green-600">•</span>
+                              <span>RPS Pilot: Scale to full lead volume?</span>
+                            </li>
+                          </ul>
+                        </div>
+                        <p className="text-gray-700 font-medium">
+                          Zero obligation to continue if results don't justify expansion.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-12 text-center">
+              <p className="text-xl font-bold text-gray-900">
+                We focus on proving ROI in the first 30 days before asking for long-term commitment.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* What SolarSales AI Is Not Section */}
         <section className="py-20 bg-slate-800 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
@@ -1295,49 +1681,129 @@ export default function LandingPage() {
         </section>
 
         {/* Compliance Section - light blue-gray background */}
-        <section className="py-20 bg-blue-50/50">
+        <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">Opt-In Leads Only. TCPA-Safe Practices.</h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                 We work exclusively with leads who have opted in through your forms, LSA campaigns, and paid lead
-                sources.
+                sources. Here's exactly how we protect your business:
               </p>
             </div>
-            <div className="max-w-3xl mx-auto">
-              <ul className="space-y-3 mb-8">
-                {compliancePractices.map((practice, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <Shield className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{practice}</span>
-                  </li>
-                ))}
-              </ul>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                <div className="bg-white border border-gray-200 rounded-lg p-4 text-center hover:shadow-md transition-all duration-200">
-                  <ShieldCheck className="w-8 h-8 text-blue-600 mx-auto mb-2" />
-                  <div className="text-sm font-semibold text-gray-900">TCPA-Safe</div>
+            <div className="mb-12">
+              <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">How We Ensure TCPA Compliance</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                {/* Subsection 1 */}
+                <div className="bg-white rounded-xl p-6 border-2 border-gray-200 hover:shadow-lg transition-shadow">
+                  <div className="flex items-center gap-3 mb-3">
+                    <CheckCircle className="w-8 h-8 text-blue-600" />
+                    <h4 className="text-lg font-bold text-gray-900">Opt-In Verification</h4>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed">
+                    We only contact leads who submitted your forms, called your LSA numbers, or came through verified
+                    lead vendors with explicit consent documented. No cold lists, no scraped data.
+                  </p>
                 </div>
-                <div className="bg-white border border-gray-200 rounded-lg p-4 text-center hover:shadow-md transition-all duration-200">
-                  <Check className="w-8 h-8 text-green-600 mx-auto mb-2" />
-                  <div className="text-sm font-semibold text-gray-900">Opt-In Only</div>
+
+                {/* Subsection 2 */}
+                <div className="bg-white rounded-xl p-6 border-2 border-gray-200 hover:shadow-lg transition-shadow">
+                  <div className="flex items-center gap-3 mb-3">
+                    <Clock className="w-8 h-8 text-blue-600" />
+                    <h4 className="text-lg font-bold text-gray-900">Call Window Controls</h4>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed">
+                    You set the calling hours (typically 9am–7pm in the lead's local time zone). We never call outside
+                    your approved windows. After-hours leads get queued for next-day contact.
+                  </p>
                 </div>
-                <div className="bg-white border border-gray-200 rounded-lg p-4 text-center hover:shadow-md transition-all duration-200">
-                  <Eye className="w-8 h-8 text-blue-600 mx-auto mb-2" />
-                  <div className="text-sm font-semibold text-gray-900">Transparent Operations</div>
+
+                {/* Subsection 3 */}
+                <div className="bg-white rounded-xl p-6 border-2 border-gray-200 hover:shadow-lg transition-shadow">
+                  <div className="flex items-center gap-3 mb-3">
+                    <XCircle className="w-8 h-8 text-blue-600" />
+                    <h4 className="text-lg font-bold text-gray-900">Instant Opt-Out</h4>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed">
+                    Every call includes clear opt-out language. SMS replies with "STOP" are honored immediately and
+                    permanently. DNC requests are synced to your CRM within minutes.
+                  </p>
                 </div>
-                <div className="bg-white border border-gray-200 rounded-lg p-4 text-center hover:shadow-md transition-all duration-200">
-                  <Clock className="w-8 h-8 text-blue-600 mx-auto mb-2" />
-                  <div className="text-sm font-semibold text-gray-900">Client-Controlled Hours</div>
+
+                {/* Subsection 4 */}
+                <div className="bg-white rounded-xl p-6 border-2 border-gray-200 hover:shadow-lg transition-shadow">
+                  <div className="flex items-center gap-3 mb-3">
+                    <Phone className="w-8 h-8 text-blue-600" />
+                    <h4 className="text-lg font-bold text-gray-900">Clear Caller Identification</h4>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed">
+                    All calls identify your company name, purpose of contact, and callback number. No spoofed numbers,
+                    no misleading caller IDs.
+                  </p>
+                </div>
+
+                {/* Subsection 5 */}
+                <div className="bg-white rounded-xl p-6 border-2 border-gray-200 hover:shadow-lg transition-shadow">
+                  <div className="flex items-center gap-3 mb-3">
+                    <FileText className="w-8 h-8 text-blue-600" />
+                    <h4 className="text-lg font-bold text-gray-900">Regular Compliance Audits</h4>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed">
+                    Monthly compliance reviews are included in setup. We monitor call recordings, check opt-out
+                    handling, and verify consent documentation.
+                  </p>
+                </div>
+
+                {/* Subsection 6 */}
+                <div className="bg-white rounded-xl p-6 border-2 border-gray-200 hover:shadow-lg transition-shadow">
+                  <div className="flex items-center gap-3 mb-3">
+                    <Eye className="w-8 h-8 text-blue-600" />
+                    <h4 className="text-lg font-bold text-gray-900">Transparent Operations</h4>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed">
+                    You have full access to call recordings, transcripts, and campaign logs. Nothing happens behind the
+                    scenes.
+                  </p>
                 </div>
               </div>
+            </div>
 
-              <div className="bg-blue-50 border border-blue-200 p-6 rounded-lg text-center">
-                <p className="text-lg text-gray-900 font-medium">
-                  We're the safe way to squeeze more appointments from leads you already paid for, without compliance
-                  risk.
-                </p>
+            {/* Trust Badges */}
+            <div className="mb-12">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <div className="bg-white border-2 border-gray-200 rounded-xl p-6 text-center hover:shadow-md transition-all">
+                  <ShieldCheck className="w-10 h-10 text-blue-600 mx-auto mb-3" />
+                  <div className="font-bold text-gray-900 mb-1">TCPA-Safe Practices</div>
+                  <div className="text-sm text-gray-600">Strict adherence to TCPA requirements</div>
+                </div>
+                <div className="bg-white border-2 border-gray-200 rounded-xl p-6 text-center hover:shadow-md transition-all">
+                  <CheckCircle className="w-10 h-10 text-green-600 mx-auto mb-3" />
+                  <div className="font-bold text-gray-900 mb-1">Opt-In Leads Only</div>
+                  <div className="text-sm text-gray-600">Zero cold calling. Documented consent.</div>
+                </div>
+                <div className="bg-white border-2 border-gray-200 rounded-xl p-6 text-center hover:shadow-md transition-all">
+                  <Clock className="w-10 h-10 text-blue-600 mx-auto mb-3" />
+                  <div className="font-bold text-gray-900 mb-1">Client-Controlled Hours</div>
+                  <div className="text-sm text-gray-600">You set the windows. We respect them.</div>
+                </div>
+                <div className="bg-white border-2 border-gray-200 rounded-xl p-6 text-center hover:shadow-md transition-all">
+                  <Eye className="w-10 h-10 text-blue-600 mx-auto mb-3" />
+                  <div className="font-bold text-gray-900 mb-1">Full Transparency</div>
+                  <div className="text-sm text-gray-600">Complete access to all recordings and logs.</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Highlight Box */}
+            <div className="max-w-3xl mx-auto">
+              <div className="bg-green-50 border-2 border-green-200 rounded-xl p-6">
+                <div className="flex items-center justify-center gap-3">
+                  <Shield className="w-6 h-6 text-blue-600" />
+                  <p className="text-lg font-semibold text-gray-900 text-center">
+                    We're the safe way to capture more appointments from leads you already paid for, without compliance
+                    risk. Your business, your rules, our execution.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -1381,7 +1847,10 @@ export default function LandingPage() {
           {/* Decorative elements */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
-            <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-amber-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }}></div>
+            <div
+              className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-amber-500 rounded-full blur-3xl animate-pulse"
+              style={{ animationDelay: "1s" }}
+            ></div>
           </div>
 
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -1447,19 +1916,27 @@ export default function LandingPage() {
                 </div>
                 <h3 className="text-white font-bold text-lg">SolarSales AI</h3>
               </div>
-              <p className="text-sm leading-relaxed">Managed intake and revival service for solar companies. Turn more leads into kept appointments.</p>
+              <p className="text-sm leading-relaxed">
+                Managed intake and revival service for solar companies. Turn more leads into kept appointments.
+              </p>
             </div>
             <div>
               <h4 className="text-white font-semibold mb-4 text-base">Services</h4>
               <ul className="space-y-3 text-sm">
                 <li>
-                  <a href="#pricing" className="hover:text-blue-400 transition-colors inline-flex items-center gap-1 group">
+                  <a
+                    href="#pricing"
+                    className="hover:text-blue-400 transition-colors inline-flex items-center gap-1 group"
+                  >
                     <span>Dead Leads Sprint</span>
                     <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                   </a>
                 </li>
                 <li>
-                  <a href="#pricing" className="hover:text-blue-400 transition-colors inline-flex items-center gap-1 group">
+                  <a
+                    href="#pricing"
+                    className="hover:text-blue-400 transition-colors inline-flex items-center gap-1 group"
+                  >
                     <span>Revenue Protection System</span>
                     <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                   </a>
@@ -1470,7 +1947,10 @@ export default function LandingPage() {
               <h4 className="text-white font-semibold mb-4 text-base">Company</h4>
               <ul className="space-y-3 text-sm">
                 <li>
-                  <a href="#about" className="hover:text-blue-400 transition-colors inline-flex items-center gap-1 group">
+                  <a
+                    href="#about"
+                    className="hover:text-blue-400 transition-colors inline-flex items-center gap-1 group"
+                  >
                     <span>About</span>
                     <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                   </a>
@@ -1503,7 +1983,9 @@ export default function LandingPage() {
           </div>
           <div className="border-t border-gray-800 pt-10 text-center">
             <p className="text-sm text-gray-500">© {new Date().getFullYear()} SolarSales AI. All rights reserved.</p>
-            <p className="text-sm text-gray-600 mt-2 font-medium">Turning solar leads into kept appointments since 2024.</p>
+            <p className="text-sm text-gray-600 mt-2 font-medium">
+              Turning solar leads into kept appointments since 2024.
+            </p>
           </div>
         </div>
       </footer>
