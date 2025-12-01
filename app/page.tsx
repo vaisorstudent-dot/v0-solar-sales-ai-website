@@ -466,7 +466,7 @@ If the lead no-shows, we can handle re-engagement via AI (part of RPS) or your t
                 Schedule a Lead Audit
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-              <Button className="bg-white hover:bg-[#1a2332]/5 active:bg-[#1a2332]/10 text-[#1a2332] border-2 border-[#1a2332] hover:border-[#2d3748] px-8 py-4 text-lg font-semibold transition-all duration-200 ease-out active:scale-[0.98]">
+              <Button className="bg-[#f5f2ed] hover:bg-white active:bg-[#ebe8e3] text-[#1a2332] border-2 border-[#1a2332] hover:border-[#2d3748] px-8 py-4 text-lg font-semibold transition-all duration-200 ease-out active:scale-[0.98] shadow-sm hover:shadow-md">
                 See How It Works
               </Button>
             </motion.div>
