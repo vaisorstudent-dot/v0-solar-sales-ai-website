@@ -1,5 +1,6 @@
 "use client"
 import { useState, useEffect } from "react"
+import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import {
   ArrowRight,
@@ -40,7 +41,8 @@ export default function LandingPage() {
   // Handle scroll for header effects
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
+      // Adjusted scroll threshold for header
+      setIsScrolled(window.scrollY > 50)
     }
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
@@ -333,11 +335,12 @@ export default function LandingPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-[#faf8f5]">
-      {/* Header */}
+    <div className="min-h-screen bg-white font-body">
       <header
-        className={`sticky top-0 z-50 bg-[#faf8f5]/95 backdrop-blur-md transition-all duration-300 ${
-          isScrolled ? "shadow-sm border-b border-[#d4a574]/20" : "border-b border-[#d4a574]/20"
+        className={`sticky top-0 z-50 transition-all duration-300 ease-out ${
+          isScrolled
+            ? "bg-[#faf8f5]/95 backdrop-blur-lg shadow-md border-b border-[#d4a574]/20"
+            : "bg-[#faf8f5] border-b border-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
@@ -387,36 +390,71 @@ export default function LandingPage() {
         {/* Hero Section */}
         <section className="relative py-32 bg-[#faf8f5] overflow-hidden">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
-            <p className="uppercase tracking-wider text-sm font-semibold text-[#d4a574] mb-4">
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="uppercase tracking-wider text-sm font-semibold text-[#d4a574] mb-4"
+            >
               Managed Solar Lead Intake
-            </p>
+            </motion.p>
 
-            <div className="inline-flex items-center gap-2 bg-[#d4a574]/10 border border-[#d4a574]/30 px-4 py-2 rounded-full mb-8">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="inline-flex items-center gap-2 bg-[#d4a574]/10 border border-[#d4a574]/30 px-4 py-2 rounded-full mb-8"
+            >
               <div className="w-2 h-2 bg-[#d4a574] rounded-full animate-pulse"></div>
               <span className="text-sm font-semibold text-[#d4a574]">Trusted by U.S. Solar Sales Teams</span>
-            </div>
+            </motion.div>
 
-            <h1 className="font-display text-[60px] leading-[1.1] font-semibold text-[#1a2332] mb-8 tracking-tight">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+              className="font-display text-[60px] leading-[1.05] font-semibold text-[#1a2332] mb-8 tracking-tight"
+            >
               Turn More of Your Paid Leads Into <span className="text-[#d4a574]">Kept Appointments</span>
-            </h1>
+            </motion.h1>
 
-            <p className="font-body text-[18px] leading-[1.7] text-[#4a5568] mb-12 max-w-3xl mx-auto">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              className="font-body text-[18px] leading-[1.7] text-[#4a5568] mb-12 max-w-3xl mx-auto"
+            >
               We run a managed AI voice + SMS service that handles rapid callbacks, systematic follow-up, and dead lead
               revival—so your team can focus on closing instead of chasing.
-            </p>
+            </motion.p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-              <Button className="bg-[#1a2332] hover:bg-[#2d3748] hover:shadow-md text-[#faf8f5] px-8 py-4 text-base font-semibold rounded-lg transition-all duration-200">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+            >
+              <Button className="bg-[#1a2332] hover:bg-[#2d3748] active:bg-[#1a1f2e] text-[#faf8f5] border-2 border-[#1a2332] px-8 py-4 text-lg font-semibold transition-all duration-200 ease-out active:scale-[0.98] shadow-sm hover:shadow-md">
                 Schedule a Lead Audit
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-              {/* CHANGE> Changed to solid white background with navy text for visibility */}
-              <Button className="bg-white hover:bg-[#f5f2ed] text-[#1a2332] border-2 border-[#1a2332] px-8 py-4 text-base font-semibold rounded-lg transition-all duration-200">
+              <Button className="bg-white hover:bg-[#1a2332]/5 active:bg-[#1a2332]/10 text-[#1a2332] border-2 border-[#1a2332] hover:border-[#2d3748] px-8 py-4 text-lg font-semibold transition-all duration-200 ease-out active:scale-[0.98]">
                 See How It Works
               </Button>
-            </div>
+            </motion.div>
 
-            <div className="flex flex-wrap items-center justify-center gap-8 text-[#4a5568]">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+              className="flex flex-wrap items-center justify-center gap-8 text-[#4a5568]"
+            >
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-[#d4a574]/10 rounded-full flex items-center justify-center">
                   <ShieldCheck className="w-6 h-6 text-[#d4a574]" />
@@ -444,18 +482,24 @@ export default function LandingPage() {
                   <div className="font-body text-sm text-[#6b7280]">Built for Solar Sales</div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
-        {/* SMS Conversation Mockup Section */}
-        <section className="py-32 bg-[#f5f2ed]">
+        {/* SMS Conversation Demo - WITH FADE IN */}
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="py-32 bg-white"
+        >
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <p className="uppercase tracking-wider text-sm font-semibold text-[#d4a574] mb-4 text-center">
               Real Results
             </p>
 
-            <h2 className="font-display text-[48px] leading-[1.2] font-semibold text-[#1a2332] text-center mb-4">
+            <h2 className="font-display text-[48px] leading-[1.1] font-semibold text-[#1a2332] text-center mb-4 tracking-tight">
               Dead Lead Revival in Action
             </h2>
 
@@ -567,38 +611,66 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
-        {/* Where Your Pipeline Is Leaking */}
-        <section className="py-32 bg-[#faf8f5]">
+        {/* Problem Section - WITH STAGGERED CARDS */}
+        <section className="py-32 bg-[#f5f2ed]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="uppercase tracking-wider text-sm font-semibold text-[#d4a574] mb-4 text-center">
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="uppercase tracking-wider text-sm font-semibold text-[#d4a574] mb-4 text-center"
+            >
               The Challenge
-            </p>
+            </motion.p>
 
-            <h2 className="font-display text-[48px] leading-[1.2] font-semibold text-[#1a2332] text-center mb-4">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="font-display text-[48px] leading-[1.1] font-semibold text-[#1a2332] text-center mb-4 tracking-tight"
+            >
               Where Your Pipeline Is Leaking
-            </h2>
+            </motion.h2>
 
-            <p className="font-body text-[18px] leading-[1.7] text-[#4a5568] text-center mb-16 max-w-3xl mx-auto">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+              className="font-body text-[18px] leading-[1.7] text-[#4a5568] text-center mb-16 max-w-3xl mx-auto"
+            >
               You're spending serious money on leads. But systematic leakage is costing you 30–50% of your potential
               appointments before your setters even get a chance to qualify.
-            </p>
+            </motion.p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {problemCards.map((card, idx) => (
-                <div
+                <motion.div
                   key={idx}
-                  className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded hover:shadow-md transition-all duration-300 hover:-translate-y-1"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
+                  className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded transition-all duration-300 ease-out hover:shadow-md hover:-translate-y-1"
                 >
-                  <div className="w-16 h-16 bg-[#d4a574]/10 rounded-full flex items-center justify-center mb-6">
+                  <motion.div
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: idx * 0.1 + 0.2, ease: "easeOut" }}
+                    className="w-16 h-16 bg-[#d4a574]/10 rounded-full flex items-center justify-center mb-6"
+                  >
                     <div className="text-[#1a2332]">{card.icon}</div>
-                  </div>
+                  </motion.div>
                   <h3 className="font-display text-[28px] leading-[1.3] font-medium text-[#1a2332] mb-3">
                     {card.title}
                   </h3>
-                  <p className="font-body text-[16px] leading-[1.6] text-[#4a5568]">{card.description}</p>
-                </div>
+                  <p className="font-body text-[16px] leading-[1.65] text-[#4a5568]">{card.description}</p>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -607,7 +679,7 @@ export default function LandingPage() {
         {/* DIY vs SolarSales AI Toolkit Comparison */}
         <section className="py-32 bg-[#f5f2ed]">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="font-display text-[48px] leading-[1.2] font-semibold text-[#1a2332] text-center mb-4">
+            <h2 className="font-display text-[48px] leading-[1.1] font-semibold text-[#1a2332] text-center mb-4 tracking-tight">
               DIY AI Toolkits vs. SolarSales AI
             </h2>
             <p className="font-body text-[18px] leading-[1.7] text-[#4a5568] text-center mb-16 max-w-3xl mx-auto">
@@ -666,7 +738,7 @@ export default function LandingPage() {
             <div className="mt-12 bg-[#2d5f4f]/10 border-2 border-[#2d5f4f]/20 rounded-lg px-8 py-6">
               <div className="flex items-start gap-4">
                 <TrendingUp className="w-8 h-8 text-[#2d5f4f] flex-shrink-0" />
-                <p className="font-body text-[18px] leading-[1.7] text-[#1a2332] font-medium">
+                <p className="font-body text-[18px] leading-[1.7] text-[#1a2332]">
                   <strong>Bottom line:</strong> You don't become an AI operations team. We handle setup, campaigns,
                   optimization, and troubleshooting. You get appointments and conversion data.
                 </p>
@@ -675,97 +747,236 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Solution Features - 6 Cards */}
+        {/* Solution Features - WITH STAGGER */}
         <section className="py-32 bg-[#faf8f5]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="uppercase tracking-wider text-sm font-semibold text-[#d4a574] mb-4 text-center">
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="uppercase tracking-wider text-sm font-semibold text-[#d4a574] mb-4 text-center"
+            >
               Our Approach
-            </p>
+            </motion.p>
 
-            <h2 className="font-display text-[48px] leading-[1.2] font-semibold text-[#1a2332] text-center mb-4">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="font-display text-[48px] leading-[1.1] font-semibold text-[#1a2332] text-center mb-4 tracking-tight"
+            >
               What We Actually Do For You
-            </h2>
-            <p className="font-body text-[18px] leading-[1.7] text-[#4a5568] text-center mb-16 max-w-3xl mx-auto">
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+              className="font-body text-[18px] leading-[1.7] text-[#4a5568] text-center mb-16 max-w-3xl mx-auto"
+            >
               Think of us as your offshore team, but specialized for solar intake and revival
-            </p>
+            </motion.p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {solutionFeatures.map((feature, idx) => (
-                <div
+                <motion.div
                   key={idx}
-                  className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded hover:shadow-md transition-all duration-300 hover:-translate-y-1"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
+                  className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded transition-all duration-300 ease-out hover:shadow-md hover:-translate-y-1"
                 >
-                  <div className="w-16 h-16 bg-[#d4a574]/10 rounded-full flex items-center justify-center mb-6">
+                  <motion.div
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: idx * 0.1 + 0.2, ease: "easeOut" }}
+                    className="w-16 h-16 bg-[#d4a574]/10 rounded-full flex items-center justify-center mb-6"
+                  >
                     <div className="text-[#1a2332]">{feature.icon}</div>
-                  </div>
+                  </motion.div>
                   <h3 className="font-display text-[28px] leading-[1.3] font-medium text-[#1a2332] mb-3">
                     {feature.title}
                   </h3>
-                  <p className="font-body text-[16px] leading-[1.6] text-[#4a5568]">{feature.description}</p>
-                </div>
+                  <p className="font-body text-[16px] leading-[1.65] text-[#4a5568]">{feature.description}</p>
+                </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* What Teams Typically See Section */}
+        {/* What Teams Typically See - WITH LARGE NUMBERS */}
         <section className="py-32 bg-[#f5f2ed]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="font-display text-[48px] leading-[1.2] font-semibold text-[#1a2332] text-center mb-4">
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="uppercase tracking-wider text-sm font-semibold text-[#d4a574] mb-4 text-center"
+            >
+              Real Results
+            </motion.p>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="font-display text-[48px] leading-[1.1] font-semibold text-[#1a2332] text-center mb-4 tracking-tight"
+            >
               What Teams Typically See
-            </h2>
-            <p className="font-body text-[18px] leading-[1.7] text-[#4a5568] text-center mb-16 max-w-3xl mx-auto">
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+              className="font-body text-[18px] leading-[1.7] text-[#4a5568] text-center mb-16 max-w-3xl mx-auto"
+            >
               Based on results across 10–50 person residential solar teams using SolarSales AI:
-            </p>
+            </motion.p>
 
             <div className="grid md:grid-cols-2 gap-12 mb-12">
               {/* DLS Results */}
-              <div className="bg-[#faf8f5] border-2 border-[#d4a574]/30 p-10 rounded shadow-sm">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#d4a574]/20 to-[#d4a574]/10 rounded-full flex items-center justify-center mb-6">
-                  <Zap className="w-8 h-8 text-[#d4a574]" />
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="bg-[#faf8f5] border-2 border-[#d4a574]/30 p-10 rounded"
+              >
+                <div className="flex items-start gap-4 mb-8">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#f59e0b] to-[#d97706] rounded-full flex items-center justify-center flex-shrink-0">
+                    <Zap className="w-8 h-8 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-[32px] leading-[1.2] font-semibold text-[#1a2332] mb-2">
+                      Dead Leads Sprint (2–4 weeks)
+                    </h3>
+                  </div>
                 </div>
-                <h3 className="font-display text-[36px] leading-[1.2] font-medium text-[#1a2332] mb-4">
-                  Dead Leads Sprint (2–4 weeks)
-                </h3>
-                <ul className="space-y-4">
-                  <li className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                    <strong className="text-[#1a2332]">30–50%</strong> of "dead" leads re-engage when contacted
-                    systematically with AI voice + SMS
-                  </li>
-                  <li className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                    <strong className="text-[#1a2332]">15–25%</strong> of re-engaged leads book appointments after
-                    qualification
-                  </li>
-                  <li className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                    <strong className="text-[#1a2332]">Example:</strong> Team with 1,000 dead leads typically books
-                    150–250 new appointments from previously written-off pipeline
-                  </li>
-                </ul>
-              </div>
+
+                <div className="space-y-8">
+                  <div className="text-center">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, ease: "easeOut" }}
+                      className="font-display text-[72px] leading-none font-bold text-[#d4a574] mb-4"
+                    >
+                      30–50%
+                    </motion.div>
+                    <p className="font-body text-[18px] leading-[1.7] text-[#4a5568]">
+                      of "dead" leads re-engage when contacted systematically with AI voice + SMS
+                    </p>
+                  </div>
+
+                  <div className="text-center">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+                      className="font-display text-[72px] leading-none font-bold text-[#d4a574] mb-4"
+                    >
+                      15–25%
+                    </motion.div>
+                    <p className="font-body text-[18px] leading-[1.7] text-[#4a5568]">
+                      of re-engaged leads book appointments after qualification
+                    </p>
+                  </div>
+
+                  <div className="text-center pt-6 border-t-2 border-[#d4a574]/20">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                      className="font-display text-[56px] leading-none font-bold text-[#1a2332] mb-4"
+                    >
+                      150–250
+                    </motion.div>
+                    <p className="font-body text-[16px] leading-[1.65] text-[#4a5568] italic">
+                      <strong>Example:</strong> Team with 1,000 dead leads typically books 150–250 new appointments from
+                      previously written-off pipeline
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
 
               {/* RPS Results */}
-              <div className="bg-[#faf8f5] border-2 border-[#1a2332]/20 p-10 rounded shadow-sm">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#1a2332]/20 to-[#1a2332]/10 rounded-full flex items-center justify-center mb-6">
-                  <Shield className="w-8 h-8 text-[#1a2332]" />
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="bg-[#faf8f5] border-2 border-[#2d5f4f]/30 p-10 rounded"
+              >
+                <div className="flex items-start gap-4 mb-8">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#2d5f4f] to-[#1e4a3a] rounded-full flex items-center justify-center flex-shrink-0">
+                    <Shield className="w-8 h-8 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-[32px] leading-[1.2] font-semibold text-[#1a2332] mb-2">
+                      Revenue Protection System (ongoing)
+                    </h3>
+                  </div>
                 </div>
-                <h3 className="font-display text-[36px] leading-[1.2] font-medium text-[#1a2332] mb-4">
-                  Revenue Protection System (ongoing)
-                </h3>
-                <ul className="space-y-4">
-                  <li className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                    <strong className="text-[#1a2332]">40–60%</strong> reduction in speed-to-lead gaps (from hours to
-                    minutes)
-                  </li>
-                  <li className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                    <strong className="text-[#1a2332]">3–5x</strong> improvement in missed call follow-up rates vs.
-                    manual processes
-                  </li>
-                  <li className="font-body text-[16px] leading-[1.6] text-[#4a5568]">
-                    <strong className="text-[#1a2332]">20–35%</strong> increase in total qualified appointments compared
-                    to pre-RPS baseline
-                  </li>
-                </ul>
-              </div>
+
+                <div className="space-y-8">
+                  <div className="text-center">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, ease: "easeOut" }}
+                      className="font-display text-[72px] leading-none font-bold text-[#2d5f4f] mb-4"
+                    >
+                      40–60%
+                    </motion.div>
+                    <p className="font-body text-[18px] leading-[1.7] text-[#4a5568]">
+                      reduction in speed-to-lead gaps (from hours to minutes)
+                    </p>
+                  </div>
+
+                  <div className="text-center">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+                      className="font-display text-[72px] leading-none font-bold text-[#2d5f4f] mb-4"
+                    >
+                      3–5x
+                    </motion.div>
+                    <p className="font-body text-[18px] leading-[1.7] text-[#4a5568]">
+                      improvement in missed call follow-up rates vs. manual processes
+                    </p>
+                  </div>
+
+                  <div className="text-center pt-6 border-t-2 border-[#2d5f4f]/20">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                      className="font-display text-[56px] leading-none font-bold text-[#1a2332] mb-4"
+                    >
+                      20–35%
+                    </motion.div>
+                    <p className="font-body text-[16px] leading-[1.65] text-[#4a5568]">
+                      increase in total qualified appointments compared to pre-RPS baseline
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
             </div>
 
             {/* Disclaimer and Callout */}
@@ -790,20 +1001,45 @@ export default function LandingPage() {
         {/* Solar Revenue Capture Program - Two-Path Offer */}
         <section id="pricing" className="py-32 bg-[#faf8f5]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="uppercase tracking-wider text-sm font-semibold text-[#d4a574] mb-4 text-center">
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="uppercase tracking-wider text-sm font-semibold text-[#d4a574] mb-4 text-center"
+            >
               Get Started
-            </p>
+            </motion.p>
 
-            <h2 className="font-display text-[48px] leading-[1.2] font-semibold text-[#1a2332] text-center mb-4">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="font-display text-[48px] leading-[1.1] font-semibold text-[#1a2332] text-center mb-4 tracking-tight"
+            >
               Solar Revenue Capture Program
-            </h2>
-            <p className="font-body text-[18px] leading-[1.7] text-[#4a5568] text-center mb-16 max-w-3xl mx-auto">
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+              className="font-body text-[18px] leading-[1.7] text-[#4a5568] text-center mb-16 max-w-3xl mx-auto"
+            >
               Two starting points, both designed to prove ROI before asking for long-term commitment
-            </p>
+            </motion.p>
 
             <div className="grid lg:grid-cols-5 gap-8 items-start">
               {/* Dead Leads Sprint - More Prominent (3 columns) */}
-              <div className="lg:col-span-3 bg-[#faf8f5] border-4 border-[#d4a574] rounded-lg shadow-md relative overflow-hidden">
+              <motion.div
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+                className="lg:col-span-3 bg-[#faf8f5] border-4 border-[#d4a574] rounded-lg shadow-md relative overflow-hidden"
+              >
                 {/* Badge */}
                 <div className="absolute top-6 right-6">
                   <div className="bg-[#d4a574] text-[#faf8f5] px-4 py-2 rounded-full font-body text-sm font-semibold animate-pulse">
@@ -862,7 +1098,7 @@ export default function LandingPage() {
                     </p>
                   </div>
 
-                  <Button className="w-full bg-[#d4a574] hover:bg-[#c49564] text-[#faf8f5] px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-200 hover:shadow-md">
+                  <Button className="w-full bg-[#d4a574] hover:bg-[#c49564] active:bg-[#b48554] text-[#faf8f5] px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-200 ease-out active:scale-[0.98] hover:shadow-md">
                     Start Dead Leads Sprint
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
@@ -871,10 +1107,16 @@ export default function LandingPage() {
                     No obligation to continue after the sprint
                   </p>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Revenue Protection System - Smaller (2 columns) */}
-              <div className="lg:col-span-2 bg-[#faf8f5] border-2 border-[#1a2332]/20 rounded-lg shadow-sm">
+              <motion.div
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+                className="lg:col-span-2 bg-[#faf8f5] border-2 border-[#1a2332]/20 rounded-lg shadow-sm"
+              >
                 <div className="p-10">
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-14 h-14 bg-[#1a2332]/10 rounded-full flex items-center justify-center">
@@ -922,7 +1164,7 @@ export default function LandingPage() {
                     </p>
                   </div>
 
-                  <Button className="w-full bg-[#1a2332] hover:bg-[#2d3748] text-[#faf8f5] px-6 py-3 text-base font-semibold rounded-lg transition-all duration-200 hover:shadow-md">
+                  <Button className="w-full bg-[#1a2332] hover:bg-[#2d3748] active:bg-[#1a1f2e] text-[#faf8f5] px-6 py-3 text-base font-semibold rounded-lg transition-all duration-200 ease-out active:scale-[0.98]">
                     Start RPS Pilot
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
@@ -931,12 +1173,12 @@ export default function LandingPage() {
                     Recommended after DLS validates the approach
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             {/* Bottom guidance */}
             <div className="mt-16 text-center">
-              <p className="font-body text-[18px] leading-[1.7] text-[#4a5568] max-w-3xl mx-auto">
+              <p className="font-body text-[18px] leading-[1.7] text-[#1a2332] max-w-3xl mx-auto">
                 <strong className="text-[#1a2332]">Not sure which to choose?</strong> Start with Dead Leads Sprint. It
                 proves the concept with minimal risk. If it works, expanding to RPS is straightforward.
               </p>
@@ -947,16 +1189,34 @@ export default function LandingPage() {
         {/* How We Work With Your Team */}
         <section className="py-32 bg-[#f5f2ed]">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="font-display text-[48px] leading-[1.2] font-semibold text-[#1a2332] text-center mb-4">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="font-display text-[48px] leading-[1.1] font-semibold text-[#1a2332] text-center mb-4 tracking-tight"
+            >
               How We Work With Your Team
-            </h2>
-            <p className="font-body text-[18px] leading-[1.7] text-[#4a5568] text-center mb-16 max-w-3xl mx-auto">
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+              className="font-body text-[18px] leading-[1.7] text-[#4a5568] text-center mb-16 max-w-3xl mx-auto"
+            >
               Three-step integration that doesn't disrupt your current operations
-            </p>
+            </motion.p>
 
             <div className="grid md:grid-cols-3 gap-8">
               {/* Step 1 */}
-              <div className="relative bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded shadow-sm">
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="relative bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded shadow-sm"
+              >
                 <div className="absolute -top-4 left-8">
                   <div className="w-16 h-16 bg-[#1a2332] text-[#faf8f5] rounded-full flex items-center justify-center font-display text-2xl font-semibold shadow-md">
                     1
@@ -976,10 +1236,16 @@ export default function LandingPage() {
                     and how to plug those gaps without overhauling your tech stack.
                   </p>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Step 2 */}
-              <div className="relative bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded shadow-sm">
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+                className="relative bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded shadow-sm"
+              >
                 <div className="absolute -top-4 left-8">
                   <div className="w-16 h-16 bg-[#1a2332] text-[#faf8f5] rounded-full flex items-center justify-center font-display text-2xl font-semibold shadow-md">
                     2
@@ -1020,10 +1286,16 @@ export default function LandingPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Step 3 */}
-              <div className="relative bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded shadow-sm">
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+                className="relative bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded shadow-sm"
+              >
                 <div className="absolute -top-4 left-8">
                   <div className="w-16 h-16 bg-[#1a2332] text-[#faf8f5] rounded-full flex items-center justify-center font-display text-2xl font-semibold shadow-md">
                     3
@@ -1043,7 +1315,7 @@ export default function LandingPage() {
                     reporting, call recordings, and appointment confirmations flowing into your calendar.
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             <div className="mt-12 text-center">
@@ -1058,19 +1330,37 @@ export default function LandingPage() {
         {/* Your First 30 Days Timeline Section */}
         <section className="py-32 bg-[#faf8f5]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="font-display text-[48px] leading-[1.2] font-semibold text-[#1a2332] text-center mb-4">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="font-display text-[48px] leading-[1.1] font-semibold text-[#1a2332] text-center mb-4 tracking-tight"
+            >
               Your First 30 Days with SolarSales AI
-            </h2>
-            <p className="font-body text-[18px] leading-[1.7] text-[#4a5568] text-center mb-16">
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+              className="font-body text-[18px] leading-[1.7] text-[#4a5568] text-center mb-16"
+            >
               Here's exactly what happens from Lead Flow Audit to seeing appointments on your calendar:
-            </p>
+            </motion.p>
 
             <div className="relative space-y-12">
               {/* Vertical timeline line */}
               <div className="absolute left-8 top-8 bottom-8 w-0.5 bg-[#1a2332]/20"></div>
 
               {/* Stage 1 */}
-              <div className="relative pl-24">
+              <motion.div
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="relative pl-24"
+              >
                 <div className="absolute left-0 top-0 w-16 h-16 bg-[#1a2332] text-[#faf8f5] rounded-full flex items-center justify-center font-display text-2xl font-semibold shadow-md">
                   1
                 </div>
@@ -1118,10 +1408,16 @@ export default function LandingPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Stage 2 */}
-              <div className="relative pl-24">
+              <motion.div
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+                className="relative pl-24"
+              >
                 <div className="absolute left-0 top-0 w-16 h-16 bg-[#1a2332] text-[#faf8f5] rounded-full flex items-center justify-center font-display text-2xl font-semibold shadow-md">
                   2
                 </div>
@@ -1174,10 +1470,16 @@ export default function LandingPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Stage 3 */}
-              <div className="relative pl-24">
+              <motion.div
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                className="relative pl-24"
+              >
                 <div className="absolute left-0 top-0 w-16 h-16 bg-[#d4a574] text-[#faf8f5] rounded-full flex items-center justify-center font-display text-xl font-semibold shadow-md">
                   3–4
                 </div>
@@ -1210,10 +1512,16 @@ export default function LandingPage() {
                     </li>
                   </ul>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Stage 4 */}
-              <div className="relative pl-24">
+              <motion.div
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+                className="relative pl-24"
+              >
                 <div className="absolute left-0 top-0 w-16 h-16 bg-[#2d5f4f] text-[#faf8f5] rounded-full flex items-center justify-center font-display text-xl font-semibold shadow-md">
                   5+
                 </div>
@@ -1261,7 +1569,7 @@ export default function LandingPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             <div className="mt-16 text-center">
@@ -1275,17 +1583,33 @@ export default function LandingPage() {
         {/* What SolarSales AI Is Not */}
         <section className="py-32 bg-[#f5f2ed]">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="font-display text-[48px] leading-[1.2] font-semibold text-[#1a2332] text-center mb-4">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="font-display text-[48px] leading-[1.1] font-semibold text-[#1a2332] text-center mb-4 tracking-tight"
+            >
               What SolarSales AI Is Not
-            </h2>
-            <p className="font-body text-[18px] leading-[1.7] text-[#4a5568] text-center mb-16 max-w-3xl mx-auto">
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+              className="font-body text-[18px] leading-[1.7] text-[#4a5568] text-center mb-16 max-w-3xl mx-auto"
+            >
               Let's be clear about what we're not offering
-            </p>
+            </motion.p>
 
             <div className="space-y-6">
               {whatWeAreNot.map((item, idx) => (
-                <div
+                <motion.div
                   key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
                   className="bg-[#faf8f5] border-l-4 border-[#1a2332] p-10 rounded shadow-sm hover:shadow-md transition-all duration-200"
                 >
                   <div className="flex items-start gap-6">
@@ -1299,7 +1623,7 @@ export default function LandingPage() {
                       <p className="font-body text-[16px] leading-[1.6] text-[#4a5568]">{item.description}</p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -1308,13 +1632,25 @@ export default function LandingPage() {
         {/* Who This Is For */}
         <section className="py-32 bg-[#faf8f5]">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="font-display text-[48px] leading-[1.2] font-semibold text-[#1a2332] text-center mb-16">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="font-display text-[48px] leading-[1.1] font-semibold text-[#1a2332] text-center mb-16 tracking-tight"
+            >
               Who This Is For (And Who It's Not)
-            </h2>
+            </motion.h2>
 
             <div className="grid md:grid-cols-2 gap-12">
               {/* Great For */}
-              <div className="bg-[#2d5f4f]/5 border-2 border-[#2d5f4f]/20 rounded-lg p-10">
+              <motion.div
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+                className="bg-[#2d5f4f]/5 border-2 border-[#2d5f4f]/20 rounded-lg p-10"
+              >
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 bg-[#2d5f4f]/10 rounded-full flex items-center justify-center">
                     <CheckCircle className="w-6 h-6 text-[#2d5f4f]" />
@@ -1329,10 +1665,16 @@ export default function LandingPage() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
 
               {/* Not Right Fit */}
-              <div className="bg-red-50/50 border-2 border-red-200 rounded-lg p-10">
+              <motion.div
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+                className="bg-red-50/50 border-2 border-red-200 rounded-lg p-10"
+              >
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
                     <XCircle className="w-6 h-6 text-red-600" />
@@ -1347,7 +1689,7 @@ export default function LandingPage() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -1355,17 +1697,35 @@ export default function LandingPage() {
         {/* Expanded Compliance Section */}
         <section className="py-32 bg-[#f5f2ed]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="uppercase tracking-wider text-sm font-semibold text-[#d4a574] mb-4 text-center">
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="uppercase tracking-wider text-sm font-semibold text-[#d4a574] mb-4 text-center"
+            >
               How We Protect Your Business
-            </p>
+            </motion.p>
 
-            <h2 className="font-display text-[48px] leading-[1.2] font-semibold text-[#1a2332] text-center mb-4">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="font-display text-[48px] leading-[1.1] font-semibold text-[#1a2332] text-center mb-4 tracking-tight"
+            >
               Opt-In Leads Only. TCPA-Safe Practices.
-            </h2>
-            <p className="font-body text-[18px] leading-[1.7] text-[#4a5568] text-center mb-16 max-w-3xl mx-auto">
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+              className="font-body text-[18px] leading-[1.7] text-[#4a5568] text-center mb-16 max-w-3xl mx-auto"
+            >
               We work exclusively with leads who have opted in through your forms, LSA campaigns, and paid lead sources.
               Here's exactly how we protect your business:
-            </p>
+            </motion.p>
 
             <h3 className="font-display text-[36px] leading-[1.2] font-medium text-[#1a2332] text-center mb-12">
               How We Ensure TCPA Compliance
@@ -1373,7 +1733,13 @@ export default function LandingPage() {
 
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               {/* Compliance Subsections */}
-              <div className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded shadow-sm">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded shadow-sm"
+              >
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-10 h-10 bg-[#1a2332]/10 rounded-full flex items-center justify-center flex-shrink-0">
                     <CheckCircle className="w-5 h-5 text-[#1a2332]" />
@@ -1388,9 +1754,15 @@ export default function LandingPage() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded shadow-sm">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+                className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded shadow-sm"
+              >
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-10 h-10 bg-[#1a2332]/10 rounded-full flex items-center justify-center flex-shrink-0">
                     <Clock className="w-5 h-5 text-[#1a2332]" />
@@ -1405,9 +1777,15 @@ export default function LandingPage() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded shadow-sm">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+                className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded shadow-sm"
+              >
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-10 h-10 bg-[#1a2332]/10 rounded-full flex items-center justify-center flex-shrink-0">
                     <XCircle className="w-5 h-5 text-[#1a2332]" />
@@ -1422,9 +1800,15 @@ export default function LandingPage() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded shadow-sm">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+                className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded shadow-sm"
+              >
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-10 h-10 bg-[#1a2332]/10 rounded-full flex items-center justify-center flex-shrink-0">
                     <Phone className="w-5 h-5 text-[#1a2332]" />
@@ -1439,9 +1823,15 @@ export default function LandingPage() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded shadow-sm">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
+                className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded shadow-sm"
+              >
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-10 h-10 bg-[#1a2332]/10 rounded-full flex items-center justify-center flex-shrink-0">
                     <FileCheck className="w-5 h-5 text-[#1a2332]" />
@@ -1456,9 +1846,15 @@ export default function LandingPage() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded shadow-sm">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
+                className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-10 rounded shadow-sm"
+              >
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-10 h-10 bg-[#1a2332]/10 rounded-full flex items-center justify-center flex-shrink-0">
                     <Eye className="w-5 h-5 text-[#1a2332]" />
@@ -1473,46 +1869,76 @@ export default function LandingPage() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             {/* Trust Badges */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-              <div className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-8 rounded shadow-sm text-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-8 rounded shadow-sm text-center"
+              >
                 <div className="w-14 h-14 bg-[#1a2332]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <ShieldCheck className="w-7 h-7 text-[#1a2332]" />
                 </div>
                 <p className="font-body text-sm font-semibold text-[#1a2332] mb-2">TCPA-Safe Practices</p>
                 <p className="font-body text-xs text-[#4a5568]">Strict adherence to TCPA requirements</p>
-              </div>
+              </motion.div>
 
-              <div className="bg-[#faf8f5] border-2 border-[#2d5f4f]/30 p-8 rounded shadow-sm text-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+                className="bg-[#faf8f5] border-2 border-[#2d5f4f]/30 p-8 rounded shadow-sm text-center"
+              >
                 <div className="w-14 h-14 bg-[#2d5f4f]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <CheckCircle className="w-7 h-7 text-[#2d5f4f]" />
                 </div>
                 <p className="font-body text-sm font-semibold text-[#1a2332] mb-2">Opt-In Leads Only</p>
                 <p className="font-body text-xs text-[#4a5568]">Zero cold calling. Documented consent.</p>
-              </div>
+              </motion.div>
 
-              <div className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-8 rounded shadow-sm text-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+                className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-8 rounded shadow-sm text-center"
+              >
                 <div className="w-14 h-14 bg-[#1a2332]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Clock className="w-7 h-7 text-[#1a2332]" />
                 </div>
                 <p className="font-body text-sm font-semibold text-[#1a2332] mb-2">Client-Controlled Hours</p>
                 <p className="font-body text-xs text-[#4a5568]">You set the windows. We respect them.</p>
-              </div>
+              </motion.div>
 
-              <div className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-8 rounded shadow-sm text-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+                className="bg-[#faf8f5] border-2 border-[#1a2332]/10 p-8 rounded shadow-sm text-center"
+              >
                 <div className="w-14 h-14 bg-[#1a2332]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Eye className="w-7 h-7 text-[#1a2332]" />
                 </div>
                 <p className="font-body text-sm font-semibold text-[#1a2332] mb-2">Full Transparency</p>
                 <p className="font-body text-xs text-[#4a5568]">Complete access to all recordings and logs.</p>
-              </div>
+              </motion.div>
             </div>
 
             {/* Highlight Box */}
-            <div className="bg-[#2d5f4f]/10 border-2 border-[#2d5f4f]/20 rounded-lg px-10 py-8 max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="bg-[#2d5f4f]/10 border-2 border-[#2d5f4f]/20 rounded-lg px-10 py-8 max-w-4xl mx-auto"
+            >
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-[#2d5f4f]/10 rounded-full flex items-center justify-center flex-shrink-0">
                   <Shield className="w-6 h-6 text-[#2d5f4f]" />
@@ -1522,20 +1948,26 @@ export default function LandingPage() {
                   risk. Your business, your rules, our execution.
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Built By Operators Section */}
         <section className="py-32 bg-[#faf8f5]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-[#f5f2ed] border-2 border-[#d4a574]/30 rounded-lg p-12 shadow-sm">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="bg-[#f5f2ed] border-2 border-[#d4a574]/30 rounded-lg p-12 shadow-sm"
+            >
               <div className="flex items-start gap-6 mb-8">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#d4a574]/20 to-[#d4a574]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Target className="w-8 h-8 text-[#d4a574]" />
+                <div className="w-16 h-16 bg-gradient-to-br from-[#d4a574] to-[#c49564] rounded-full flex items-center justify-center flex-shrink-0">
+                  <Target className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <h2 className="font-display text-[48px] leading-[1.2] font-semibold text-[#1a2332] mb-4">
+                  <h2 className="font-display text-[48px] leading-[1.1] font-semibold text-[#1a2332] mb-4 tracking-tight">
                     Built By Solar Operators
                   </h2>
                   <p className="font-body text-[18px] leading-[1.7] text-[#4a5568]">
@@ -1557,72 +1989,95 @@ export default function LandingPage() {
                 This is operator-to-operator. We know your pain points because we've lived them. That's why we focus on
                 results (kept appointments, recovered revenue) instead of selling you software and walking away.
               </p>
-            </div>
+            </motion.div>
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <section id="faq" className="py-32 bg-[#f5f2ed]">
+        {/* FAQ Section - WITH SMOOTH ACCORDION */}
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="py-32 bg-[#faf8f5]"
+        >
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="font-display text-[48px] leading-[1.2] font-semibold text-[#1a2332] text-center mb-4">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="font-display text-[48px] leading-[1.1] font-semibold text-[#1a2332] text-center mb-16 tracking-tight"
+            >
               Frequently Asked Questions
-            </h2>
-            <p className="font-body text-[18px] leading-[1.7] text-[#4a5568] text-center mb-16">
-              Common questions from solar sales leaders
-            </p>
+            </motion.h2>
 
             <div className="space-y-4">
-              {faqs.map((faq, idx) => (
-                <div
-                  key={idx}
-                  className="bg-[#faf8f5] border-2 border-[#1a2332]/10 rounded-lg shadow-sm overflow-hidden"
+              {faqs.map((faq, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.05, ease: "easeOut" }}
+                  className="bg-white border-2 border-[#1a2332]/10 rounded overflow-hidden"
                 >
                   <button
-                    onClick={() => setExpandedFAQ(expandedFAQ === idx ? null : idx)}
-                    className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-[#f5f2ed] transition-colors duration-200"
+                    onClick={() => setExpandedFAQ(expandedFAQ === index ? null : index)}
+                    className="w-full flex items-start justify-between gap-4 p-6 text-left transition-colors hover:bg-[#faf8f5]"
                   >
-                    <div className="flex items-center gap-4 flex-1">
-                      <div className="w-10 h-10 bg-[#1a2332]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                        <MessageSquare className="w-5 h-5 text-[#1a2332]" />
+                    <div className="flex items-start gap-4 flex-1">
+                      <div className="text-[#d4a574] flex-shrink-0 mt-1">
+                        <MessageSquare className="w-6 h-6" />
                       </div>
-                      <h3 className="font-display text-[28px] leading-[1.3] font-medium text-[#1a2332] pr-4">
+                      <h3 className="font-display text-[24px] leading-[1.3] font-medium text-[#1a2332]">
                         {faq.question}
                       </h3>
                     </div>
                     <ChevronDown
-                      className={`w-6 h-6 text-[#1a2332] flex-shrink-0 transition-transform duration-200 ${
-                        expandedFAQ === idx ? "rotate-180" : ""
+                      className={`w-6 h-6 text-[#1a2332] flex-shrink-0 transition-transform duration-300 ${
+                        expandedFAQ === index ? "rotate-180" : ""
                       }`}
                     />
                   </button>
-                  <div
-                    className={`transition-all duration-300 ease-in-out ${
-                      expandedFAQ === idx ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"
-                    } overflow-hidden`}
+
+                  <motion.div
+                    initial={false}
+                    animate={{ height: expandedFAQ === index ? "auto" : 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    style={{ overflow: "hidden" }}
                   >
-                    <div className="px-8 pb-6 pl-22">
-                      <p className="font-body text-[16px] leading-[1.6] text-[#4a5568] whitespace-pre-line">
-                        {faq.answer}
-                      </p>
+                    <div className="px-6 py-4 bg-[#f5f2ed] border-t-2 border-[#1a2332]/10">
+                      <div className="pl-12">
+                        <p className="font-body text-[16px] leading-[1.65] text-[#4a5568] whitespace-pre-line">
+                          {faq.answer}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
               ))}
             </div>
           </div>
-        </section>
+        </motion.section>
 
-        {/* Final CTA */}
-        <section className="py-32 bg-[#1a2332] relative overflow-hidden">
+        {/* Final CTA Section - WITH FADE IN */}
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="py-32 bg-[#1a2332] relative overflow-hidden"
+        >
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
-            <h2 className="font-display text-[60px] leading-[1.1] font-semibold text-[#faf8f5] mb-6">
+            <h2 className="font-display text-[60px] leading-[1.1] font-semibold text-[#faf8f5] mb-6 tracking-tight">
               Stop Losing Revenue on Leads You Already Paid For
             </h2>
             <p className="font-body text-[18px] leading-[1.7] text-[#faf8f5]/90 mb-12 max-w-2xl mx-auto">
               Schedule a Lead Flow Audit and we'll show you exactly where your pipeline is leaking—and how to plug those
               gaps without overhauling your tech stack.
             </p>
-            <Button className="bg-[#d4a574] hover:bg-[#c49564] text-[#faf8f5] px-10 py-5 text-xl font-semibold rounded-lg transition-all duration-200 hover:shadow-md">
+            <Button className="bg-[#d4a574] hover:bg-[#c49564] active:bg-[#b48554] text-[#faf8f5] px-10 py-5 text-xl font-semibold rounded-lg transition-all duration-200 ease-out active:scale-[0.98] hover:shadow-md">
               Schedule Your Lead Audit
               <ArrowRight className="w-6 h-6 ml-3" />
             </Button>
@@ -1630,11 +2085,17 @@ export default function LandingPage() {
               45-minute call. Zero obligation. We'll show you the gaps.
             </p>
           </div>
-        </section>
+        </motion.section>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-[#1a2332] border-t border-[#faf8f5]/10 py-16">
+      {/* Footer - WITH FADE IN */}
+      <motion.footer
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="bg-[#1a2332] border-t border-[#faf8f5]/10 py-16"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="flex items-center gap-3">
@@ -1662,7 +2123,7 @@ export default function LandingPage() {
             </div>
           </div>
         </div>
-      </footer>
+      </motion.footer>
     </div>
   )
 }
