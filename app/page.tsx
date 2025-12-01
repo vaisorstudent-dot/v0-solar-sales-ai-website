@@ -26,11 +26,19 @@ import {
   Search,
   Rocket,
   TrendingUp,
+  Play,
+  Pause,
+  Volume2,
+  PhoneCall,
+  Mic,
 } from "lucide-react"
 
 export default function LandingPage() {
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [currentTime, setCurrentTime] = useState(0)
+  const [selectedDemo, setSelectedDemo] = useState<"new-lead" | "dead-lead" | "qualification">("dead-lead")
 
   // Handle scroll for header effects
   useEffect(() => {
@@ -40,6 +48,85 @@ export default function LandingPage() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  // Demo call data
+  const demoCallData = {
+    "dead-lead": {
+      title: "Dead Lead Revival",
+      subtitle: "3-month old lead → Booked appointment",
+      duration: 127, // seconds
+      transcript: [
+        { time: 0, speaker: "AI", text: "Hi Maria, this is Alex from Sunrise Solar. I'm following up on your inquiry from a few months back about solar savings. Do you have a quick minute?" },
+        { time: 8, speaker: "Lead", text: "Oh yeah, we got busy but we're still thinking about it actually." },
+        { time: 12, speaker: "AI", text: "That's great to hear! Just to make sure we focus on what matters most to you - are you mainly interested in lowering your electric bill, or is the environmental impact more important?" },
+        { time: 21, speaker: "Lead", text: "Honestly, the bill. It's getting crazy expensive." },
+        { time: 24, speaker: "AI", text: "I totally understand. A lot of folks in your area are seeing 20-30% increases. Our specialist can show you exactly what you'd save based on your actual usage. Would tomorrow at 3pm or Thursday at 11am work better for a quick 15-minute call?" },
+        { time: 36, speaker: "Lead", text: "Thursday works." },
+        { time: 38, speaker: "AI", text: "Perfect! I'm booking you for Thursday at 11am. You'll get a calendar invite and a text reminder. Sound good?" },
+        { time: 44, speaker: "Lead", text: "Yeah, that works." },
+        { time: 46, speaker: "AI", text: "Excellent! Our specialist Sarah will call you Thursday at 11. Talk to you then, Maria!" },
+      ],
+    },
+    "new-lead": {
+      title: "New Lead Callback",
+      subtitle: "Form submission → Qualified in 2 minutes",
+      duration: 98,
+      transcript: [
+        { time: 0, speaker: "AI", text: "Hi David, this is Jordan from SunPower Solutions. You just submitted a request about solar on our website. Did I catch you at a good time?" },
+        { time: 7, speaker: "Lead", text: "Yeah, sure. That was fast!" },
+        { time: 9, speaker: "AI", text: "We move quick! I see you're in San Diego. Do you own your home?" },
+        { time: 13, speaker: "Lead", text: "Yes, we do." },
+        { time: 15, speaker: "AI", text: "Great. And just to confirm - is your roof getting good sun exposure, or is it mostly shaded?" },
+        { time: 20, speaker: "Lead", text: "It's pretty sunny, we have very little shade." },
+        { time: 23, speaker: "AI", text: "Perfect. One last quick question - are you looking to move forward in the next few months, or just exploring?" },
+        { time: 29, speaker: "Lead", text: "We want to do it soon, the electricity bills are killing us." },
+        { time: 33, speaker: "AI", text: "I completely understand. Let me get you on the calendar with our solar consultant who can give you exact savings numbers. Does tomorrow at 2pm work, or would Thursday morning be better?" },
+      ],
+    },
+    "qualification": {
+      title: "Smart Qualification",
+      subtitle: "Filters out tire-kickers in under 60 seconds",
+      duration: 52,
+      transcript: [
+        { time: 0, speaker: "AI", text: "Hi Robert, this is Chris from Solar Solutions following up on your inquiry. Quick question - do you own your home or are you renting?" },
+        { time: 7, speaker: "Lead", text: "I'm renting right now." },
+        { time: 9, speaker: "AI", text: "Got it. Solar installations typically require homeownership since they're permanent modifications. Are you planning to buy a home in the near future?" },
+        { time: 16, speaker: "Lead", text: "Not really, maybe in a few years." },
+        { time: 19, speaker: "AI", text: "Makes sense. What I can do is keep your information on file, and when you're ready to purchase a home, we can definitely help you explore solar options at that time. Would that work for you?" },
+        { time: 28, speaker: "Lead", text: "Yeah, that sounds good." },
+        { time: 30, speaker: "AI", text: "Perfect. I'll make a note and we'll circle back when the timing is right. Thanks for your interest, Robert!" },
+      ],
+    },
+  }
+
+  const currentDemo = demoCallData[selectedDemo]
+
+  const togglePlayPause = () => {
+    setIsPlaying(!isPlaying)
+    // In a real implementation, this would control actual audio playback
+  }
+
+  // Simulate audio progress (in real implementation, this would track actual audio)
+  useEffect(() => {
+    if (isPlaying) {
+      const interval = setInterval(() => {
+        setCurrentTime((prev) => {
+          if (prev >= currentDemo.duration) {
+            setIsPlaying(false)
+            return 0
+          }
+          return prev + 0.5
+        })
+      }, 500)
+      return () => clearInterval(interval)
+    }
+  }, [isPlaying, currentDemo.duration])
+
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60)
+    const secs = Math.floor(seconds % 60)
+    return `${mins}:${secs.toString().padStart(2, "0")}`
+  }
 
   const problemCards = [
     {
@@ -329,6 +416,287 @@ export default function LandingPage() {
               <div className="text-center animate-fade-in-up animate-delay-400">
                 <div className="text-4xl font-bold text-blue-600 mb-2">24/7</div>
                 <div className="text-sm font-medium text-gray-600">Lead Coverage</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* AI Voice Demo Section */}
+        <section className="py-24 bg-gradient-to-br from-white via-slate-50 to-white relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 bg-purple-50 border border-purple-200 px-4 py-2 rounded-full mb-4">
+                <Volume2 className="w-4 h-4 text-purple-600" />
+                <span className="text-sm font-semibold text-purple-700">Hear Our AI in Action</span>
+              </div>
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+                This Isn't a Chatbot.
+                <br />
+                <span className="text-blue-600">It's a Real Conversation.</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Listen to actual AI voice calls that book appointments, qualify leads, and recover dead pipeline - all sounding natural and human.
+              </p>
+            </div>
+
+            {/* Demo Selector */}
+            <div className="flex flex-wrap gap-3 justify-center mb-10">
+              <button
+                onClick={() => {
+                  setSelectedDemo("dead-lead")
+                  setCurrentTime(0)
+                  setIsPlaying(false)
+                }}
+                className={`px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 ${
+                  selectedDemo === "dead-lead"
+                    ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg scale-105"
+                    : "bg-white text-gray-700 border-2 border-gray-200 hover:border-blue-300"
+                }`}
+              >
+                Dead Lead Revival
+              </button>
+              <button
+                onClick={() => {
+                  setSelectedDemo("new-lead")
+                  setCurrentTime(0)
+                  setIsPlaying(false)
+                }}
+                className={`px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 ${
+                  selectedDemo === "new-lead"
+                    ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg scale-105"
+                    : "bg-white text-gray-700 border-2 border-gray-200 hover:border-blue-300"
+                }`}
+              >
+                New Lead Callback
+              </button>
+              <button
+                onClick={() => {
+                  setSelectedDemo("qualification")
+                  setCurrentTime(0)
+                  setIsPlaying(false)
+                }}
+                className={`px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 ${
+                  selectedDemo === "qualification"
+                    ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg scale-105"
+                    : "bg-white text-gray-700 border-2 border-gray-200 hover:border-blue-300"
+                }`}
+              >
+                Smart Qualification
+              </button>
+            </div>
+
+            <div className="max-w-5xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {/* Phone Interface */}
+                <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+                  {/* Decorative elements */}
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
+
+                  {/* Call Header */}
+                  <div className="relative z-10 mb-8">
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="flex items-center gap-3">
+                        <div className={`w-12 h-12 rounded-full flex items-center justify-center ${isPlaying ? "bg-green-500 animate-pulse" : "bg-blue-500"}`}>
+                          <PhoneCall className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <div className="text-white font-bold text-lg">{currentDemo.title}</div>
+                          <div className="text-slate-400 text-sm">{currentDemo.subtitle}</div>
+                        </div>
+                      </div>
+                      {isPlaying && (
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                          <span className="text-red-400 text-sm font-semibold">LIVE</span>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Waveform Visualization */}
+                    <div className="flex items-center justify-center gap-1 h-24 mb-6">
+                      {[...Array(40)].map((_, i) => {
+                        const isActive = isPlaying && i < (currentTime / currentDemo.duration) * 40
+                        const height = Math.random() * 60 + 20
+                        return (
+                          <div
+                            key={i}
+                            className={`w-1 rounded-full transition-all duration-150 ${
+                              isActive ? "bg-blue-400" : "bg-slate-600"
+                            }`}
+                            style={{
+                              height: `${isActive ? height * 1.2 : height * 0.6}px`,
+                              opacity: isActive ? 1 : 0.4,
+                            }}
+                          ></div>
+                        )
+                      })}
+                    </div>
+
+                    {/* Audio Controls */}
+                    <div className="space-y-4">
+                      {/* Progress Bar */}
+                      <div className="space-y-2">
+                        <div className="relative h-2 bg-slate-700 rounded-full overflow-hidden cursor-pointer group">
+                          <div
+                            className="absolute inset-y-0 left-0 bg-gradient-to-r from-blue-500 to-blue-600 transition-all duration-300"
+                            style={{ width: `${(currentTime / currentDemo.duration) * 100}%` }}
+                          ></div>
+                          <div
+                            className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
+                            style={{ left: `calc(${(currentTime / currentDemo.duration) * 100}% - 8px)` }}
+                          ></div>
+                        </div>
+                        <div className="flex justify-between text-xs text-slate-400">
+                          <span>{formatTime(currentTime)}</span>
+                          <span>{formatTime(currentDemo.duration)}</span>
+                        </div>
+                      </div>
+
+                      {/* Play/Pause Button */}
+                      <div className="flex items-center justify-center gap-4">
+                        <button
+                          onClick={togglePlayPause}
+                          className="w-16 h-16 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-all duration-200 group"
+                        >
+                          {isPlaying ? (
+                            <Pause className="w-7 h-7 text-white" />
+                          ) : (
+                            <Play className="w-7 h-7 text-white ml-1" />
+                          )}
+                        </button>
+                      </div>
+
+                      {/* Voice Indicator */}
+                      <div className="flex items-center justify-center gap-2 text-slate-400 text-sm">
+                        <Mic className="w-4 h-4" />
+                        <span>{isPlaying ? "AI Speaking..." : "Click play to hear the call"}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Live Transcript */}
+                <div className="bg-white rounded-3xl border-2 border-gray-200 p-8 shadow-xl">
+                  <div className="flex items-center gap-2 mb-6 pb-4 border-b border-gray-200">
+                    <MessageSquare className="w-5 h-5 text-blue-600" />
+                    <h3 className="text-lg font-bold text-gray-900">Live Transcript</h3>
+                  </div>
+
+                  <div className="space-y-4 max-h-[500px] overflow-y-auto pr-2">
+                    {currentDemo.transcript.map((line, index) => {
+                      const isActive = currentTime >= line.time
+                      const isCurrent =
+                        currentTime >= line.time &&
+                        (index === currentDemo.transcript.length - 1 ||
+                          currentTime < currentDemo.transcript[index + 1].time)
+
+                      return (
+                        <div
+                          key={index}
+                          className={`transition-all duration-300 ${
+                            isActive ? "opacity-100" : "opacity-30"
+                          } ${isCurrent ? "scale-105" : "scale-100"}`}
+                        >
+                          <div
+                            className={`flex items-start gap-3 ${
+                              line.speaker === "AI" ? "" : "flex-row-reverse"
+                            }`}
+                          >
+                            <div
+                              className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold ${
+                                line.speaker === "AI"
+                                  ? "bg-blue-100 text-blue-700"
+                                  : "bg-gray-100 text-gray-700"
+                              } ${isCurrent ? "ring-2 ring-blue-400 ring-offset-2" : ""}`}
+                            >
+                              {line.speaker === "AI" ? "AI" : "L"}
+                            </div>
+                            <div
+                              className={`flex-1 px-4 py-3 rounded-2xl ${
+                                line.speaker === "AI"
+                                  ? "bg-blue-50 rounded-tl-sm"
+                                  : "bg-gray-100 rounded-tr-sm text-right"
+                              } ${isCurrent ? "ring-2 ring-blue-400" : ""}`}
+                            >
+                              <div className="text-xs font-semibold text-gray-500 mb-1">
+                                {line.speaker === "AI" ? "SolarSales AI" : "Lead"}
+                              </div>
+                              <p className="text-sm text-gray-900 leading-relaxed">{line.text}</p>
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+
+                  {/* Key Moments */}
+                  <div className="mt-6 pt-6 border-t border-gray-200">
+                    <div className="text-xs font-semibold text-gray-500 mb-3">KEY MOMENTS</div>
+                    <div className="space-y-2">
+                      {selectedDemo === "dead-lead" && (
+                        <>
+                          <div className="flex items-center gap-2 text-sm">
+                            <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+                            <span className="text-gray-600">Warm re-engagement (0:08)</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-sm">
+                            <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+                            <span className="text-gray-600">Value-based qualification (0:12)</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-sm">
+                            <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+                            <span className="text-gray-600">Calendar booking (0:36)</span>
+                          </div>
+                        </>
+                      )}
+                      {selectedDemo === "new-lead" && (
+                        <>
+                          <div className="flex items-center gap-2 text-sm">
+                            <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+                            <span className="text-gray-600">Speed-to-lead response (0:00)</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-sm">
+                            <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+                            <span className="text-gray-600">Ownership verification (0:09)</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-sm">
+                            <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+                            <span className="text-gray-600">Timeline qualification (0:23)</span>
+                          </div>
+                        </>
+                      )}
+                      {selectedDemo === "qualification" && (
+                        <>
+                          <div className="flex items-center gap-2 text-sm">
+                            <div className="w-1.5 h-1.5 bg-amber-500 rounded-full"></div>
+                            <span className="text-gray-600">Ownership disqualifier (0:07)</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-sm">
+                            <div className="w-1.5 h-1.5 bg-amber-500 rounded-full"></div>
+                            <span className="text-gray-600">Future nurture setup (0:19)</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-sm">
+                            <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+                            <span className="text-gray-600">Polite exit (0:30)</span>
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom CTA */}
+              <div className="mt-12 text-center bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 border border-blue-200">
+                <p className="text-lg font-semibold text-gray-900 mb-2">
+                  Want to hear your own leads getting called like this?
+                </p>
+                <p className="text-gray-600 mb-6">
+                  We'll run a free pilot on a small batch of your leads so you can hear the real results.
+                </p>
+                <Button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-3 text-base font-semibold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200">
+                  Schedule Your Audit
+                </Button>
               </div>
             </div>
           </div>
